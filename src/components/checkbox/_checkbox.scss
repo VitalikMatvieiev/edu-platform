@@ -1,0 +1,84 @@
+@import url('https://fonts.googleapis.com/css2?family=Lexend:wght@500&display=swap');
+
+$font-lexend: 'Lexend', sans-serif;
+
+@mixin lexend-medium {
+  font-family: $font-lexend;
+  font-weight: 500;
+}
+
+.checkbox-container {
+  margin-top: 32px;
+  margin-bottom: 32px;
+  position: relative;
+  padding-left: 40px;
+  padding-top: 2px;
+  padding-bottom: 2px;
+  & .checkbox-field {
+    -webkit-appearance: none;
+    appearance: none;
+    position: absolute;
+  }
+  & .checkbox-label {
+    cursor: pointer;
+    &::before {
+      content: '';
+      display: block;
+      box-sizing: border-box;
+      width: 20px;
+      height: 20px;
+      border: 1px solid #cad2d6;
+      border-radius: 3px;
+      background-color: #fff;
+      position: absolute;
+      top: 2px;
+      left: 2px;
+      z-index: 1;
+    }
+    &::after {
+      content: '';
+      display: block;
+      width: 12px;
+      height: 12px;
+      background: url(../../img/check.svg);
+      background-repeat: no-repeat;
+      background-size: 12px 12px;
+      opacity: 0;
+      position: absolute;
+      top: 6px;
+      left: 6px;
+      z-index: 2;
+    }
+    & .checkbox-text {
+      @include lexend-medium;
+      color: #505e68;
+      font-size: 14px;
+      line-height: 20px;
+    }
+    & .checkbox-text-admin {
+      @include lexend-medium;
+      color: #222425;
+      font-size: 14px;
+      line-height: 20px;
+    }
+  }
+}
+
+.checkbox-field:checked + .checkbox-label::before {
+  background-color: #0ed640;
+  border-color: #505e68;
+}
+
+.checkbox-field:checked + .checkbox-label::after {
+  opacity: 1;
+}
+
+
+.checkbox-field-admin:checked + .checkbox-label::before {
+  background-color: #0eaed6;
+  border-color: #505e68;
+}
+
+.checkbox-field-admin:checked + .checkbox-label::after {
+  opacity: 1;
+}
