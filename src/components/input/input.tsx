@@ -15,7 +15,7 @@ const Input: React.FC<InputProps> = ({
   return (
     <div className="input-container">
       <label className="input-label" htmlFor={inputId}>
-        <p className="text-above">{aboveInputText}</p>
+        <div className="text-above">{aboveInputText}</div>
       </label>
       <input
         autoComplete="off"
@@ -26,7 +26,7 @@ const Input: React.FC<InputProps> = ({
         {...register(name, validation)}
       />
       {errors && errors[name] && (
-        <p className="error-message">{errors[name].message}</p>
+        <div className="error-message">{errors[name].message}</div>
       )}
     </div>
   );

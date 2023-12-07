@@ -21,7 +21,7 @@ const Checkbox: React.FC<CheckboxProps> = ({
         onChange={onChange}
       />
       <label className="checkbox-label" htmlFor={checkboxId}>
-        <p className={classNameText}>{checkboxText}</p>
+        <div className={classNameText}>{checkboxText}</div>
       </label>
     </div>
   );
