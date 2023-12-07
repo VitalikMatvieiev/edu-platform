@@ -9,6 +9,13 @@ export interface IUserLogin {
   username: string;
 }
 
+export interface IUserRegistration {
+  username: string;
+  email: string;
+  password: string | number;
+  isAdmin: boolean;
+}
+
 export interface IResetPasswordRequest {
   username: string;
 }
