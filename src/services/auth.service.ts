@@ -1,16 +1,17 @@
 import { instance } from '../api/axios.api';
 import {
-  IResetPassword,
   IResetPasswordRequest,
+  IUserRegistration,
   IResponseUserData,
-  IUser,
+  IResetPassword,
   IUserData,
   IUserId,
+  IUser,
 } from '../types/types';
 
 export const AuthService = {
   async registration(
-    userData: IUserData,
+    userData: IUserRegistration,
   ): Promise<IResponseUserData | undefined> {
     const { data } = await instance.post<IResponseUserData>(
       'auth/sign-up',
