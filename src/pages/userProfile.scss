@@ -1,0 +1,49 @@
+@import '../styles/mixins';
+
+.container-profile {
+  padding-top: 50px;
+  max-width: 800px;
+  margin: 0 auto;
+  @include flex-box(row, space-around);
+  margin-bottom: 50px;
+}
+
+.form {
+  min-width: 300px;
+}
+
+.heading--h1 {
+  @include font-style(20, 42, 700);
+}
+
+.label {
+  @include font-style();
+  @include flex-box(column);
+}
+
+.profile-width {
+  max-width: 376px;
+  margin: 0 auto;
+  @include flex-box(column, initial, 20)
+}
+
+.color-gray {
+  color: #505E68;
+}
+
+.editing-input {
+  padding: 4px;
+  @include font-style;
+}
+
+.photo-upload {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.error-message {
+  color: red;
+  font-size: 12px;
+}
