@@ -11,10 +11,12 @@
     "test": "jest"
   },
   "dependencies": {
+    "@react-oauth/google": "^0.12.1",
     "@reduxjs/toolkit": "^1.9.7",
     "@testing-library/user-event": "^14.5.1",
     "axios": "^1.6.2",
     "jest-environment-jsdom": "^29.7.0",
+    "jwt-decode": "^4.0.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-hook-form": "^7.48.2",

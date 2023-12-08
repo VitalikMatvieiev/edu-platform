@@ -8,6 +8,11 @@ import { Link, useNavigate } from 'react-router-dom';
 import { SubmitHandler, useForm } from 'react-hook-form';
 import { InputName } from '../../types/components/componentType';
 import { toast } from 'react-toastify';
+import { GoogleLogin } from '@react-oauth/google';
+import { GoogleOAuthProvider } from '@react-oauth/google';
+import { jwtDecode } from "jwt-decode";
+
+
 
 const LoginPage: React.FC = () => {
   const navigate = useNavigate();
@@ -93,6 +98,18 @@ const LoginPage: React.FC = () => {
             onChange={handleCheckboxChange}
           />
           <Button className="btn-submit" buttonText="Login" />
+          <p className="account-not">or</p>
+          <GoogleOAuthProvider clientId="1042423137273-buj8e81u7si5fkq4u3qm3beio980g15s.apps.googleusercontent.com">
+            <GoogleLogin
+                onSuccess={credentialResponse => {
+                  console.log(credentialResponse);
+                }}
+                onError={() => {
+                  console.log('Login Failed');
+                }}
+              />
+          </GoogleOAuthProvider>
+          
         </form>
         <Link to={'/sign-up'} className="account-not">
           <p>Don&apos;t have an account?</p>
