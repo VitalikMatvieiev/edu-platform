@@ -25,9 +25,7 @@ const RegistrationPage: React.FC = () => {
   // Getting data from inputs and send it to backend
   const registrationHandler: SubmitHandler<InputName> = async (data) => {
     try {
-      console.log(data);
       const { username, email, password } = data;
-      console.log({ username, email, password, isInstructor });
       toast.success('Account has been created');
       navigate('/');
     } catch (err: any) {

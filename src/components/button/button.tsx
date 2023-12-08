@@ -8,7 +8,7 @@ const Button: React.FC<SubmitButtonProps> = ({
 }) => {
   return (
     <>
-      <button className={`${className}`} type="submit" onClick={onClick}>
+      <button className={className} type="submit" onClick={onClick}>
         <p>{buttonText}</p>
       </button>
     </>
