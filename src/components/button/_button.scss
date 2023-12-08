@@ -1,0 +1,26 @@
+@import url("https://fonts.googleapis.com/css2?family=Lexend:wght@500&display=swap");
+
+$font-lexend: "Lexend", sans-serif;
+
+@mixin lexend-medium {
+  font-family: $font-lexend;
+  font-weight: 500;
+}
+
+.btn-submit {
+  width: 376px;
+  height: 56px;
+  padding: 16px 0 16px 0;
+  background-color: #7101ff;
+  @include lexend-medium;
+  font-size: 16px;
+  line-height: 24px;
+  letter-spacing: -0.32px;
+  color: #fff;
+  text-align: center;
+  border: none;
+  &:hover {
+    background-color: lighten(#7101ff, 15%);
+    cursor: pointer;
+  }
+}

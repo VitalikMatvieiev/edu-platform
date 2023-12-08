@@ -1,0 +1,55 @@
+@import url('https://fonts.googleapis.com/css2?family=Lexend&display=swap');
+
+$font-lexend: 'Lexend', sans-serif;
+
+@mixin lexend-regular {
+  font-family: $font-lexend;
+  font-weight: 400;
+}
+
+.input-container {
+  position: relative;
+  & .input-label {
+    cursor: pointer;
+    & .text-above {
+      @include lexend-regular;
+      color: #505e68;
+      font-size: 14px;
+      line-height: 24px;
+      text-align: start;
+      margin-top: 32px;
+      margin-bottom: 4px;
+    }
+  }
+  & .input-field {
+  width: 376px;
+  height: 48px;
+  border: 1px solid #cad2d6;
+  background-color: #fff;
+  padding: 12px 16px;
+  @include lexend-regular;
+  color: #000;
+  font-size: 15px;
+  line-height: 24px;
+  &::placeholder {
+    @include lexend-regular;
+    color: #909fa9;
+    font-size: 15px;
+    line-height: 24px;
+  }
+  &:focus {
+    border: 1px solid #505e68;
+    outline: none;
+  }
+}
+  & .error-message {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    @include lexend-regular;
+    color: red;
+    font-size: 12px;
+    line-height: 24px;
+    text-align: start;
+  }
+}
