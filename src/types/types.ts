@@ -13,33 +13,22 @@ export interface IUserRegistration {
   username: string;
   email: string;
   password: string | number;
-  isAdmin: boolean;
-}
-
-export interface IResetPasswordRequest {
-  username: string;
-}
-
-export interface IResetPasswordRequestResponse {
-  userId: string;
-  token: string;
-}
-
-export interface IResetPassword {
-  token: string | null;
-  newPassword: string;
+  isInstructor: boolean;
+  //   I'm not sure if this will be possible
+  //   role: 'user' | 'instructor' | 'admin';
 }
 
 export interface IUserId {
   userId: number;
 }
 
-export interface IUserData {
+export interface ILoginData {
   username: string;
   password: string;
 }
 
-export interface IResponseUserData {
+// Returned after successful authentication
+export interface IAuthResponseData {
   accessToken: string;
   userId: number;
   username: string;
