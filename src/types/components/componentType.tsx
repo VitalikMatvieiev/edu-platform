@@ -71,3 +71,7 @@ export interface FormikConfigProps {
   setIsEditing: React.Dispatch<React.SetStateAction<boolean>>;
   setFormError: React.Dispatch<React.SetStateAction<string | null>>;
 }
+
+export interface ButtonUserPageProps extends ButtonProps {
+  to?: string;
+}

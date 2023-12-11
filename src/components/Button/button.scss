@@ -8,6 +8,7 @@
   color: #fff;
   border-color: #7101ff;
   max-height: 56px;
+  text-align: center;
   cursor: pointer;
 
   &--secondary {
@@ -15,4 +16,8 @@
     color: #000;
     border-color: #000;
   }
+}
+
+a {
+  text-decoration: none;
 }

@@ -172,8 +172,7 @@ const UserProfile: React.FC = () => {
                 Edit Profile
               </ButtonUserPage>
             )}
-            {/* Add Link to LoginPage! */}
-            <ButtonUserPage onClick={handleLogout}>Logout</ButtonUserPage> 
+            <ButtonUserPage to="/" onClick={handleLogout}>Logout</ButtonUserPage> 
           </div>
         ) : error ? (
           <p>Error: {error}</p>
