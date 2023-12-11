@@ -1,7 +1,7 @@
 import { ButtonProps } from '../../types/components/componentType';
 import { FC } from 'react';
 import './button.scss';
-//Vitalii test 2
+
 const ButtonUserPage: FC<ButtonProps> = ({
   children,
   color = 'primary',
