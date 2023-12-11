@@ -2,7 +2,7 @@ import { ButtonProps } from '../../types/components/componentType';
 import { FC } from 'react';
 import './button.scss';
 //Vitalii test 2
-const Button: FC<ButtonProps> = ({
+const ButtonUserPage: FC<ButtonProps> = ({
   children,
   color = 'primary',
   type = 'button',
@@ -19,4 +19,4 @@ const Button: FC<ButtonProps> = ({
   );
 };
 
-export default Button;
+export default ButtonUserPage;

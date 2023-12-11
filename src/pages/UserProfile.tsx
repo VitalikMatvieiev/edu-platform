@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import useUserFormik from './utility/formikConfig';
 import photoUpload from '../images/photoUpload.svg';
-import Button from '../components/button/ButtonUserPage';
+import ButtonUserPage from '../components/button/ButtonUserPage';
 import { UserProfile as UserProfileType } from '../types/components/componentType';
 import { handlePhotoChange } from './utility/photoUtils';
 import './userProfile.scss';
@@ -164,16 +164,16 @@ const UserProfile: React.FC = () => {
               <span>{userProfile.lastLoginTimestamp}</span>
             </label>
             {isEditing ? (
-              <Button type="submit" color="secondary">
+              <ButtonUserPage type="submit" color="secondary">
                 Save Changes
-              </Button>
+              </ButtonUserPage>
             ) : (
-              <Button onClick={handleEditClick} color="secondary">
+              <ButtonUserPage onClick={handleEditClick} color="secondary">
                 Edit Profile
-              </Button>
+              </ButtonUserPage>
             )}
             {/* Add Link to LoginPage! */}
-            <Button onClick={handleLogout}>Logout</Button> 
+            <ButtonUserPage onClick={handleLogout}>Logout</ButtonUserPage> 
           </div>
         ) : error ? (
           <p>Error: {error}</p>
@@ -181,7 +181,7 @@ const UserProfile: React.FC = () => {
           <p>No user profile available.</p>
         )}
       </form>
-      {userProfile && !error && <Button>Show my courses</Button>}
+      {userProfile && !error && <ButtonUserPage>Show my courses</ButtonUserPage>}
     </div>
   );
 };
