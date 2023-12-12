@@ -2,7 +2,7 @@ import { useFormik, FormikHelpers } from 'formik';
 import {
   FormikValues,
   FormikConfigProps,
-} from '../../types/components/componentType';
+} from '../../../types/components/componentType';
 
 const useUserFormik = ({
   userProfile,
