@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import useUserFormik from './utility/formikConfig';
-import photoUpload from '../../images/photoUpload.svg';
+import photoUpload from '../../img/photoUpload.svg';
 import ButtonUserPage from '../../components/button/UserPageButton';
 import { UserProfile as UserProfileType } from '../../types/components/componentType';
 import { handlePhotoChange } from './utility/photoUtils';
