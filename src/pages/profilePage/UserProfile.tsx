@@ -19,9 +19,6 @@ const UserProfile: React.FC = () => {
       try {
         setIsLoading(true);
 
-        // Затримка для симуляції часу відповіді від сервера
-        await new Promise((resolve) => setTimeout(resolve, 500));
-
         // Тимчасові дані
         const tempData: UserProfileType = {
           profilePhoto: 'path/to/default/photo.jpg',
@@ -34,10 +31,9 @@ const UserProfile: React.FC = () => {
 
         setUserProfile(tempData);
         setError(null);
+        setIsLoading(false);
       } catch (err) {
         setError('Error fetching user profile');
-      } finally {
-        setIsLoading(false);
       }
     };
 
