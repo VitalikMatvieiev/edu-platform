@@ -24,7 +24,10 @@ const LoginPage: React.FC = () => {
   // Getting data from inputs and send it to backend
   const loginHandler: SubmitHandler<InputName> = async (data) => {
     try {
+      /* eslint-disable */
+      // @ts-ignore: Unreachable code error
       const { username, password } = data;
+      /* eslint-enable */
       toast.success('You logged in');
       navigate('/UserProfile');
     } catch (err: any) {

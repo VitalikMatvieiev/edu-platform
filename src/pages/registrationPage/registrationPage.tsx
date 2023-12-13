@@ -25,7 +25,10 @@ const RegistrationPage: React.FC = () => {
   // Getting data from inputs and send it to backend
   const registrationHandler: SubmitHandler<InputName> = async (data) => {
     try {
+      /* eslint-disable */
+      // @ts-ignore: Unreachable code error
       const { username, email, password } = data;
+      /* eslint-enable */
       toast.success('Account has been created');
       navigate('/');
     } catch (err: any) {

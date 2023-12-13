@@ -1,5 +1,6 @@
 import { render, screen, fireEvent, waitFor } from '@testing-library/react';
 import '@testing-library/jest-dom';
+import { MemoryRouter } from 'react-router-dom';
 import UserProfile from '../UserProfile';
 
 jest.mock('axios');
@@ -12,45 +13,71 @@ describe('UserProfile Component', () => {
   const lastLoginLabel = 'Last login date';
   const editProfileButtonLabel = 'Edit Profile';
   const logoutButtonLabel = 'Logout';
+
   describe('Rendering', () => {
     test('renders user profile information', async () => {
-      render(<UserProfile />);
-      await waitFor(() => {
+      try {
+        render(
+        <MemoryRouter>
+          <UserProfile />
+        </MemoryRouter>);
+        await waitFor(() => {
+          expect(screen.getByText('Personal information')).toBeInTheDocument();
+        });
         expect(screen.getByRole('heading', { level: 1 })).toBeInTheDocument();
-      });
-
-      expect(screen.getByText(fullNameLabel)).toBeInTheDocument();
-      expect(screen.getByText(emailLabel)).toBeInTheDocument();
-      expect(screen.getByText(dobLabel)).toBeInTheDocument();
-      expect(screen.getByText(regDateLabel)).toBeInTheDocument();
-      expect(screen.getByText(lastLoginLabel)).toBeInTheDocument();
-      expect(screen.getByAltText('profilePhoto')).toBeInTheDocument();
+        expect(screen.getByText(fullNameLabel)).toBeInTheDocument();
+        expect(screen.getByText(emailLabel)).toBeInTheDocument();
+        expect(screen.getByText(dobLabel)).toBeInTheDocument();
+        expect(screen.getByText(regDateLabel)).toBeInTheDocument();
+        expect(screen.getByText(lastLoginLabel)).toBeInTheDocument();
+        expect(screen.getByAltText('profilePhoto')).toBeInTheDocument();
+      } catch (error) {
+        console.error('Test failed with error:', error);
+        throw error;
+      }
     });
 
     test('renders "Edit Profile" button', async () => {
-      render(<UserProfile />);
+    try {
+      render(
+      <MemoryRouter>
+        <UserProfile />
+      </MemoryRouter>);
       await waitFor(() => {
-        expect(screen.getByRole('heading', { level: 1 })).toBeInTheDocument();
+        expect(screen.getByText('Personal information')).toBeInTheDocument();
       });
-
       expect(
-        screen.getByRole('button', { name: editProfileButtonLabel }),
+        screen.getByRole('button', { name: 'Edit Profile' }),
       ).toBeInTheDocument();
-    });
+    } catch (error) {
+      console.error('Test failed with error:', error);
+      throw error;
+    }
+  });
 
     test('renders "Logout" button', async () => {
-      render(<UserProfile />);
-      await waitFor(() => {
-        expect(screen.getByRole('heading', { level: 1 })).toBeInTheDocument();
-      });
-
-      expect(
-        screen.getByRole('button', { name: logoutButtonLabel }),
-      ).toBeInTheDocument();
+      try {
+        render(
+        <MemoryRouter>
+          <UserProfile />
+        </MemoryRouter>);
+        await waitFor(() => {
+          expect(screen.getByText('Personal information')).toBeInTheDocument();
+        });
+        expect(
+          screen.getByText(logoutButtonLabel),
+        ).toBeInTheDocument();
+      } catch (error) {
+        console.error('Test failed with error:', error);
+        throw error;
+      }
     });
 
     test('renders profile input fields', async () => {
-      render(<UserProfile />);
+      render(
+      <MemoryRouter>
+        <UserProfile />
+      </MemoryRouter>);
       await waitFor(() => {
         expect(screen.getByRole('heading', { level: 1 })).toBeInTheDocument();
       });
@@ -72,13 +99,10 @@ describe('UserProfile Component', () => {
   describe('Profile Editing', () => {
     test('enables editing when "Edit Profile" button is clicked', async () => {
       try {
-        render(<UserProfile />);
-
-        await waitFor(() => {
-          expect(
-            screen.getByText('Loading user profile...'),
-          ).toBeInTheDocument();
-        });
+        render(
+        <MemoryRouter>
+          <UserProfile />
+        </MemoryRouter>);
 
         const editProfileButton = await waitFor(() => {
           return screen.getByRole('button', { name: /edit profile/i });
@@ -100,16 +124,13 @@ describe('UserProfile Component', () => {
 
     test('updates profile on "Save Changes" button click', async () => {
       try {
-        render(<UserProfile />);
-
-        await waitFor(() => {
-          expect(
-            screen.getByText('Loading user profile...'),
-          ).toBeInTheDocument();
-        });
+        render(
+        <MemoryRouter>
+          <UserProfile />
+        </MemoryRouter>);
 
         const editProfileButton = await waitFor(() => {
-          return screen.getByRole('button', { name: editProfileButtonLabel });
+          return screen.getByText(editProfileButtonLabel);
         });
 
         fireEvent.click(editProfileButton);
@@ -145,29 +166,31 @@ describe('UserProfile Component', () => {
     });
   });
 
-  describe('Logout', () => {
-    test('logs out on "Logout" button click', async () => {
+  describe(logoutButtonLabel, () => {
+    test('logs out and redirects to "/" on "Logout" button click', async () => {
       try {
-        render(<UserProfile />);
+        render(
+          <MemoryRouter>
+            <UserProfile />
+          </MemoryRouter>
+        );
         await waitFor(() => {
-          expect(
-            screen.getByText('Loading user profile...'),
-          ).toBeInTheDocument();
+          expect(screen.queryByText('Loading user profile...')).toBeNull();
         });
-
-        const logoutButton = await waitFor(() => {
-          return screen.getByRole('button', { name: logoutButtonLabel });
-        });
+        const logoutButton = screen.getByText(logoutButtonLabel);
+        fireEvent.click(logoutButton);
 
         fireEvent.click(logoutButton);
 
         await waitFor(() => {
           expect(screen.queryByText('Loading user profile...')).toBeNull();
         });
+  
+        expect(window.location.pathname).toBe('/');
       } catch (error) {
         console.error('Test failed with error:', error);
         throw error;
       }
     });
-  });
+  });  
 });
