@@ -39,4 +39,39 @@ export interface InputName {
   hours: number;
   age: number;
   imagePath: string;
+}import { ReactNode, MouseEvent } from 'react';
+
+export interface UserProfile {
+  profilePhoto: string;
+  username: string;
+  email: string;
+  dateOfBirth: string;
+  registrationDate: string;
+  lastLoginTimestamp: string;
+}
+
+export interface ButtonProps {
+  children: ReactNode;
+  color?: 'primary' | 'secondary';
+  type?: 'button' | 'submit' | 'reset';
+  onClick?: (event: MouseEvent<HTMLButtonElement>) => void;
+}
+
+export interface FormikValues {
+  profilePhoto: string;
+  username: string;
+  email: string;
+  dateOfBirth: string;
+}
+
+export interface FormikConfigProps {
+  userProfile: UserProfile | null;
+  formError: string | null;
+  setUserProfile: React.Dispatch<React.SetStateAction<UserProfile | null>>;
+  setIsEditing: React.Dispatch<React.SetStateAction<boolean>>;
+  setFormError: React.Dispatch<React.SetStateAction<string | null>>;
+}
+
+export interface ButtonUserPageProps extends ButtonProps {
+  to?: string;
 }
