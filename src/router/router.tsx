@@ -1,7 +1,7 @@
 import { createBrowserRouter } from 'react-router-dom';
 import LoginPage from '../pages/loginPage/loginPage';
 import RegistrationPage from '../pages/registrationPage/registrationPage';
-import UserProfile from "../pages/profilePage/UserProfile";
+import UserProfile from '../pages/profilePage/UserProfile';
 import MainPage from '../pages/mainPage/mainPage';
 
 export const router = createBrowserRouter([
@@ -22,4 +22,3 @@ export const router = createBrowserRouter([
     element: <MainPage />,
   },
 ]);
-
