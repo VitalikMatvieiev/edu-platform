@@ -22,4 +22,3 @@ export const router = createBrowserRouter([
     element: <MainPage />,
   },
 ]);
-
