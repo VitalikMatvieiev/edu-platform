@@ -1,18 +1,14 @@
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import './_loginPage.scss';
 import Input from '../../components/input/input';
 import Title from '../../components/title/title';
 import Checkbox from '../../components/checkbox/checkbox';
 import Button from '../../components/button/button';
-import GoogleSignIn from '../../components/button/googleSignInButton';
 import { Link, useNavigate } from 'react-router-dom';
 import { SubmitHandler, useForm } from 'react-hook-form';
 import { InputName } from '../../types/components/componentType';
 import { toast } from 'react-toastify';
-import { GoogleOAuthProvider } from '@react-oauth/google';
-
-
-
+import GoogleAuthButton from '../../components/button/GoogleAuthButton';
 
 
 
@@ -47,6 +43,7 @@ const LoginPage: React.FC = () => {
     setShowPassword(!showPassword);
   };
 
+  
   return (
     <div>
       <section className="container-login">
@@ -101,10 +98,7 @@ const LoginPage: React.FC = () => {
           />
           <Button className="btn-submit" buttonText="Login" />
           <p className="account-not">or</p>
-          <GoogleOAuthProvider clientId="1042423137273-buj8e81u7si5fkq4u3qm3beio980g15s.apps.googleusercontent.com">
-            <GoogleSignIn/>
-          </GoogleOAuthProvider>
-        
+            <GoogleAuthButton/>
         </form>
         <Link to={'/sign-up'} className="account-not">
           <p>Don&apos;t have an account?</p>

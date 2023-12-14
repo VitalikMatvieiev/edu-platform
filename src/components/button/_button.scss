@@ -24,3 +24,23 @@ $font-lexend: "Lexend", sans-serif;
     cursor: pointer;
   }
 }
+
+
+button{
+  width: 376px;
+  height: 56px;
+  background-color: #7101ff;
+  @include lexend-medium;
+  font-size: 16px;
+  line-height: 24px;
+  letter-spacing: -0.32px;
+  background-color: #fff;
+  color:black;
+  border:solid #7101ff;
+  &:hover {
+    border: lighten(#7101ff, 15%);
+    cursor: pointer;
+  }
+}
+
+
