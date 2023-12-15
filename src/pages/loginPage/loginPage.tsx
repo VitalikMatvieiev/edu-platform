@@ -9,6 +9,7 @@ import { SubmitHandler, useForm } from 'react-hook-form';
 import { InputName } from '../../types/components/componentType';
 import { toast } from 'react-toastify';
 import GoogleAuthButton from '../../components/button/GoogleAuthButton';
+import { GoogleOAuthProvider } from '@react-oauth/google';
 
 
 
@@ -17,6 +18,8 @@ const LoginPage: React.FC = () => {
 
   // State for making password visible
   const [showPassword, setShowPassword] = useState(false);
+
+  const clientId = import.meta.env.VITE_REACT_APP_GOOGLE_OAUTH_CLIENT_ID;
 
   const {
     register,
@@ -42,7 +45,6 @@ const LoginPage: React.FC = () => {
   const handleCheckboxChange = () => {
     setShowPassword(!showPassword);
   };
-
   
   return (
     <div>
@@ -97,10 +99,12 @@ const LoginPage: React.FC = () => {
             onChange={handleCheckboxChange}
           />
           <Button className="btn-submit" buttonText="Login" />
-          <p className="account-not">or</p>
+          <p className="account-not-or">or</p>
+          <GoogleOAuthProvider clientId={clientId}>
             <GoogleAuthButton/>
+          </GoogleOAuthProvider>
         </form>
-        <Link to={'/sign-up'} className="account-not">
+        <Link to={'/sign-up'} className="account-not-or">
           <p>Don&apos;t have an account?</p>
         </Link>
       </section>
