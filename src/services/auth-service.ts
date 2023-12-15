@@ -1,24 +1,11 @@
-import dotenv from 'dotenv';
-import axios from 'axios';
+import { jwtDecode } from 'jwt-decode';
+import { instance } from './requests';
 import {
   IUserRegistration,
   IAuthResponseData,
   ILoginData,
   IUser,
 } from '../types/types';
-
-// import types for process
-declare var process: {
-  env: {
-    BASE_URL: string;
-  };
-};
-
-dotenv.config();
-
-export const instance = axios.create({
-  baseURL: process.env.BASE_URL,
-});
 
 export const AuthService = {
   async registration(
@@ -29,7 +16,15 @@ export const AuthService = {
         'auth/sign-up',
         userData,
       );
-      return data;
+
+      if (data) {
+        localStorage.setItem('accessToken', data.accessToken);
+
+        return {
+          ...data,
+          ...jwtDecode(data.accessToken),
+        };
+      }
     } catch (error) {
       console.error('Registration error:', error);
       throw new Error('Registration failed');
@@ -39,7 +34,15 @@ export const AuthService = {
   async login(userData: ILoginData): Promise<IUser | undefined> {
     try {
       const { data } = await instance.post<IUser>('auth/sign-in', userData);
-      return data;
+
+      if (data) {
+        localStorage.setItem('token', data.accessToken);
+
+        return {
+          ...data,
+          ...jwtDecode(data.accessToken),
+        };
+      }
     } catch (error) {
       console.error('Login error:', error);
       throw new Error('Login failed');
