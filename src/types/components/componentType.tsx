@@ -75,3 +75,7 @@ export interface FormikConfigProps {
 export interface ButtonUserPageProps extends ButtonProps {
   to?: string;
 }
+
+export interface MainPageProps {
+  children?: ReactNode;
+}

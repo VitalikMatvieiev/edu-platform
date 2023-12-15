@@ -38,10 +38,10 @@ const CardOfCourse = () => {
         <CoursePrice />
         <Box>
           <IconButton aria-label="Add to Cart">
-            <ShoppingCartIcon sx={{ color: 'black' }} />
+            <ShoppingCartIcon sx={{ color: '#0000' }} />
           </IconButton>
           <IconButton aria-label="Add to Favorites" onClick={handleFavoriteClick}>
-            <FavoriteIcon sx={{ color: isFavorite ? 'red' : 'black' }} />
+            <FavoriteIcon sx={{ color: isFavorite ? '#ff0000' : '#0000' }} />
           </IconButton>
         </Box>
       </CardActions>

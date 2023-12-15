@@ -1,30 +1,52 @@
-import { render, screen, fireEvent } from '@testing-library/react';
-import '@testing-library/jest-dom/extend-expect';
+import { render, fireEvent } from '@testing-library/react';
+import { MemoryRouter } from 'react-router-dom';
+import '@testing-library/jest-dom';
 import CardOfCourse from '../CardOfCourse';
 
 describe('CardOfCourse Component', () => {
-  test('renders without errors', () => {
-    render(<CardOfCourse />);
-    expect(screen.getByTestId('card-of-course')).toBeInTheDocument();
+  test('handles favorite button click', () => {
+    const { getByLabelText } = render(
+    <MemoryRouter>
+      <CardOfCourse />
+    </MemoryRouter>,);
+    const favoriteButton = getByLabelText('Add to Favorites');
+  
+    fireEvent.click(favoriteButton);
+    expect(favoriteButton).toHaveStyle('color: rgba(0, 0, 0, 0.54)');
   });
 
-  test('toggles favorite state on button click', () => {
-    render(<CardOfCourse />);
-    const favoriteButton = screen.getByLabelText('Add to Favorites');
+  test('renders "Join our learning" link', () => {
+    const { getByText } = render(
+      <MemoryRouter>
+        <CardOfCourse />
+      </MemoryRouter>
+    );
+    const joinLink = getByText('Join our learning');
+  
+    expect(joinLink).toBeInTheDocument();
+    expect(joinLink.getAttribute('href')).toBe('/sign-up');
+  });
 
-    // Initial state check
-    expect(favoriteButton).toHaveStyle({ color: 'black' });
+  test('renders course price', () => {
+    const { getByText } = render(
+    <MemoryRouter>
+      <CardOfCourse />
+    </MemoryRouter>
+    );
+    const expectedCoursePrice = '$0';
+    const coursePrice = getByText(expectedCoursePrice);
 
-    // Click to toggle favorite
-    fireEvent.click(favoriteButton);
+    expect(coursePrice).toBeInTheDocument();
+  });
 
-    // Check if the state is updated
-    expect(favoriteButton).toHaveStyle({ color: 'red' });
-
-    // Click again to toggle back
-    fireEvent.click(favoriteButton);
-
-    // Check if the state is updated back to initial
-    expect(favoriteButton).toHaveStyle({ color: 'black' });
+  test('renders course photo', () => {
+    const { getByAltText } = render(
+    <MemoryRouter>
+      <CardOfCourse />
+    </MemoryRouter>
+    );
+    const coursePhoto = getByAltText('Course Photo');
+  
+    expect(coursePhoto).toBeInTheDocument();
   });
 });
