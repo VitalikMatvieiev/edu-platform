@@ -24,3 +24,22 @@ $font-lexend: "Lexend", sans-serif;
     cursor: pointer;
   }
 }
+
+.btn-google{
+  width: 376px;
+  height: 56px;
+  @include lexend-medium;
+  font-size: 16px;
+  line-height: 24px;
+  letter-spacing: -0.32px;
+  display: flex;
+  justify-content:center;
+  align-items: center;
+  background-color: #fff;
+  color:black;
+  border:solid #7101ff;
+  &:hover {
+    color: #7101ff;
+    cursor: pointer;
+  }
+}
