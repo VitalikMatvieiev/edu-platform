@@ -79,3 +79,11 @@ export interface ButtonUserPageProps extends ButtonProps {
 export interface MainPageProps {
   children?: ReactNode;
 }
+
+export interface CourseData {
+  rating: number | null;
+  photoUrl: string;
+  name: string;
+  category: string;
+  price: number;
+}
