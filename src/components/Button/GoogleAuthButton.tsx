@@ -1,7 +1,10 @@
 import {useGoogleLogin} from '@react-oauth/google';
 import axios from "axios"
 import './_button.scss';
-import {FcGoogle} from "react-icons/fc"
+// import {FcGoogle} from "react-icons/fc"
+import GoogleIcon from '/src/img/google-icon.svg';
+
+
 
 function GoogleAuthButton() {
 
@@ -22,7 +25,8 @@ function GoogleAuthButton() {
   return (
     <>
       <button className="btn-google" onClick={() => loginGoogle()}>
-        <FcGoogle/>
+        {/* <FcGoogle/> */}
+        <img src={GoogleIcon} alt="Google icon" />
         <p>Sign in with Google</p>
       </button>
     </>
