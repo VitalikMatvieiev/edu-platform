@@ -34,7 +34,7 @@ const LoginPage: React.FC = () => {
       const { username, password } = data;
       /* eslint-enable */
       toast.success('You logged in');
-      navigate('/UserProfile');
+      navigate('/main');
     } catch (err: any) {
       const error = err.response?.data.message;
       toast.error(error.toString());

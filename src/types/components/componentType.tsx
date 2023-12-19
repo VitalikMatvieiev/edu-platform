@@ -14,6 +14,12 @@ export interface InputProps {
   errors: Record<string, any>;
 }
 
+export interface SearchInputProps {
+  value: string;
+  placeholder: string;
+  onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
+}
+
 export interface CheckboxProps {
   className: string;
   classNameText: string;
@@ -39,7 +45,8 @@ export interface InputName {
   hours: number;
   age: number;
   imagePath: string;
-}import { ReactNode, MouseEvent } from 'react';
+}
+import { ReactNode, MouseEvent } from 'react';
 
 export interface UserProfile {
   profilePhoto: string;
