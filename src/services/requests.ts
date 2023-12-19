@@ -14,7 +14,7 @@ instance.interceptors.request.use((config: AxiosRequestConfig): any => {
   return config;
 });
 
-axios.interceptors.response.use(
+instance.interceptors.response.use(
   (response) => {
     return response;
   },
