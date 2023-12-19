@@ -36,7 +36,7 @@ export const AuthService = {
       const { data } = await instance.post<IUser>('auth/sign-in', userData);
 
       if (data) {
-        localStorage.setItem('token', data.accessToken);
+        localStorage.setItem('accessToken', data.accessToken);
 
         return {
           ...data,
