@@ -99,11 +99,11 @@ const LoginPage: React.FC = () => {
             onChange={handleCheckboxChange}
           />
           <Button className="btn-submit" buttonText="Login" />
-          <p className="account-not account-not-or">or</p>
-          <GoogleOAuthProvider clientId={clientId}>
-            <GoogleAuthButton/>
-          </GoogleOAuthProvider>
         </form>
+        <p className="account-not account-not-or">or</p>
+        <GoogleOAuthProvider clientId={clientId}>
+          <GoogleAuthButton/>
+        </GoogleOAuthProvider>
         <Link to={'/sign-up'} className="account-not">
           <p>Don&apos;t have an account?</p>
         </Link>
