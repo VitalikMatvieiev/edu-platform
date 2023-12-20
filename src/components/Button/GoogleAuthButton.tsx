@@ -17,8 +17,7 @@ function GoogleAuthButton() {
           }
         })
         localStorage.setItem('access_token', response.access_token);
-        //TODO: change route
-        navigate('/UserProfile');
+        navigate('/main');
         console.log(res.data)
       } catch (err) {
         console.log(err)
