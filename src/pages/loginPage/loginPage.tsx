@@ -8,12 +8,17 @@ import { Link, useNavigate } from 'react-router-dom';
 import { SubmitHandler, useForm } from 'react-hook-form';
 import { InputName } from '../../types/components/componentType';
 import { toast } from 'react-toastify';
+import GoogleAuthButton from '../../components/button/GoogleAuthButton';
+import { GoogleOAuthProvider } from '@react-oauth/google';
+
 
 const LoginPage: React.FC = () => {
   const navigate = useNavigate();
 
   // State for making password visible
   const [showPassword, setShowPassword] = useState(false);
+
+  const clientId = import.meta.env.VITE_REACT_APP_GOOGLE_OAUTH_CLIENT_ID;
 
   const {
     register,
@@ -95,6 +100,10 @@ const LoginPage: React.FC = () => {
           />
           <Button className="btn-submit" buttonText="Login" />
         </form>
+        <p className="account-not account-not-or">or</p>
+        <GoogleOAuthProvider clientId={clientId}>
+          <GoogleAuthButton/>
+        </GoogleOAuthProvider>
         <Link to={'/sign-up'} className="account-not">
           <p>Don&apos;t have an account?</p>
         </Link>
