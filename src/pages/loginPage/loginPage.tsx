@@ -11,7 +11,6 @@ import { toast } from 'react-toastify';
 import GoogleAuthButton from '../../components/button/GoogleAuthButton';
 import { GoogleOAuthProvider } from '@react-oauth/google';
 
-
 const LoginPage: React.FC = () => {
   const navigate = useNavigate();
 
@@ -99,10 +98,14 @@ const LoginPage: React.FC = () => {
             onChange={handleCheckboxChange}
           />
           <Button className="btn-submit" buttonText="Login" />
+          <p className="account-not account-not-or">or</p>
+          <GoogleOAuthProvider clientId={clientId}>
+            <GoogleAuthButton/>
+          </GoogleOAuthProvider>
         </form>
         <p className="account-not account-not-or">or</p>
         <GoogleOAuthProvider clientId={clientId}>
-          <GoogleAuthButton/>
+          <GoogleAuthButton />
         </GoogleOAuthProvider>
         <Link to={'/sign-up'} className="account-not">
           <p>Don&apos;t have an account?</p>
