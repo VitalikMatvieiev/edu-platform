@@ -3,14 +3,15 @@ import HeaderMain  from '../../components/headerMain/headerMain';
 import CardOfCourse  from '../../components/cardOfCourse/CardOfCourse';
 import './_mainPage.scss';
 import { MainPageProps } from '../../types/components/componentType';
+import SideFilter from '../../components/sideFilter/sideFilter';
 
 
-const MainPage: React.FC<MainPageProps> = ({ children }) => {
+const MainPage: React.FC<MainPageProps> = () => {
   return (
     <div data-testid="main-page">
-      {children}
       <HeaderMain />
       <CardOfCourse />
+      <SideFilter />
     </div>
   );
 };
