@@ -94,3 +94,30 @@ export interface CourseData {
   category: string;
   price: number;
 }
+
+export interface Instructor {
+  instructor: string;
+}
+
+export interface InstructorCount {
+  instructor: string;
+  quantity: number;
+}
+
+export interface Category {
+  category: string;
+}
+
+export interface CategoryCount {
+  category: string;
+  quantity: number;
+}
+
+export interface Level {
+  level: string;
+}
+
+export interface LevelCount {
+  level: string;
+  quantity: number;
+}
