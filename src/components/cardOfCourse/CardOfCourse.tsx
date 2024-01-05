@@ -31,15 +31,17 @@ const CardOfCourse = () => {
           name: courseDetails?.courseName ?? 'Name of the course',
           category: courseDetails?.courseCategory ?? 'Uncategorized',
           price: courseDetails?.price ?? 0.0,
+          level: courseDetails?.level ?? 0.0,
         });
       } catch (error) {
         console.error('Error fetching course details:', error);
         setCourseData({
-          rating: null,
+          rating: 0,
           photoUrl: defaultCoursePhoto,
           name: 'Name of the course',
           category: 'Uncategorized',
           price: 0.0,
+          level: 'Intermediate',
         });
       }
     };
