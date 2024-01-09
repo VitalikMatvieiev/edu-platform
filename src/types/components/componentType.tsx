@@ -108,3 +108,19 @@ export interface DetailsOfCourse {
   date: string;
   price: number;
 }
+
+export interface EnrolledCourseData {
+  id: string;
+  title: string;
+  imageUrl: string;
+  category: string;
+  timeOfClasses: string,
+  numberOfStudents: number,
+  completedChapterLength: number;
+  chaptersLength: number;
+}
+
+export interface CourseProgressProps {
+  completedChapter: number;
+  allChapter: number
+}
