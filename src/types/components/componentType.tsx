@@ -95,7 +95,7 @@ export interface CourseData {
   price: number;
 }
 
-export interface EnrolledCourseData {
+export interface EnrolledCoursesData {
   id: string;
   title: string;
   imageUrl: string;

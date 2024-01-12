@@ -1,8 +1,9 @@
 import React from 'react';
 import HeaderMain  from '../../components/headerMain/headerMain';
-import CardOfCourse  from '../../components/cardOfCourse/CardOfCourse';
+// import CardOfCourse  from '../../components/cardOfCourse/CardOfCourse';
 import './_mainPage.scss';
 import { MainPageProps } from '../../types/components/componentType';
+import Dashboard from '../../components/dashboard/dashboard';
 
 
 const MainPage: React.FC<MainPageProps> = ({ children }) => {
@@ -10,7 +11,8 @@ const MainPage: React.FC<MainPageProps> = ({ children }) => {
     <div data-testid="main-page">
       {children}
       <HeaderMain />
-      <CardOfCourse />
+      <Dashboard />
+      {/* <CardOfCourse /> */}
     </div>
   );
 };
