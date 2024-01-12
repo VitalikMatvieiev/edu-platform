@@ -15,6 +15,7 @@ export const CourseProgress = ({
     return(
         <div>
             <LinearProgress
+            valueBuffer={100}
             value={progressPercent}
             variant='buffer'
             sx={{marginBottom:"7px", borderRadius: '20px',

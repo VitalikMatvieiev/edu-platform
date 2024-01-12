@@ -1,7 +1,7 @@
 import {useState } from 'react';
 import SearchInput from '../searchInput/searchInput';
 import './_dashboard.scss';
-import EnrolledCardOfCourse from './enrolled-card-of-course/enrolled-card-of-course';
+import EnrolledCourseList from './coursesList/coursesList';
 
 const Dashboard: React.FC = () => {
     const [searchValue, setSearchValue] = useState<string>('');
@@ -19,7 +19,7 @@ const Dashboard: React.FC = () => {
                 />
             </div>
             <div>
-                <EnrolledCardOfCourse/>
+                <EnrolledCourseList/>
             </div>
         </div>
         

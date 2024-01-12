@@ -7,6 +7,7 @@ import ExtendedFilter from '../../components/extendedFilter/extendedFilter';
 import Sorting from '../../components/extendedFilter/sorting';
 import FilterBy from '../../components/extendedFilter/filterBy';
 
+
 const MainPage: React.FC<MainPageProps> = () => {
 
   return (
