@@ -1,7 +1,7 @@
 import './_input.scss';
-import { InputProps } from '../../types/components/componentType';
+import { InputProps } from '../../../types/components/componentType';
 
-const Input: React.FC<InputProps> = ({
+export const Input: React.FC<InputProps> = ({
   aboveInputText,
   type,
   placeholder,
@@ -31,5 +31,3 @@ const Input: React.FC<InputProps> = ({
     </div>
   );
 };
-
-export default Input;

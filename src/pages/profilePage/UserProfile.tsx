@@ -1,10 +1,11 @@
-import React, { useState, useEffect } from 'react';
-import useUserFormik from './utility/formikConfig';
-import photoUpload from '../../img/photoUpload.svg';
-import ButtonUserPage from '../../components/button/UserPageButton';
 import { UserProfile as UserProfileType } from '../../types/components/componentType';
+import { ButtonUserPage } from '../../shared/components/buttons';
 import { handlePhotoChange } from './utility/photoUtils';
+import photoUpload from '../../img/photoUpload.svg';
+import useUserFormik from './utility/formikConfig';
 import './userProfile.scss';
+
+import React, { useState, useEffect } from 'react';
 
 const UserProfile: React.FC = () => {
   const [userProfile, setUserProfile] = useState<UserProfileType | null>(null);
@@ -168,7 +169,9 @@ const UserProfile: React.FC = () => {
                 Edit Profile
               </ButtonUserPage>
             )}
-            <ButtonUserPage to="/" onClick={handleLogout}>Logout</ButtonUserPage> 
+            <ButtonUserPage to="/" onClick={handleLogout}>
+              Logout
+            </ButtonUserPage>
           </div>
         ) : error ? (
           <p>Error: {error}</p>
@@ -176,7 +179,9 @@ const UserProfile: React.FC = () => {
           <p>No user profile available.</p>
         )}
       </form>
-      {userProfile && !error && <ButtonUserPage>Show my courses</ButtonUserPage>}
+      {userProfile && !error && (
+        <ButtonUserPage>Show my courses</ButtonUserPage>
+      )}
     </div>
   );
 };

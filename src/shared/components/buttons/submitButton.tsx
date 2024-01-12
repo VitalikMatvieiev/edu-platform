@@ -1,7 +1,7 @@
+import { SubmitButtonProps } from '../../../types/components/componentType';
 import './_button.scss';
-import { SubmitButtonProps } from '../../types/components/componentType';
 
-const Button: React.FC<SubmitButtonProps> = ({
+export const SubmitButton: React.FC<SubmitButtonProps> = ({
   buttonText,
   onClick,
   className,
@@ -14,5 +14,3 @@ const Button: React.FC<SubmitButtonProps> = ({
     </>
   );
 };
-
-export default Button;

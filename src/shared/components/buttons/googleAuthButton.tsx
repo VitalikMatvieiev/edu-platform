@@ -1,10 +1,11 @@
-import { useGoogleLogin } from '@react-oauth/google';
-import axios from 'axios';
-import './_button.scss';
 import GoogleIcon from '/src/img/google-icon.svg';
-import { useNavigate } from 'react-router-dom';
+import './_button.scss';
 
-function GoogleAuthButton() {
+import { useGoogleLogin } from '@react-oauth/google';
+import { useNavigate } from 'react-router-dom';
+import axios from 'axios';
+
+export function GoogleAuthButton() {
   const navigate = useNavigate();
 
   const loginGoogle = useGoogleLogin({
@@ -26,6 +27,7 @@ function GoogleAuthButton() {
       }
     },
   });
+
   return (
     <>
       <button className="btn-google" onClick={() => loginGoogle()}>
@@ -35,5 +37,3 @@ function GoogleAuthButton() {
     </>
   );
 }
-
-export default GoogleAuthButton;
