@@ -7,10 +7,10 @@ import ExtendedFilter from '../../components/extendedFilter/extendedFilter';
 import Sorting from '../../components/extendedFilter/sorting';
 import FilterBy from '../../components/extendedFilter/filterBy';
 
-const MainPage: React.FC<MainPageProps> = ({ children }) => {
+const MainPage: React.FC<MainPageProps> = () => {
+
   return (
     <div data-testid="main-page">
-      {children}
       <HeaderMain />
       <ExtendedFilter />
       <div className='flex-row'>

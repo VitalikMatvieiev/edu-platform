@@ -9,7 +9,7 @@ const FilterBy: React.FC = () => {
   const [filteredCourses, setFilteredCourses] = useState<CourseData[]>([]);
 
   const toggleFilter = () => {
-    setFilterVisible(!isFilterVisible);
+    setFilterVisible((prevValue) => !prevValue);
   };
 
   const sortByCategory = () => {
