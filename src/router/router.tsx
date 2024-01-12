@@ -6,7 +6,7 @@ import MainPage from '../pages/mainPage/mainPage';
 
 export const router = createBrowserRouter([
   {
-    path: '/UserProfile',
+    path: '/user-profile',
     element: <UserProfile />,
   },
   {
