@@ -1,6 +1,6 @@
 import { InputName } from '../../types/components/componentType';
 import Checkbox from '../../components/checkbox/checkbox';
-import { Input } from '../../shared/components/input/input';
+import { Input } from '../../shared/components/inputs';
 import Title from '../../components/title/title';
 import {
   GoogleAuthButton,

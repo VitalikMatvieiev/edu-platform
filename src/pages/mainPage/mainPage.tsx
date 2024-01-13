@@ -1,10 +1,10 @@
 import CardOfCourse from '../../components/cardOfCourse/CardOfCourse';
-import HeaderMain from '../../components/headerMain/headerMain';
 import { MainPageProps } from '../../types/components/componentType';
 import SideFilter from '../../components/sideFilter/sideFilter';
 import ExtendedFilter from '../../components/extendedFilter/extendedFilter';
 import Sorting from '../../components/extendedFilter/sorting';
 import FilterBy from '../../components/extendedFilter/filterBy';
+import HeaderMain from '../../components/headerMain/headerMain';
 import './_mainPage.scss';
 
 import React from 'react';

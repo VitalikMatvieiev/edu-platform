@@ -1,18 +1,19 @@
-import { useEffect, useState } from 'react';
-import './_headerMain.scss';
+import ShoppingBasketIcon from '@mui/icons-material/ShoppingBasket';
+import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
+import AccountCircleIcon from '@mui/icons-material/AccountCircle';
+import { SearchInput } from '../../shared/components/inputs';
+import NoAccountsIcon from '@mui/icons-material/NoAccounts';
+import LocalMallIcon from '@mui/icons-material/LocalMall';
 import { Link, useNavigate } from 'react-router-dom';
 import IconButton from '@mui/material/IconButton';
-import ShoppingBasketIcon from '@mui/icons-material/ShoppingBasket';
-import SearchInput from '../searchInput/searchInput';
-import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
-import LocalMallIcon from '@mui/icons-material/LocalMall';
 import LoginIcon from '@mui/icons-material/Login';
-import Modal from '@mui/material/Modal';
-import Box from '@mui/material/Box';
+import { useEffect, useState } from 'react';
 import Button from '@mui/material/Button';
 import Stack from '@mui/material/Stack';
-import AccountCircleIcon from '@mui/icons-material/AccountCircle';
-import NoAccountsIcon from '@mui/icons-material/NoAccounts';
+import Modal from '@mui/material/Modal';
+import Box from '@mui/material/Box';
+
+import './_headerMain.scss';
 
 //Styles for modal from mui
 const style = {
@@ -29,10 +30,13 @@ const style = {
 
 const HeaderMain: React.FC = () => {
   const navigate = useNavigate();
-  const isLogged = false;{/*Instead of this we will check from redux state, if user isLooged or no*/}
+  const isLogged = false;
+  {
+    /*Instead of this we will check from redux state, if user isLooged or no*/
+  }
   const [searchValue, setSearchValue] = useState<string>('');
   const [open, setOpen] = useState<boolean>(false);
-  const handleOpen = ():void => setOpen(true);
+  const handleOpen = (): void => setOpen(true);
   const handleClose = (): void => setOpen(false);
   const inputChangeHandler = (e: React.ChangeEvent<HTMLInputElement>): void => {
     setSearchValue(e.target.value);
@@ -56,19 +60,21 @@ const HeaderMain: React.FC = () => {
         onChange={inputChangeHandler}
       />
       <div className="header-list">
-        <Link to="#">{/*Will be Wishlist route*/}
+        <Link to="#">
+          {/*Will be Wishlist route*/}
           <IconButton size="medium">
             <FavoriteBorderIcon fontSize="medium" style={{ color: 'white' }} />
           </IconButton>
         </Link>
-        <Link to="#">{/*Will be Cart route*/}
+        <Link to="#">
+          {/*Will be Cart route*/}
           <IconButton size="medium">
             <LocalMallIcon fontSize="medium" style={{ color: 'white' }} />
           </IconButton>
         </Link>
         {/*When user is logged, we will see his avatar. If no - link for login/registarion pages*/}
         {isLogged ? (
-          <img alt='userPhoto'/>
+          <img alt="userPhoto" />
         ) : (
           <>
             <IconButton size="medium" onClick={handleOpen}>

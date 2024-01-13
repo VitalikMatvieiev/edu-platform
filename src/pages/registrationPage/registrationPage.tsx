@@ -1,13 +1,13 @@
 import { InputName } from '../../types/components/componentType';
 import { SubmitButton } from '../../shared/components/buttons';
 import Checkbox from '../../components/checkbox/checkbox';
+import { Input } from '../../shared/components/inputs';
 import Title from '../../components/title/title';
-import { Input } from '../../shared/components/input/input';
-import React, { useState } from 'react';
 import './_registrationPage.scss';
 
 import { SubmitHandler, useForm } from 'react-hook-form';
 import { Link, useNavigate } from 'react-router-dom';
+import React, { useState } from 'react';
 import { toast } from 'react-toastify';
 
 const RegistrationPage: React.FC = () => {
