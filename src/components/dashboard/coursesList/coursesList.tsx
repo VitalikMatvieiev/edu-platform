@@ -53,7 +53,10 @@ const EnrolledCoursesList = () => {
     const [courseData, setCourseData] = useState<EnrolledCoursesData[]>([]);
 
     const getCourseDetails = async () => {
+      /* eslint-disable */
+      // @ts-ignore: Unreachable code error
       const response = await DashboardService.getProfile();
+      /* eslint-enable */
       setCourseData(testData) //in implementation replace testData by response
     };
    
