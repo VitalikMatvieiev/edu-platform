@@ -88,9 +88,23 @@ export interface MainPageProps {
 }
 
 export interface CourseData {
-  rating: number | null;
+  rating: number;
   photoUrl: string;
   name: string;
   category: string;
+  price: number;
+  level: string;
+}
+
+export interface Course {
+  id: number;
+  category: string;
+}
+
+export interface DetailsOfCourse {
+  name: string;
+  rating: number;
+  popularity: number;
+  date: string;
   price: number;
 }
