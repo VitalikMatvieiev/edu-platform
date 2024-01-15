@@ -3,8 +3,8 @@ import './_button.scss';
 
 export const SubmitButton: React.FC<SubmitButtonProps> = ({
   buttonText,
-  onClick,
   className,
+  onClick,
 }) => {
   return (
     <>

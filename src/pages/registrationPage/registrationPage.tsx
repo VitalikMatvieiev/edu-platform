@@ -1,5 +1,5 @@
 import { InputName } from '../../types/components/componentType';
-import { SubmitButton } from '../../shared/components/buttons';
+import { CustomButton } from '../../shared/components/buttons';
 import Checkbox from '../../components/checkbox/checkbox';
 import { Input } from '../../shared/components/inputs';
 import Title from '../../components/title/title';
@@ -141,7 +141,9 @@ const RegistrationPage: React.FC = () => {
           checked={isInstructor}
           onChange={handleCheckboxAdminChange}
         />
-        <SubmitButton className="btn-submit" buttonText="Create account" />
+        <CustomButton variant="submit-btn" type="submit">
+          Create account
+        </CustomButton>
       </form>
       <Link to={'/'} className="account-is">
         <p>Have account?</p>

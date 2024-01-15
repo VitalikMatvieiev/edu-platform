@@ -4,7 +4,7 @@ import { Input } from '../../shared/components/inputs';
 import Title from '../../components/title/title';
 import {
   GoogleAuthButton,
-  SubmitButton,
+  CustomButton,
 } from '../../shared/components/buttons';
 import './_loginPage.scss';
 
@@ -100,7 +100,7 @@ const LoginPage: React.FC = () => {
             checked={showPassword}
             onChange={handleCheckboxChange}
           />
-          <SubmitButton className="btn-submit" buttonText="Login" />
+          <CustomButton variant="submit-btn">Login</CustomButton>
         </form>
         <p className="account-not account-not-or">or</p>
         <GoogleOAuthProvider clientId={clientId}>

@@ -1,5 +1,5 @@
 import { UserProfile as UserProfileType } from '../../types/components/componentType';
-import { ButtonUserPage } from '../../shared/components/buttons';
+import { CustomButton } from '../../shared/components/buttons';
 import { handlePhotoChange } from './utility/photoUtils';
 import photoUpload from '../../img/photoUpload.svg';
 import useUserFormik from './utility/formikConfig';
@@ -161,17 +161,25 @@ const UserProfile: React.FC = () => {
               <span>{userProfile.lastLoginTimestamp}</span>
             </label>
             {isEditing ? (
-              <ButtonUserPage type="submit" color="secondary">
+              <CustomButton
+                type="submit"
+                color="secondary"
+                variant="user-page-btn"
+              >
                 Save Changes
-              </ButtonUserPage>
+              </CustomButton>
             ) : (
-              <ButtonUserPage onClick={handleEditClick} color="secondary">
+              <CustomButton
+                onClick={handleEditClick}
+                color="secondary"
+                variant="user-page-btn"
+              >
                 Edit Profile
-              </ButtonUserPage>
+              </CustomButton>
             )}
-            <ButtonUserPage to="/" onClick={handleLogout}>
+            <CustomButton to="/" onClick={handleLogout} variant="user-page-btn">
               Logout
-            </ButtonUserPage>
+            </CustomButton>
           </div>
         ) : error ? (
           <p>Error: {error}</p>
@@ -180,7 +188,7 @@ const UserProfile: React.FC = () => {
         )}
       </form>
       {userProfile && !error && (
-        <ButtonUserPage>Show my courses</ButtonUserPage>
+        <CustomButton variant="user-page-btn">Show my courses</CustomButton>
       )}
     </div>
   );
