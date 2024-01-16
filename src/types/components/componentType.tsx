@@ -109,6 +109,7 @@ export interface DetailsOfCourse {
   price: number;
 }
 
+
 export interface EnrolledCoursesData {
   id: string;
   title: string;
@@ -123,4 +124,31 @@ export interface EnrolledCoursesData {
 export interface CourseProgressProps {
   completedChapter: number;
   allChapter: number
+}
+
+export interface Instructor {
+  instructor: string;
+}
+
+export interface InstructorCount {
+  instructor: string;
+  quantity: number;
+}
+
+export interface Category {
+  category: string;
+}
+
+export interface CategoryCount {
+  category: string;
+  quantity: number;
+}
+
+export interface Level {
+  level: string;
+}
+
+export interface LevelCount {
+  level: string;
+  quantity: number;
 }
