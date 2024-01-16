@@ -34,3 +34,14 @@ export interface IAuthResponseData {
   username: string;
   password: string;
 }
+
+export interface ICourseDetailsResponseData{
+  id: string,
+  title: string,
+  imageUrl: string,
+  category: string,
+  timeOfClasses: string,
+  numberOfStudents: number,
+  completedChapterLength: number,
+  chaptersLength: number,
+}
