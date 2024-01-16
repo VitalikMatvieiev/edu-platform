@@ -6,3 +6,10 @@
   @include flex-box(row, space-between);
   margin-top: 40px;
 }
+
+.main-page {
+  display: flex;
+
+  &-container {
+  }
+}
