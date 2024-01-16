@@ -1,3 +1,6 @@
+import ChevronRightRoundedIcon from '@mui/icons-material/ChevronRightRounded';
+import ChevronLeftRoundedIcon from '@mui/icons-material/ChevronLeftRounded';
+
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 import { Link } from 'react-router-dom';
 import { useState } from 'react';
@@ -11,7 +14,7 @@ export const Sidebar = () => {
   return (
     <aside className={`sidebar ${expanded ? 'expanded' : 'collapsed'}`}>
       <button className="sidebar-button" onClick={() => setExpanded(!expanded)}>
-        {expanded ? '<<' : '>>'}
+        {expanded ? <ChevronLeftRoundedIcon /> : <ChevronRightRoundedIcon />}
       </button>
 
       <div className="sidebar-top">
