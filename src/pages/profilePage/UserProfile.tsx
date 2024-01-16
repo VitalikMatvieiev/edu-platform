@@ -1,6 +1,6 @@
 import { UserProfile as UserProfileType } from '../../types/components/componentType';
-import { CustomButton } from '../../shared/components/buttons';
 import { handlePhotoChange } from './utility/photoUtils';
+import { CustomButton } from '../../shared/components';
 import photoUpload from '../../img/photoUpload.svg';
 import useUserFormik from './utility/formikConfig';
 import './userProfile.scss';
