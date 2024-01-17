@@ -13,7 +13,10 @@ export const Sidebar = () => {
 
   return (
     <aside className={`sidebar ${expanded ? 'expanded' : 'collapsed'}`}>
-      <button className="sidebar-button" onClick={() => setExpanded(!expanded)}>
+      <button
+        className="sidebar-button"
+        onClick={() => setExpanded((prevState) => !prevState)}
+      >
         {expanded ? <ChevronLeftRoundedIcon /> : <ChevronRightRoundedIcon />}
       </button>
 
