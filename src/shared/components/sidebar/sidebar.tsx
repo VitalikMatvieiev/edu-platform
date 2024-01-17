@@ -1,8 +1,7 @@
 import ChevronRightRoundedIcon from '@mui/icons-material/ChevronRightRounded';
 import ChevronLeftRoundedIcon from '@mui/icons-material/ChevronLeftRounded';
-
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
-import { Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 import { useState } from 'react';
 
 import { SidebarData, SidebarFooterData } from './sidebarData';
@@ -31,26 +30,32 @@ export const Sidebar = () => {
       </div>
 
       <ul className="sidebar-list">
-        {SidebarData.map((val, key) => {
+        {SidebarData.map(({ title, icon, link }, key) => {
           return (
-            <Link to={val.link}>
+            <NavLink
+              to={link}
+              className={({ isActive }) => (isActive ? 'active' : 'inactive')}
+            >
               <li key={key} className="sidebar-list-item">
-                <div>{val.icon}</div>
-                <div>{val.title}</div>
+                <div>{icon}</div>
+                <div>{title}</div>
               </li>
-            </Link>
+            </NavLink>
           );
         })}
 
         <div className="sidebar-list-bottom">
-          {SidebarFooterData.map((val, key) => {
+          {SidebarFooterData.map(({ title, icon, link }, key) => {
             return (
-              <Link to={val.link}>
+              <NavLink
+                to={link}
+                className={({ isActive }) => (isActive ? 'active' : 'inactive')}
+              >
                 <li key={key} className="sidebar-list-item">
-                  <div>{val.icon}</div>
-                  <div>{val.title}</div>
+                  <div>{icon}</div>
+                  <div>{title}</div>
                 </li>
-              </Link>
+              </NavLink>
             );
           })}
         </div>

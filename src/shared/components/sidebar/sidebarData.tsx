@@ -15,22 +15,22 @@ export const SidebarData = [
   {
     title: 'Upcoming Classes',
     icon: <HouseIcon />,
-    link: '/main',
+    link: '/',
   },
   {
     title: 'Grades & Progress',
     icon: <DoneIcon />,
-    link: '/main',
+    link: '/',
   },
   {
     title: 'Instructors',
     icon: <PeopleAltIcon />,
-    link: '/main',
+    link: '/',
   },
   {
     title: 'Course Notes',
     icon: <NoteIcon />,
-    link: '/main',
+    link: '/',
   },
 ];
 
