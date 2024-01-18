@@ -1,0 +1,14 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@700&display=swap');
+
+$font-montserrat: 'Montserrat', sans-serif;
+@mixin montserrat-regular {
+  font-family: $font-montserrat;
+}
+
+.title-text {
+  @include montserrat-regular;
+  font-size: 20px;
+  line-height: 20px;
+  padding-top: 20px;
+  padding-bottom: 15px;
+}

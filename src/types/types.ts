@@ -45,3 +45,10 @@ export interface ICourseDetailsResponseData{
   completedChapterLength: number,
   chaptersLength: number,
 }
+
+export interface IMessageResponseData{
+  id: string,
+  title: string,
+  description: string
+}
+
