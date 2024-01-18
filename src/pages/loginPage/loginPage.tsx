@@ -1,15 +1,14 @@
-import { useState } from 'react';
-import './_loginPage.scss';
-import Input from '../../components/input/input';
-import Title from '../../components/title/title';
-import Checkbox from '../../components/checkbox/checkbox';
-import Button from '../../components/button/button';
-import { Link, useNavigate } from 'react-router-dom';
-import { SubmitHandler, useForm } from 'react-hook-form';
+import { GoogleAuthButton, CustomButton, Input } from '../../shared/components';
 import { InputName } from '../../types/components/componentType';
-import { toast } from 'react-toastify';
-import GoogleAuthButton from '../../components/button/GoogleAuthButton';
+import Checkbox from '../../components/checkbox/checkbox';
+import Title from '../../components/title/title';
+import './_loginPage.scss';
+
 import { GoogleOAuthProvider } from '@react-oauth/google';
+import { SubmitHandler, useForm } from 'react-hook-form';
+import { Link, useNavigate } from 'react-router-dom';
+import { toast } from 'react-toastify';
+import { useState } from 'react';
 
 const LoginPage: React.FC = () => {
   const navigate = useNavigate();
@@ -97,7 +96,7 @@ const LoginPage: React.FC = () => {
             checked={showPassword}
             onChange={handleCheckboxChange}
           />
-          <Button className="btn-submit" buttonText="Login" />
+          <CustomButton variant="submit-btn">Login</CustomButton>
         </form>
         <p className="account-not account-not-or">or</p>
         <GoogleOAuthProvider clientId={clientId}>

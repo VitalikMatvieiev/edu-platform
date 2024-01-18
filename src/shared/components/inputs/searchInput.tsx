@@ -1,8 +1,13 @@
-import './_searchInput.scss'
-import SearchIcon from '@mui/icons-material/Search';
-import { SearchInputProps } from '../../types/components/componentType';
+import { SearchInputProps } from '../../../types/components/componentType';
+import './_searchInput.scss';
 
-const SearchInput: React.FC<SearchInputProps> = ({value, placeholder, onChange}) => {
+import SearchIcon from '@mui/icons-material/Search';
+
+export const SearchInput: React.FC<SearchInputProps> = ({
+  value,
+  placeholder,
+  onChange,
+}) => {
   return (
     <div className="search-container">
       <SearchIcon
@@ -20,5 +25,3 @@ const SearchInput: React.FC<SearchInputProps> = ({value, placeholder, onChange})
     </div>
   );
 };
-
-export default SearchInput;

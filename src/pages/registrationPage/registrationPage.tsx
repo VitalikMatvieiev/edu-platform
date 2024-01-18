@@ -1,13 +1,14 @@
-import React, { useState } from 'react';
-import './_registrationPage.scss';
-import Title from '../../components/title/title';
-import Input from '../../components/input/input';
-import Checkbox from '../../components/checkbox/checkbox';
-import Button from '../../components/button/button';
-import { SubmitHandler, useForm } from 'react-hook-form';
-import { toast } from 'react-toastify';
-import { Link, useNavigate } from 'react-router-dom';
 import { InputName } from '../../types/components/componentType';
+import { Input, CustomButton } from '../../shared/components';
+import Checkbox from '../../components/checkbox/checkbox';
+import Title from '../../components/title/title';
+import './_registrationPage.scss';
+
+import { SubmitHandler, useForm } from 'react-hook-form';
+import { Link, useNavigate } from 'react-router-dom';
+import React, { useState } from 'react';
+import { toast } from 'react-toastify';
+
 const RegistrationPage: React.FC = () => {
   const navigate = useNavigate();
 
@@ -43,7 +44,7 @@ const RegistrationPage: React.FC = () => {
   };
   const handleCheckboxAdminChange = () => {
     setIsInstructor(!isInstructor);
-  }
+  };
 
   return (
     <section className="container-registration">
@@ -139,7 +140,9 @@ const RegistrationPage: React.FC = () => {
           checked={isInstructor}
           onChange={handleCheckboxAdminChange}
         />
-        <Button className="btn-submit" buttonText="Create account" />
+        <CustomButton variant="submit-btn" type="submit">
+          Create account
+        </CustomButton>
       </form>
       <Link to={'/'} className="account-is">
         <p>Have account?</p>

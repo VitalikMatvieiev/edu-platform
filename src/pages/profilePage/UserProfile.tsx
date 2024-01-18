@@ -1,10 +1,11 @@
-import React, { useState, useEffect } from 'react';
-import useUserFormik from './utility/formikConfig';
-import photoUpload from '../../img/photoUpload.svg';
-import ButtonUserPage from '../../components/button/UserPageButton';
 import { UserProfile as UserProfileType } from '../../types/components/componentType';
 import { handlePhotoChange } from './utility/photoUtils';
+import { CustomButton } from '../../shared/components';
+import photoUpload from '../../img/photoUpload.svg';
+import useUserFormik from './utility/formikConfig';
 import './userProfile.scss';
+
+import React, { useState, useEffect } from 'react';
 
 const UserProfile: React.FC = () => {
   const [userProfile, setUserProfile] = useState<UserProfileType | null>(null);
@@ -160,15 +161,25 @@ const UserProfile: React.FC = () => {
               <span>{userProfile.lastLoginTimestamp}</span>
             </label>
             {isEditing ? (
-              <ButtonUserPage type="submit" color="secondary">
+              <CustomButton
+                type="submit"
+                color="secondary"
+                variant="user-page-btn"
+              >
                 Save Changes
-              </ButtonUserPage>
+              </CustomButton>
             ) : (
-              <ButtonUserPage onClick={handleEditClick} color="secondary">
+              <CustomButton
+                onClick={handleEditClick}
+                color="secondary"
+                variant="user-page-btn"
+              >
                 Edit Profile
-              </ButtonUserPage>
+              </CustomButton>
             )}
-            <ButtonUserPage to="/" onClick={handleLogout}>Logout</ButtonUserPage> 
+            <CustomButton to="/" onClick={handleLogout} variant="user-page-btn">
+              Logout
+            </CustomButton>
           </div>
         ) : error ? (
           <p>Error: {error}</p>
@@ -176,7 +187,9 @@ const UserProfile: React.FC = () => {
           <p>No user profile available.</p>
         )}
       </form>
-      {userProfile && !error && <ButtonUserPage>Show my courses</ButtonUserPage>}
+      {userProfile && !error && (
+        <CustomButton variant="user-page-btn">Show my courses</CustomButton>
+      )}
     </div>
   );
 };

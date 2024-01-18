@@ -1,7 +1,7 @@
 import { render, screen, fireEvent, waitFor } from '@testing-library/react';
 import '@testing-library/jest-dom';
 import { MemoryRouter } from 'react-router-dom';
-import UserProfile from '../UserProfile';
+import UserProfile from '../userProfile';
 
 jest.mock('axios');
 
@@ -18,9 +18,10 @@ describe('UserProfile Component', () => {
     test('renders user profile information', async () => {
       try {
         render(
-        <MemoryRouter>
-          <UserProfile />
-        </MemoryRouter>);
+          <MemoryRouter>
+            <UserProfile />
+          </MemoryRouter>,
+        );
         await waitFor(() => {
           expect(screen.getByText('Personal information')).toBeInTheDocument();
         });
@@ -38,35 +39,35 @@ describe('UserProfile Component', () => {
     });
 
     test('renders "Edit Profile" button', async () => {
-    try {
-      render(
-      <MemoryRouter>
-        <UserProfile />
-      </MemoryRouter>);
-      await waitFor(() => {
-        expect(screen.getByText('Personal information')).toBeInTheDocument();
-      });
-      expect(
-        screen.getByRole('button', { name: 'Edit Profile' }),
-      ).toBeInTheDocument();
-    } catch (error) {
-      console.error('Test failed with error:', error);
-      throw error;
-    }
-  });
-
-    test('renders "Logout" button', async () => {
       try {
         render(
-        <MemoryRouter>
-          <UserProfile />
-        </MemoryRouter>);
+          <MemoryRouter>
+            <UserProfile />
+          </MemoryRouter>,
+        );
         await waitFor(() => {
           expect(screen.getByText('Personal information')).toBeInTheDocument();
         });
         expect(
-          screen.getByText(logoutButtonLabel),
+          screen.getByRole('button', { name: 'Edit Profile' }),
         ).toBeInTheDocument();
+      } catch (error) {
+        console.error('Test failed with error:', error);
+        throw error;
+      }
+    });
+
+    test('renders "Logout" button', async () => {
+      try {
+        render(
+          <MemoryRouter>
+            <UserProfile />
+          </MemoryRouter>,
+        );
+        await waitFor(() => {
+          expect(screen.getByText('Personal information')).toBeInTheDocument();
+        });
+        expect(screen.getByText(logoutButtonLabel)).toBeInTheDocument();
       } catch (error) {
         console.error('Test failed with error:', error);
         throw error;
@@ -75,9 +76,10 @@ describe('UserProfile Component', () => {
 
     test('renders profile input fields', async () => {
       render(
-      <MemoryRouter>
-        <UserProfile />
-      </MemoryRouter>);
+        <MemoryRouter>
+          <UserProfile />
+        </MemoryRouter>,
+      );
       await waitFor(() => {
         expect(screen.getByRole('heading', { level: 1 })).toBeInTheDocument();
       });
@@ -100,9 +102,10 @@ describe('UserProfile Component', () => {
     test('enables editing when "Edit Profile" button is clicked', async () => {
       try {
         render(
-        <MemoryRouter>
-          <UserProfile />
-        </MemoryRouter>);
+          <MemoryRouter>
+            <UserProfile />
+          </MemoryRouter>,
+        );
 
         const editProfileButton = await waitFor(() => {
           return screen.getByRole('button', { name: /edit profile/i });
@@ -125,9 +128,10 @@ describe('UserProfile Component', () => {
     test('updates profile on "Save Changes" button click', async () => {
       try {
         render(
-        <MemoryRouter>
-          <UserProfile />
-        </MemoryRouter>);
+          <MemoryRouter>
+            <UserProfile />
+          </MemoryRouter>,
+        );
 
         const editProfileButton = await waitFor(() => {
           return screen.getByText(editProfileButtonLabel);
@@ -172,7 +176,7 @@ describe('UserProfile Component', () => {
         render(
           <MemoryRouter>
             <UserProfile />
-          </MemoryRouter>
+          </MemoryRouter>,
         );
         await waitFor(() => {
           expect(screen.queryByText('Loading user profile...')).toBeNull();
@@ -185,12 +189,12 @@ describe('UserProfile Component', () => {
         await waitFor(() => {
           expect(screen.queryByText('Loading user profile...')).toBeNull();
         });
-  
+
         expect(window.location.pathname).toBe('/');
       } catch (error) {
         console.error('Test failed with error:', error);
         throw error;
       }
     });
-  });  
+  });
 });

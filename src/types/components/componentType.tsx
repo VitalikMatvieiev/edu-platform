@@ -28,12 +28,6 @@ export interface CheckboxProps {
   onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
 }
 
-export interface SubmitButtonProps {
-  buttonText: string;
-  className: string;
-  onClick?: (event: React.MouseEvent<HTMLButtonElement>) => void;
-}
-
 export interface InputName {
   name: string;
   surname: string;
@@ -61,7 +55,22 @@ export interface ButtonProps {
   children: ReactNode;
   color?: 'primary' | 'secondary';
   type?: 'button' | 'submit' | 'reset';
+  variant?: 'submit-btn' | 'user-page-btn';
   onClick?: (event: MouseEvent<HTMLButtonElement>) => void;
+}
+
+export interface CustomButtonProps extends ButtonProps {
+  to?: string;
+}
+
+export interface SubmitButtonProps {
+  buttonText: string;
+  className: string;
+  onClick?: (event: React.MouseEvent<HTMLButtonElement>) => void;
+}
+
+export interface ButtonUserPageProps extends ButtonProps {
+  to?: string;
 }
 
 export interface FormikValues {
@@ -77,10 +86,6 @@ export interface FormikConfigProps {
   setUserProfile: React.Dispatch<React.SetStateAction<UserProfile | null>>;
   setIsEditing: React.Dispatch<React.SetStateAction<boolean>>;
   setFormError: React.Dispatch<React.SetStateAction<string | null>>;
-}
-
-export interface ButtonUserPageProps extends ButtonProps {
-  to?: string;
 }
 
 export interface MainPageProps {
@@ -109,21 +114,20 @@ export interface DetailsOfCourse {
   price: number;
 }
 
-
 export interface EnrolledCoursesData {
   id: string;
   title: string;
   imageUrl: string;
   category: string;
-  timeOfClasses: string,
-  numberOfStudents: number,
+  timeOfClasses: string;
+  numberOfStudents: number;
   completedChapterLength: number;
   chaptersLength: number;
 }
 
 export interface CourseProgressProps {
   completedChapter: number;
-  allChapter: number
+  allChapter: number;
 }
 
 export interface Instructor {

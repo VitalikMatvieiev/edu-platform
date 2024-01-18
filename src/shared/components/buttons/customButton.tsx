@@ -1,16 +1,20 @@
-import { ButtonUserPageProps } from '../../types/components/componentType';
-import { FC } from 'react';
-import { Link } from 'react-router-dom';
-import './button.scss';
+import { CustomButtonProps } from '../../../types/components/componentType';
+import './_button.scss';
 
-const ButtonUserPage: FC<ButtonUserPageProps> = ({
+import { Link } from 'react-router-dom';
+import { FC } from 'react';
+
+export const CustomButton: FC<CustomButtonProps> = ({
   children,
   color = 'primary',
   type = 'button',
   onClick,
   to,
+  variant,
 }) => {
-  const commonClasses = `button ${color === 'primary' ? 'button--secondary' : ''}`;
+  const commonClasses = `${variant} ${
+    color === 'primary' ? `${variant}--secondary` : ''
+  }`;
 
   if (to) {
     return (
@@ -26,5 +30,3 @@ const ButtonUserPage: FC<ButtonUserPageProps> = ({
     </button>
   );
 };
-
-export default ButtonUserPage;
