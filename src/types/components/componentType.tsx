@@ -40,7 +40,7 @@ export interface InputName {
   age: number;
   imagePath: string;
 }
-import { ReactNode, MouseEvent, Component } from 'react';
+import { ReactNode, MouseEvent } from 'react';
 
 export interface UserProfile {
   profilePhoto: string;
