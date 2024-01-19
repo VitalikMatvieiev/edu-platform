@@ -1,0 +1,92 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;500;600;700&display=swap');
+
+$font-nunito: 'Nunito', sans-serif;
+
+@mixin nunito-light {
+  font-family: $font-nunito;
+  font-weight: 300;
+}
+
+@mixin nunito-regular {
+  font-family: $font-nunito;
+  font-weight: 400;
+}
+
+@mixin nunito-bold {
+  font-family: $font-nunito;
+  font-weight: 700;
+}
+
+.instructor-card-container {
+  min-height: 300px;
+  border-radius: 15px;
+  box-shadow: 0 1px 7px -3px gray;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  padding: 30px 20px;
+  & .category-container {
+    display: inline-block;
+    border: 1px solid black;
+    border-radius: 15px;
+    padding: 7px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    & .category-text {
+      @include nunito-regular;
+      color: #000;
+      font-size: 12px;
+      line-height: 12px;
+    }
+  }
+  & .info-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    & .img-container {
+      & img {
+        display: block;
+        width: 75px;
+        height: 75px;
+        border-radius: 50%;
+        object-fit: fill;
+      }
+    }
+    & .name-container {
+      @include nunito-bold;
+      color: #000;
+      font-size: 17px;
+      line-height: 17px;
+    }
+    & .email-container {
+      @include nunito-light;
+      color: #6c6868;
+      font-size: 14px;
+      line-height: 14px;
+      text-decoration: underline;
+    }
+  }
+  & .buttons-container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 15px;
+    & .button-action {
+      display: inline-block;
+      border: 1px solid black;
+      border-radius: 15px;
+      padding: 7px 15px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: #fff;
+      cursor: pointer;
+      &:hover{
+        background-color: rgb(199, 206, 206);
+      }
+    }
+  }
+}

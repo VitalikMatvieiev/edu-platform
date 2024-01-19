@@ -1,0 +1,32 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;500;600;700&display=swap');
+
+$font-nunito: 'Nunito', sans-serif;
+
+@mixin nunito-regular {
+  font-family: $font-nunito;
+  font-weight: 400;
+}
+
+.instructors-categories {
+  display: inline-block;
+  border: 1px solid black;
+  border-radius: 15px;
+  padding: 7px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #fff;
+  cursor: pointer;
+  &:hover {
+    background-color: rgb(139, 168, 168);
+  }
+  & .instructors-category-text {
+    @include nunito-regular;
+    color: #000;
+    font-size: 14px;
+    line-height: 14px;
+  }
+  & .bold-category {
+    font-weight: bold;
+  }
+}
