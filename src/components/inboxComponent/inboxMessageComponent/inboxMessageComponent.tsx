@@ -1,79 +1,77 @@
 import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
-import { Box, ThemeProvider, Typography, createTheme } from '@mui/material';
+import { Box, Typography } from '@mui/material';
 import { MessageProps } from '../../../types/components/componentType';
 import { Link } from 'react-router-dom';
 import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
 import Fab from '@mui/material/Fab';
-
-const theme = createTheme({
-  typography: {
-    fontFamily: ['Montserrat', 'sans-serif'].join(','),
-    h6: {
-      fontSize: 16,
-      fontWeight: 700,
-    },
-    subtitle2: {
-      fontSize: 12,
-    },
-  },
-});
+import './_inboxMessageComponent.scss';
 
 const InboxMessageComponent = (props: MessageProps) => {
   return (
-    <ThemeProvider theme={theme}>
-      <Card
-        role="message-card"
+    <Card
+      role="message-card"
+      sx={{
+        maxWidth: '325px',
+        padding: '5px',
+        borderRadius: '20px',
+        display: 'flex',
+        justifyItems: 'center',
+      }}
+    >
+      <CardContent
         sx={{
-          maxWidth: '320px',
-          padding: '5px',
-          borderRadius: '20px',
           display: 'flex',
-          justifyItems: 'center',
+          justifyContent: 'space-between',
+          alignItems: 'center',
+          width: '100%',
+          paddingLeft: '10px',
+          marginTop: '5px',
         }}
       >
-        <CardContent
-          sx={{
-            display: 'flex',
-            justifyContent: 'space-between',
-            alignItems: 'center',
-            width: '100%',
-            paddingLeft: '10px',
-            marginTop: '5px',
-          }}
-        >
-          <Box>
-            <Typography
-              sx={{ lineHeight: '1.2', paddingBottom: '10px' }}
-              variant="h6"
-              component="div"
-              role="message-title"
+        <Box>
+          <Typography
+            sx={{
+              fontFamily: ['Montserrat', 'sans-serif'].join(','),
+              fontSize: 16,
+              fontWeight: 700,
+              lineHeight: '1.4',
+              paddingBottom: '10px',
+            }}
+            variant="h6"
+            component="div"
+            role="message-title"
+          >
+            {props?.title}
+          </Typography>
+          <Typography
+            sx={{
+              fontFamily: ['Montserrat', 'sans-serif'].join(','),
+              fontSize: 13,
+              lineHeight: '1.3',
+              fontWeight: 400,
+              color: 'gray',
+            }}
+            variant="subtitle2"
+            component="div"
+            role="message-description"
+          >
+            {props?.description}
+          </Typography>
+        </Box>
+        <Box>
+          <Link to="#">
+            <Fab
+              size="medium"
+              sx={{ bgcolor: 'white' }}
+              data-testid="inbox-button"
             >
-              {props?.title}
-            </Typography>
-            <Typography
-              sx={{ color: 'gray' }}
-              variant="subtitle2"
-              component="div"
-              role="message-description"
-            >
-              {props?.description}
-            </Typography>
-          </Box>
-          <Box>
-            <Link to="#">
-              <Fab
-                size="medium"
-                sx={{ bgcolor: 'white' }}
-                data-testid="inbox-button"
-              >
-                <ArrowForwardIcon fontSize="small" sx={{ color: 'black' }} />
-              </Fab>
-            </Link>
-          </Box>
-        </CardContent>
-      </Card>
-    </ThemeProvider>
+              <ArrowForwardIcon fontSize="small" sx={{ color: 'black' }} />
+            </Fab>
+          </Link>
+        </Box>
+      </CardContent>
+    </Card>
   );
 };
 

@@ -1,7 +1,6 @@
 import { fireEvent, render, screen } from '@testing-library/react';
 import { MemoryRouter } from 'react-router-dom';
 import '@testing-library/jest-dom';
-//import userEvent from '@testing-library/user-event';
 
 import InboxMessageComponent from '../inboxMessageComponent';
 
@@ -28,6 +27,7 @@ describe('InboxMessageComponent Component', () => {
 
   test('button is clicked', () => {
     const moreButton = screen.getByTestId('inbox-button');
+
     fireEvent.click(moreButton);
   });
 });
