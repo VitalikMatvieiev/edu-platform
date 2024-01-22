@@ -1,0 +1,210 @@
+@import '../../styles/mixins';
+
+.react-calendar { 
+  width: 809px;
+  max-width: 100%;
+  height: 555px;
+  max-height: 100%;
+  background-color: #fff;
+  color: #222;
+  border: none;
+  font-family: Arial, Helvetica, sans-serif;
+ 
+  & button {
+    border: 1px solid rgb(238, 235, 235);
+  }
+
+  &__month-view__days {
+    border: 1px solid rgb(232, 230, 230);
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2);
+    border-radius: 8px;
+  }
+
+  &__navigation {
+    @include flex-box(row, flex-end);
+    max-width: 500px;
+    margin-left: 500px;
+    position: relative;
+    border: 0;
+
+    &__prev-button,
+    &__next-button {
+      position: absolute;
+      top: 7px;
+      font-weight: bold;
+      z-index: 3;
+    }
+
+    &__prev2-button {
+      display: none;
+    }
+
+    &__next2-button {
+      display: none;
+    }
+
+    &__arrow {
+      transform: rotate(90deg);
+    }
+
+    &__prev-button {
+      right: 50px;
+      transform: rotate(180deg);
+    }
+
+    &__next-button {
+      right: 22px;
+    }
+  
+    & button {
+      color: #000;
+      min-width: 30px;
+      background: none;
+      font-size: 14px;
+      margin-top: 8px;
+      border: 0;
+    }
+  
+    & button:enabled:hover,
+    & button:enabled:focus {
+      background-color: transparent;
+    }
+  
+    & button[disabled] {
+      background-color: rgb(210, 207, 207);
+    }
+
+    &__label {
+      position: relative;
+
+      & ::after {
+        content: url(../../img/icon-calendar.svg);
+        position: absolute;
+        top: 4px;
+        left: 80px;
+      }
+    }    
+  }
+
+  &__tile {
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    height: 90px;
+    border: 1px solid gray;
+
+    &:enabled:hover,
+    &:enabled:focus {
+      background: #ffcccc;
+      color: #000;
+      border-radius: 15px;
+    }
+
+    &--now:enabled:hover,
+    &--now:enabled:focus,
+    &--now {
+      background: #ffcccc;
+      border-radius: 15px;
+      font-weight: bold;
+      color: #222;
+    }
+
+    &--hasActive:enabled:hover,
+    &--hasActive:enabled:focus {
+      background: #f8f8fa;
+    }
+  
+    &--active {
+      background: #ffcccc;
+      border-radius: 15px;
+      font-weight: bold;
+      color: #222;
+
+      &:enabled:hover,
+      &:enabled:focus {
+        background: #ffcccc;
+        color: #222;
+      }
+    }
+    
+    &--range,
+    &--rangeStart,
+    &--rangeEnd {
+      background: transparent;
+      color: #222;
+      border-radius: 0;
+    }
+
+    &--now {
+      background: #ffcccc;
+      border-radius: 15px;
+      font-weight: bold;
+      color: #222;
+    }
+    
+    &--active  &--now {
+      background: transparent;
+    }
+
+    &--hasActive {
+      background: transparent;   
+    }
+  }  
+  
+  &--selectRange .react-calendar__tile--hover {
+    background-color: transparent;
+  }
+  
+  &__month-view__weekdays {
+    text-align: start;
+  }
+ 
+  & {
+    .has-event {
+      background-color: #ffcccc;
+      border-radius: 15px;
+    }
+  }
+}
+
+.custom-prev-arrow,
+.custom-next-arrow {
+  content: url(../../img/arrow-for-calendar.svg);
+}
+
+ .custom-prev-arrow {
+  margin-bottom: -5px;
+}
+
+ .custom-next-arrow {
+  transform: rotate(270deg);
+  margin-bottom: -5px;
+ } 
+
+ abbr[title] {
+  background: transparent;
+  color: #222;
+  text-decoration: none;
+ }
+
+.date {
+  display: none;
+ }
+
+ .course-name,
+ .instructor-name {
+  text-align: start;
+  @include font-style(12, 12);
+ }
+
+ .course-name {
+  font-weight: 700;
+  margin-top: 7px;
+ }
+
+ .instructor-name {
+  @include font-style(12, 18);
+ }
+ 
