@@ -3,6 +3,7 @@ import LoginPage from '../pages/loginPage/loginPage';
 import RegistrationPage from '../pages/registrationPage/registrationPage';
 import UserProfile from '../pages/profilePage/UserProfile';
 import MainPage from '../pages/mainPage/mainPage';
+import DashboardPage from '../pages/dashboardPage/dashboardPage';
 
 export const router = createBrowserRouter([
   {
@@ -20,5 +21,9 @@ export const router = createBrowserRouter([
   {
     path: '/main',
     element: <MainPage />,
+  },
+  {
+    path: '/dashboard',
+    element: <DashboardPage />,
   },
 ]);

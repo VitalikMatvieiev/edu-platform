@@ -8,7 +8,6 @@ import ExtendedFilter from '../../components/extendedFilter/extendedFilter';
 import Sorting from '../../components/extendedFilter/sorting';
 import FilterBy from '../../components/extendedFilter/filterBy';
 
-
 const MainPage: React.FC<MainPageProps> = () => {
   return (
     <div data-testid="main-page">
@@ -17,7 +16,7 @@ const MainPage: React.FC<MainPageProps> = () => {
       <div className='flex-row'>
         <FilterBy/>
         <Sorting/>
-      </div>     
+      </div>
       <CardOfCourse />
       <SideFilter />
     </div>

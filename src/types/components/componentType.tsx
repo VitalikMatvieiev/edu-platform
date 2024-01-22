@@ -152,3 +152,9 @@ export interface LevelCount {
   level: string;
   quantity: number;
 }
+
+export interface Event {
+  courseName: string;
+  instructorName: string;
+  date: Date;
+}

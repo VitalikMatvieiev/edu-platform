@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Lexend:wght@400;500;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@200;400;500;600;700;800;900;1000&display=swap');
 
 @mixin flex-box ($direction: row, $justify: initial, $gap: 0) {
   display: flex;
@@ -7,7 +7,7 @@
   gap: #{$gap}px;
 }
 
-@mixin font-style($font-size: 14, $line-height: 24,  $font-weight: 400, $font-family: 'Lexend', $color: #000,) {
+@mixin font-style($font-size: 14, $line-height: 24,  $font-weight: 400, $font-family: 'Nunito', $color: #000,) {
   font-size: #{$font-size}px;
   line-height: #{$line-height}px;
   font-weight: $font-weight;
