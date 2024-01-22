@@ -46,9 +46,3 @@ export interface ICourseDetailsResponseData{
   chaptersLength: number,
 }
 
-export interface IMessageResponseData{
-  id: string,
-  title: string,
-  description: string
-}
-
