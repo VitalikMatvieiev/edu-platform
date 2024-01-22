@@ -61,15 +61,18 @@ const CalendarComponent: React.FC = () => {
     };
     const { courseName, instructorName } = eventData;
 
+    const truncatedCourseName =
+      courseName.length > 25 ? courseName.substring(0, 25) + '...' : courseName;
+
     return (
       <div
         className={`custom-calendar-tile ${view}`}
         data-testid="custom-calendar-tile"
       >
         <p className="date">{date.getDate()}</p>
-        {courseName && (
+        {truncatedCourseName && (
           <p className="course-name" data-testid="course-name">
-            {courseName}
+            {truncatedCourseName}
           </p>
         )}
         {instructorName && (
