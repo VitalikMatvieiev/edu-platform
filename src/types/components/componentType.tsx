@@ -156,3 +156,13 @@ export interface LevelCount {
   level: string;
   quantity: number;
 }
+
+export interface MessageProps {
+  id: string;
+  title: string;
+  description: string;
+}
+
+export interface TitleOfSectionProps {
+  titleText: string;
+}

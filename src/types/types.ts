@@ -45,3 +45,4 @@ export interface ICourseDetailsResponseData{
   completedChapterLength: number,
   chaptersLength: number,
 }
+
