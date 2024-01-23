@@ -1,19 +1,20 @@
-import { useState, useEffect } from 'react';
-import Card from '@mui/material/Card';
-import CardActions from '@mui/material/CardActions';
-import CardContent from '@mui/material/CardContent';
-import CardMedia from '@mui/material/CardMedia';
-import { Box, Typography } from '@mui/material';
-import GroupsIcon from '@mui/icons-material/Groups';
-import IconButton from '@mui/material/IconButton';
-import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
-import FavoriteIcon from '@mui/icons-material/Favorite';
-import { Link } from 'react-router-dom';
-import StarIcon from '@mui/icons-material/Star';
-import axios from 'axios';
 import defaultCoursePhoto from '../../img/defaultCoursePhoto.png';
 import { CourseData } from '../../types/components/componentType';
 import './card.scss';
+
+import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
+import FavoriteIcon from '@mui/icons-material/Favorite';
+import GroupsIcon from '@mui/icons-material/Groups';
+import CardActions from '@mui/material/CardActions';
+import CardContent from '@mui/material/CardContent';
+import IconButton from '@mui/material/IconButton';
+import StarIcon from '@mui/icons-material/Star';
+import { Box, Typography } from '@mui/material';
+import CardMedia from '@mui/material/CardMedia';
+import { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
+import Card from '@mui/material/Card';
+import axios from 'axios';
 
 const CardOfCourse = () => {
   const [courseData, setCourseData] = useState<CourseData | null>(null);
@@ -55,7 +56,14 @@ const CardOfCourse = () => {
 
   return (
     <Card sx={{ maxWidth: 200, padding: '0 10px', borderRadius: '20px' }}>
-      <Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'flex-end', gap: 0.5 }}>
+      <Box
+        sx={{
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'flex-end',
+          gap: 0.5,
+        }}
+      >
         <Typography variant="body1">{courseData?.rating}</Typography>
         <StarIcon />
       </Box>
@@ -75,22 +83,42 @@ const CardOfCourse = () => {
             {courseData?.category}
           </Typography>
         </Box>
-        <Box sx={{ display: 'flex', justifyContent: 'space-around', alignItems: 'center' }}>
+        <Box
+          sx={{
+            display: 'flex',
+            justifyContent: 'space-around',
+            alignItems: 'center',
+          }}
+        >
           <GroupsIcon />
-          <Link to='/sign-up' className='link'>
+          <Link to="/sign-up" className="link">
             Join our learning
           </Link>
         </Box>
       </CardContent>
-      <CardActions sx={{ display: 'flex', justifyContent: 'space-between', padding: '0 5px' }}>
-        <Typography variant="h6" component="div" sx={{ fontWeight: '600' }} role="course-price">
+      <CardActions
+        sx={{
+          display: 'flex',
+          justifyContent: 'space-between',
+          padding: '0 5px',
+        }}
+      >
+        <Typography
+          variant="h6"
+          component="div"
+          sx={{ fontWeight: '600' }}
+          role="course-price"
+        >
           {`$${courseData?.price}`}
         </Typography>
         <Box>
           <IconButton aria-label="Add to Cart">
             <ShoppingCartIcon sx={{ color: '#000' }} />
           </IconButton>
-          <IconButton aria-label="Add to Favorites" onClick={handleFavoriteClick}>
+          <IconButton
+            aria-label="Add to Favorites"
+            onClick={handleFavoriteClick}
+          >
             <FavoriteIcon sx={{ color: isFavorite ? '#ff0000' : '#000' }} />
           </IconButton>
         </Box>

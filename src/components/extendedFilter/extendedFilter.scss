@@ -1,26 +1,28 @@
 @import '../../styles/mixins';
 
-
 .filter-container {
-  max-width: 1200px;
-  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  padding: 0 50px;
+  width: 100%;
 }
 
 .scroll-buttons {
   @include flex-box(row, space-around);
-  margin: 0 auto;
 }
 
 .list__filter {
   @include flex-box(row, initial, 10);
   width: 100%;
+
   &--item {
-   border: 1px solid #000;
-   border-radius: 30px;
-   padding: 10px 20px;
-   max-width: 300px;
-   cursor: pointer;
-   @include font-style(14, 18);
+    border: 1px solid #000;
+    border-radius: 30px;
+    padding: 10px 20px;
+    max-width: 300px;
+    cursor: pointer;
+    @include font-style(14, 18);
   }
 
   &--item:hover {
@@ -29,7 +31,7 @@
 }
 
 .space-around {
-  justify-content: space-around
+  justify-content: space-around;
 }
 
 .title-filter {
@@ -52,4 +54,3 @@
   @include flex-box(row, space-between, 5);
   align-items: center;
 }
-

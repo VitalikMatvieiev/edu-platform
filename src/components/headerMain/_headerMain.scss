@@ -14,11 +14,13 @@ $font-nunito: 'Nunito', sans-serif;
   padding: 0 15px 0 15px;
   background-color: red;
   min-height: 75px;
+
   & .header-link {
     display: flex;
     flex-direction: row;
     align-items: center;
     gap: 5px;
+
     & .header-text {
       @include nunito-medium;
       color: white;
@@ -28,6 +30,7 @@ $font-nunito: 'Nunito', sans-serif;
       padding-top: 3px;
     }
   }
+
   & .header-list {
     display: flex;
     flex-direction: row;

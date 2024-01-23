@@ -1,10 +1,11 @@
-import CardOfCourse from '../../components/cardOfCourse/CardOfCourse';
-import { MainPageProps } from '../../types/components/componentType';
-import SideFilter from '../../components/sideFilter/sideFilter';
 import ExtendedFilter from '../../components/extendedFilter/extendedFilter';
-import Sorting from '../../components/extendedFilter/sorting';
-import FilterBy from '../../components/extendedFilter/filterBy';
+import CardOfCourse from '../../components/cardOfCourse/CardOfCourse';
+import { FooterMain } from '../../components/footer-main/footerMain';
+import { MainPageProps } from '../../types/components/componentType';
 import HeaderMain from '../../components/headerMain/headerMain';
+import FilterBy from '../../components/extendedFilter/filterBy';
+import SideFilter from '../../components/sideFilter/sideFilter';
+import Sorting from '../../components/extendedFilter/sorting';
 import { Sidebar } from '../../shared/components';
 import './_mainPage.scss';
 
@@ -17,12 +18,15 @@ const MainPage: React.FC<MainPageProps> = () => {
       <div className="main-page-container">
         <HeaderMain />
         <ExtendedFilter />
-        <div className="flex-row">
+        <div className="main-page-container-filter">
           <FilterBy />
           <Sorting />
         </div>
-        <CardOfCourse />
-        <SideFilter />
+        <div className="main-page-container-content">
+          <SideFilter />
+          <CardOfCourse />
+        </div>
+        <FooterMain />
       </div>
     </div>
   );

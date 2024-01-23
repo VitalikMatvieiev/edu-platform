@@ -1,8 +1,9 @@
+import { KeyboardArrowLeft, KeyboardArrowRight } from '@mui/icons-material';
 import React, { useState, useEffect } from 'react';
 import { IconButton } from '@mui/material';
-import { KeyboardArrowLeft, KeyboardArrowRight } from '@mui/icons-material';
-import './extendedFilter.scss';
+
 import { Course } from '../../types/components/componentType';
+import './extendedFilter.scss';
 
 const ExtendedFilter: React.FC = () => {
   const [courses, setCourses] = useState<Course[]>([]);

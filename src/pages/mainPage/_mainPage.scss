@@ -2,14 +2,29 @@
 
 .flex-row {
   max-width: 1200px;
-  margin: 0 auto;
   @include flex-box(row, space-between);
   margin-top: 40px;
 }
 
 .main-page {
   display: flex;
+  width: 100%;
 
   &-container {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+
+    &-filter {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      padding: 0 50px;
+      margin-top: 20px;
+    }
+
+    &-content {
+      // display: flex;
+    }
   }
 }
