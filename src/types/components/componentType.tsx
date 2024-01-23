@@ -157,6 +157,18 @@ export interface LevelCount {
   quantity: number;
 }
 
+export interface CustomCalendarTileProps {
+  date: Date;
+  view: string;
+  events: { [date: string]: Event };
+}
+
+export interface Event {
+  courseName: string;
+  instructorName: string;
+  date: Date;
+}
+
 export interface MessageProps {
   id: string;
   title: string;
