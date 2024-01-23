@@ -25,9 +25,9 @@ describe('CalendarComponent', () => {
   test('renders custom calendar tile with event', () => {
     const events = [
       {
-        courseName: 'Introduction to Programming',
-        instructorName: 'John Doe',
-        date: 'January 20, 2024',
+        courseName: 'Web Development Basics',
+        instructorName: 'Jane Smith',
+        date: 'January 15, 2024',
       },
     ];
 

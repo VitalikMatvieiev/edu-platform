@@ -158,3 +158,9 @@ export interface Event {
   instructorName: string;
   date: Date;
 }
+
+export interface CustomCalendarTileProps {
+  date: Date;
+  view: string;
+  events: { [date: string]: Event };
+}

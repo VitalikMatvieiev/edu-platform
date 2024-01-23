@@ -3,6 +3,7 @@ import Calendar from 'react-calendar';
 import 'react-calendar/dist/Calendar.css';
 import './calendar.scss';
 import { Event } from '../../types/components/componentType';
+import CustomCalendarTile from './customCalendarTile';
 
 const CalendarComponent: React.FC = () => {
   const [date, setDate] = useState<Date>(new Date());
@@ -11,7 +12,7 @@ const CalendarComponent: React.FC = () => {
   const [events, setEvents] = useState<{ [date: string]: Event }>({});
 
   // Function to fetch events
-  const fetchEvents = async () => {
+  const fetchEvents = () => {
     // Examples
     const courses: Event[] = [
       {
@@ -25,8 +26,8 @@ const CalendarComponent: React.FC = () => {
         date: new Date('2024-01-15'),
       },
       {
-        courseName: 'Web Development Basics',
-        instructorName: 'Jane Smith',
+        courseName: 'Web Development',
+        instructorName: 'John Doe',
         date: new Date('2024-01-19'),
       },
     ];
@@ -48,42 +49,6 @@ const CalendarComponent: React.FC = () => {
     fetchEvents();
   }, []);
 
-  // CustomCalendarTile component to render each tile in the calendar
-  const CustomCalendarTile: React.FC<{ date: Date; view: string }> = ({
-    date,
-    view,
-  }) => {
-    const dateString = date.toDateString();
-    const eventData = events[dateString] || {
-      courseName: '',
-      instructorName: '',
-      date,
-    };
-    const { courseName, instructorName } = eventData;
-
-    const truncatedCourseName =
-      courseName.length > 25 ? courseName.substring(0, 25) + '...' : courseName;
-
-    return (
-      <div
-        className={`custom-calendar-tile ${view}`}
-        data-testid="custom-calendar-tile"
-      >
-        <p className="date">{date.getDate()}</p>
-        {truncatedCourseName && (
-          <p className="course-name" data-testid="course-name">
-            {truncatedCourseName}
-          </p>
-        )}
-        {instructorName && (
-          <p className="instructor-name" data-testid="instructor-name">
-            {instructorName}
-          </p>
-        )}
-      </div>
-    );
-  };
-
   // Function to determine the className for each tile based on the presence of events
   const tileClassName = ({ date }: { date: Date }): string | null => {
     return events[date.toDateString()] ? 'has-event' : null;
@@ -100,7 +65,7 @@ const CalendarComponent: React.FC = () => {
           nextLabel={nextLabel}
           value={date}
           tileContent={({ date }) => (
-            <CustomCalendarTile date={date} view="month" />
+            <CustomCalendarTile date={date} view="month" events={events}/>
           )}
           tileClassName={tileClassName}
           onClickDay={(value) => setDate(value)}
