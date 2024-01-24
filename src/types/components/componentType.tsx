@@ -195,3 +195,10 @@ export interface MessageProps {
 export interface TitleOfSectionProps {
   titleText: string;
 }
+
+export interface CurrentLessonProps {
+  courseName: string;
+  lessonName: string;
+  lessonCurrentNumber: number;
+  allLessonsCount: number;
+}
