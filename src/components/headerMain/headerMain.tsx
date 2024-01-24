@@ -1,3 +1,4 @@
+import './_headerMain.scss';
 import ShoppingBasketIcon from '@mui/icons-material/ShoppingBasket';
 import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
@@ -12,8 +13,6 @@ import Button from '@mui/material/Button';
 import Stack from '@mui/material/Stack';
 import Modal from '@mui/material/Modal';
 import Box from '@mui/material/Box';
-
-import './_headerMain.scss';
 
 //Styles for modal from mui
 const style = {

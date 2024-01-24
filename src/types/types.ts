@@ -35,14 +35,29 @@ export interface IAuthResponseData {
   password: string;
 }
 
-export interface ICourseDetailsResponseData{
-  id: string,
-  title: string,
-  imageUrl: string,
-  category: string,
-  timeOfClasses: string,
-  numberOfStudents: number,
-  completedChapterLength: number,
-  chaptersLength: number,
+export interface ICourseDetailsResponseData {
+  id: string;
+  title: string;
+  imageUrl: string;
+  category: string;
+  timeOfClasses: string;
+  numberOfStudents: number;
+  completedChapterLength: number;
+  chaptersLength: number;
+}
+
+export interface Instructor {
+  id: number;
+  name: string;
+  email: string;
+  phone: string;
+  category: string[];
+}
+
+export interface InstructorsState {
+  instructors: Instructor[];
+  filteredInstructors: Instructor[];
+  status: 'idle' | 'loading' | 'success' | 'failed';
+  error: string;
 }
 

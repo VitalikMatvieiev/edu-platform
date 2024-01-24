@@ -1,5 +1,11 @@
 import { UseFormRegister } from 'react-hook-form';
 
+export interface InstructorCategoryProps {
+  category: string;
+  index: number;
+  onClick: (event: MouseEvent<HTMLButtonElement>) => void;
+}
+
 export interface TitleProps {
   headerText: string;
 }
@@ -26,6 +32,12 @@ export interface CheckboxProps {
   checkboxText: string;
   checked: boolean;
   onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
+}
+
+export interface InstructorCardProps {
+  category: string[];
+  name: string;
+  email: string;
 }
 
 export interface InputName {
@@ -90,6 +102,11 @@ export interface FormikConfigProps {
 
 export interface MainPageProps {
   children?: ReactNode;
+}
+
+export interface HeaderInstructorsProps {
+  onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
+  value: string;
 }
 
 export interface CourseData {

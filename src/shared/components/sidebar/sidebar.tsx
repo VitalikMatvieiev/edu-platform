@@ -33,6 +33,7 @@ export const Sidebar = () => {
         {SidebarData.map(({ title, icon, link }, key) => {
           return (
             <NavLink
+              key={key}
               to={link}
               className={({ isActive }) => (isActive ? 'active' : 'inactive')}
             >
@@ -48,6 +49,7 @@ export const Sidebar = () => {
           {SidebarFooterData.map(({ title, icon, link }, key) => {
             return (
               <NavLink
+                key={key}
                 to={link}
                 className={({ isActive }) => (isActive ? 'active' : 'inactive')}
               >

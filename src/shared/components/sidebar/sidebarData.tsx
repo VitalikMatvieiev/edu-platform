@@ -25,7 +25,7 @@ export const SidebarData = [
   {
     title: 'Instructors',
     icon: <PeopleAltIcon />,
-    link: '/',
+    link: '/primary/instructors',
   },
   {
     title: 'Course Notes',

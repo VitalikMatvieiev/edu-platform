@@ -1,3 +1,4 @@
+import './_mainPage.scss';
 import CardOfCourse from '../../components/cardOfCourse/CardOfCourse';
 import { MainPageProps } from '../../types/components/componentType';
 import SideFilter from '../../components/sideFilter/sideFilter';
@@ -6,7 +7,6 @@ import Sorting from '../../components/extendedFilter/sorting';
 import FilterBy from '../../components/extendedFilter/filterBy';
 import HeaderMain from '../../components/headerMain/headerMain';
 import { Sidebar } from '../../shared/components';
-import './_mainPage.scss';
 
 import React from 'react';
 
