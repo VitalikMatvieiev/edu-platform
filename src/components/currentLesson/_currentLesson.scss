@@ -15,24 +15,28 @@ $font-nunito: 'Nunito', sans-serif;
   position: relative;
   display: flex;
   flex-direction: column;
+  padding: 10px 7px;
 }
 
 .cl-card-image {
   width: 100%;
+  max-height: 170px;
   display: block;
+  object-fit: fill;
+  border-radius: 15px;
 }
 
 .cl-play-button {
   position: absolute;
-  top: 50%;
-  left: 50%;
+  top: 33%;
+  left: 48%;
   transform: translate(-50%, -50%);
   width: 30px;
   height: 30px;
-  background: rgba(0,0,0,0.5);
   border: none;
-  border-radius: 50%;
-  color: white;
+  background-color: transparent;
+  font-size: 40px;
+  color: black;
 }
 
 .cl-card-content {
@@ -43,6 +47,7 @@ $font-nunito: 'Nunito', sans-serif;
 }
 
 .cl-course-name {
+  font-weight: bold;
   font-size: 1.2em;
   margin: 0 0 10px;
 }
@@ -63,8 +68,10 @@ $font-nunito: 'Nunito', sans-serif;
 .cl-prop-name {
   display: flex;
   align-items: center;
+  opacity: 50%;
 }
 
 .cl-prop-value {
   font-weight: bold;
+  opacity: 50%;
 }

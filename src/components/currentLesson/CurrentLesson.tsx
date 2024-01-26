@@ -1,6 +1,7 @@
 import './_currentLesson.scss';
 import { useEffect, useState } from "react"
 import { CurrentLessonProps } from "../../types/components/componentType"
+import defaultCoursePhoto from '../../img/defaultCoursePhoto.png';
 import axios from "axios";
 
 const CurrentLesson = () => {
@@ -13,10 +14,10 @@ const fetchData = async () => {
     const currentLessonData = response.data;
 
     setCurrentLessonProps({
-      courseName: currentLessonData,
-      lessonName: currentLessonData,
-      lessonCurrentNumber: currentLessonData,
-      allLessonsCount: currentLessonData,
+      courseName: currentLessonData.courseName ?? "Science Basics",
+      lessonName: currentLessonData.lessonName ?? "Chemistry",
+      lessonCurrentNumber: currentLessonData.lessonCurrentNumber ?? 3,
+      allLessonsCount: currentLessonData.allLessonsCount ?? 6,
     });
   } catch (error) {
     console.error('Error during fetching lesson details:', error);
@@ -32,16 +33,16 @@ const fetchData = async () => {
   fetchData();
 }, []);
 
-  return (
+  return ( 
     <div className="cl-card">
-      <img src="../img/defaultCoursePhoto.png" className="cl-card-image" />
+      <img src={defaultCoursePhoto} className="cl-card-image" />
       <button className="cl-play-button">&#9658;</button>
       <div className="cl-card-content">
         <h2 className="cl-course-name">{currentLessonProps?.courseName}</h2>
         <h3 className="cl-lesson-name">{currentLessonProps?.lessonName}</h3>
         <div className="cl-card-info">
           <div className="cl-prop-name">Lesson</div>
-          <div className="cl-prop-value">{currentLessonProps?.lessonCurrentNumber}/{currentLessonProps?.lessonName}</div>
+          <div className="cl-prop-value">{currentLessonProps?.lessonCurrentNumber}/{currentLessonProps?.allLessonsCount}</div>
         </div>
       </div>
     </div>
