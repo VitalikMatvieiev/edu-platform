@@ -1,10 +1,11 @@
-import React, { useEffect, useState } from 'react';
-import MenuItem from '@mui/material/MenuItem';
-import FormControl from '@mui/material/FormControl';
-import InputLabel from '@mui/material/InputLabel';
-import Select, { SelectChangeEvent } from '@mui/material/Select';
-import './extendedFilter.scss';
 import { DetailsOfCourse } from '../../types/components/componentType';
+import './extendedFilter.scss';
+
+import Select, { SelectChangeEvent } from '@mui/material/Select';
+import FormControl from '@mui/material/FormControl';
+import React, { useEffect, useState } from 'react';
+import InputLabel from '@mui/material/InputLabel';
+import MenuItem from '@mui/material/MenuItem';
 
 const Sorting: React.FC = () => {
   const [sortBy, setSortBy] = useState<string>('rating');
@@ -40,7 +41,7 @@ const Sorting: React.FC = () => {
 
   return (
     <>
-      <FormControl sx={{ minWidth: 150, height: '20px' }}>
+      <FormControl sx={{ minWidth: 150, m: 1, height: '20px' }}>
         <InputLabel id="demo-simple-select-helper-label">Sort by:</InputLabel>
         <Select
           labelId="demo-simple-select-helper-label"
@@ -48,7 +49,7 @@ const Sorting: React.FC = () => {
           label="Sort by"
           onChange={handleSortChange}
           placeholder="Sort By"
-          sx={{ borderRadius: '30px' }}
+          sx={{ borderRadius: '30px', height: '30px' }}
         >
           {sortOptions.map((option) => (
             <MenuItem key={option.value} value={option.value}>

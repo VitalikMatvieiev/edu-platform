@@ -1,10 +1,12 @@
 @import url('https://fonts.googleapis.com/css2?family=Nunito:wght@500;700&display=swap');
 
 $font-nunito: 'Nunito', sans-serif;
+
 @mixin nunito-bold {
   font-family: $font-nunito;
   font-weight: 700;
 }
+
 @mixin nunito-medium {
   font-family: $font-nunito;
   font-weight: 500;
@@ -18,12 +20,14 @@ $font-nunito: 'Nunito', sans-serif;
   background-color: #fff;
   border-radius: 25px;
   box-shadow: 0 0 5px 5px rgb(240, 231, 231);
+
   & .filter-range {
     @include nunito-bold;
     font-size: 20px;
     line-height: 20px;
     color: #222020;
   }
+
   & .inputs-price-container {
     margin-top: 15px;
     display: flex;
@@ -32,6 +36,7 @@ $font-nunito: 'Nunito', sans-serif;
     align-items: center;
     gap: 10px;
   }
+
   & .checkbox-wrapper {
     margin-top: 15px;
     display: flex;
@@ -40,11 +45,13 @@ $font-nunito: 'Nunito', sans-serif;
     align-items: start;
     gap: 5px;
   }
+
   & .filter-button-wrapper {
     width: 100%;
     margin-top: 30px;
     display: flex;
     justify-content: center;
+
     & .filter-apply-button {
       @include nunito-bold;
       width: 50%;
@@ -62,10 +69,12 @@ $font-nunito: 'Nunito', sans-serif;
       position: relative;
       transition: all 0.35s;
       cursor: pointer;
+
       & .apply-button-text {
         position: relative;
         z-index: 2;
       }
+
       &:after {
         position: absolute;
         content: '';
@@ -77,6 +86,7 @@ $font-nunito: 'Nunito', sans-serif;
         border-radius: 25px;
         transition: all 0.35s;
       }
+
       &:hover {
         color: #fff;
         &::after {

@@ -1,5 +1,5 @@
 import ExtendedFilter from '../../components/extendedFilter/extendedFilter';
-import CardOfCourse from '../../components/cardOfCourse/CardOfCourse';
+import CardOfCourse from '../../components/cardOfCourse/cardOfCourse';
 import { FooterMain } from '../../components/footer-main/footerMain';
 import { MainPageProps } from '../../types/components/componentType';
 import HeaderMain from '../../components/headerMain/headerMain';

@@ -1,8 +1,9 @@
+import { CourseData } from '../../types/components/componentType';
+import './extendedFilter.scss';
+
 import ReorderIcon from '@mui/icons-material/Reorder';
 import { IconButton } from '@mui/material';
-import './extendedFilter.scss';
 import { useState } from 'react';
-import { CourseData } from '../../types/components/componentType';
 
 const FilterBy: React.FC = () => {
   const [isFilterVisible, setFilterVisible] = useState<boolean>(false);

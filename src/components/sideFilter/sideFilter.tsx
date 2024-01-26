@@ -1,14 +1,22 @@
 import { useState } from 'react';
+
 import './_sideFilter.scss';
 import {
-  Slider,
-  TextField,
-  InputAdornment,
-  Checkbox,
+  InstructorCount,
+  CategoryCount,
+  Instructor,
+  LevelCount,
+  Category,
+  Level,
+} from '../../types/components/componentType';
+import {
   FormControlLabel,
+  InputAdornment,
+  TextField,
   FormGroup,
+  Checkbox,
+  Slider,
 } from '@mui/material';
-import { Category, CategoryCount, Instructor, InstructorCount, Level, LevelCount } from '../../types/components/componentType';
 
 //Test array, next will be array which we get from backend
 const data = [
@@ -23,8 +31,6 @@ const data = [
   { instructor: 'Alex', category: 'Self-paced', level: 'Intermidiate' },
   { instructor: 'Alex', category: 'Certificated', level: 'Expert' },
 ];
-
-
 
 // Function, which gets array of objects with property - instructor
 const getInstructorCounts = (data: Instructor[]): InstructorCount[] => {
@@ -93,12 +99,17 @@ const SideFilter: React.FC = () => {
   const handleApply = () => {
     try {
       // will be send filtered data to redux state
-      const filteredData = { priceRangeValue, selectedInstructors, selectedCategories, selectedLevels };
+      const filteredData = {
+        priceRangeValue,
+        selectedInstructors,
+        selectedCategories,
+        selectedLevels,
+      };
       console.log(filteredData);
     } catch (err: any) {
       console.error(`Error in apply filter: ${err}`);
     }
-  }
+  };
 
   const handleSelectInstructors = (instructor: string) => {
     setSelectedInstructors((prevState): string[] => {
@@ -146,10 +157,10 @@ const SideFilter: React.FC = () => {
             width: '100%',
             '& .MuiOutlinedInput-root': {
               '&:hover fieldset': {
-                borderColor: '#cbc5c5', 
+                borderColor: '#cbc5c5',
               },
               '&.Mui-focused fieldset': {
-                borderColor: '#cbc5c5', 
+                borderColor: '#cbc5c5',
               },
             },
           }}
@@ -183,10 +194,10 @@ const SideFilter: React.FC = () => {
             width: '100%',
             '& .MuiOutlinedInput-root': {
               '&:hover fieldset': {
-                borderColor: '#cbc5c5', 
+                borderColor: '#cbc5c5',
               },
               '&.Mui-focused fieldset': {
-                borderColor: '#cbc5c5', 
+                borderColor: '#cbc5c5',
               },
             },
           }}
@@ -223,13 +234,13 @@ const SideFilter: React.FC = () => {
         sx={{
           '& .MuiSlider-track': {
             backgroundColor: 'red',
-            border: 'none', 
+            border: 'none',
           },
           '& .MuiSlider-rail': {
-            backgroundColor: 'black', 
+            backgroundColor: 'black',
           },
           '& .MuiSlider-thumb': {
-            backgroundColor: 'red', 
+            backgroundColor: 'red',
           },
         }}
       />

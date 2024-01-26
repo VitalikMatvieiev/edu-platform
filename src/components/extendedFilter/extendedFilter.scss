@@ -15,11 +15,12 @@
 .list__filter {
   @include flex-box(row, initial, 10);
   width: 100%;
+  align-items: center;
 
   &--item {
     border: 1px solid #000;
     border-radius: 30px;
-    padding: 10px 20px;
+    padding: 5px 20px;
     max-width: 300px;
     cursor: pointer;
     @include font-style(14, 18);

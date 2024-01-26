@@ -1,6 +1,6 @@
 import defaultCoursePhoto from '../../img/defaultCoursePhoto.png';
 import { CourseData } from '../../types/components/componentType';
-import './card.scss';
+import './cardOfCourse.scss';
 
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import FavoriteIcon from '@mui/icons-material/Favorite';
@@ -36,6 +36,7 @@ const CardOfCourse = () => {
         });
       } catch (error) {
         console.error('Error fetching course details:', error);
+
         setCourseData({
           rating: 0,
           photoUrl: defaultCoursePhoto,
@@ -55,7 +56,15 @@ const CardOfCourse = () => {
   };
 
   return (
-    <Card sx={{ maxWidth: 200, padding: '0 10px', borderRadius: '20px' }}>
+    <Card
+      sx={{
+        maxWidth: 200,
+        padding: '0 10px',
+        borderRadius: '20px',
+        marginTop: '30px',
+        boxShadow: '0 0 5px 5px rgb(240, 231, 231)',
+      }}
+    >
       <Box
         sx={{
           display: 'flex',
@@ -67,6 +76,7 @@ const CardOfCourse = () => {
         <Typography variant="body1">{courseData?.rating}</Typography>
         <StarIcon />
       </Box>
+
       <CardMedia
         component="img"
         alt="Course Photo"
@@ -74,15 +84,18 @@ const CardOfCourse = () => {
         sx={{ borderRadius: '30px' }}
         src={courseData?.photoUrl}
       />
+
       <CardContent sx={{ padding: '0', marginTop: '5px' }}>
         <Box sx={{ textAlign: 'center' }}>
           <Typography sx={{ lineHeight: '1.2' }} variant="h6" component="div">
             {courseData?.name}
           </Typography>
+
           <Typography variant="subtitle2" component="div">
             {courseData?.category}
           </Typography>
         </Box>
+
         <Box
           sx={{
             display: 'flex',
@@ -96,6 +109,7 @@ const CardOfCourse = () => {
           </Link>
         </Box>
       </CardContent>
+
       <CardActions
         sx={{
           display: 'flex',
@@ -111,10 +125,12 @@ const CardOfCourse = () => {
         >
           {`$${courseData?.price}`}
         </Typography>
+
         <Box>
           <IconButton aria-label="Add to Cart">
             <ShoppingCartIcon sx={{ color: '#000' }} />
           </IconButton>
+
           <IconButton
             aria-label="Add to Favorites"
             onClick={handleFavoriteClick}
