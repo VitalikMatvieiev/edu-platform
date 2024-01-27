@@ -197,6 +197,7 @@ export interface TitleOfSectionProps {
 }
 
 export interface CurrentLessonProps {
+  courseId: number,
   courseName: string;
   lessonName: string;
   lessonCurrentNumber: number;

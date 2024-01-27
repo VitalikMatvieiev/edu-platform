@@ -16,62 +16,52 @@ $font-nunito: 'Nunito', sans-serif;
   display: flex;
   flex-direction: column;
   padding: 10px 7px;
-}
+  font-family: $font-nunito;
+  cursor: pointer;
 
-.cl-card-image {
-  width: 100%;
-  max-height: 170px;
-  display: block;
-  object-fit: fill;
-  border-radius: 15px;
-}
+  & .image {
+    width: 100%;
+    max-height: 170px;
+    display: block;
+    object-fit: fill;
+    border-radius: 15px;
+  }
 
-.cl-play-button {
-  position: absolute;
-  top: 33%;
-  left: 48%;
-  transform: translate(-50%, -50%);
-  width: 30px;
-  height: 30px;
-  border: none;
-  background-color: transparent;
-  font-size: 40px;
-  color: black;
-}
+  & .content {
+    padding: 15px 5px 10px 5px;
+    background: white;
+    display: flex;
+    flex-direction: column;
 
-.cl-card-content {
-  padding: 15px;
-  background: white;
-  display: flex;
-  flex-direction: column;
-}
+    & .course-name {
+      font-weight: bold;
+      font-size: 1.2em;
+      margin: 0 0 11px;
+    }
 
-.cl-course-name {
-  font-weight: bold;
-  font-size: 1.2em;
-  margin: 0 0 10px;
-}
+    & .lesson-name {
+      font-weight: bold;
+      font-size: 1.05em;
+      margin: 0 0 5px;
+    }
 
-.cl-lesson-name {
-  font-size: 1.05em;
-  margin: 0 0 10px;
-}
+    & .card-info {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: space-between;
+      font-size: 0.9em;
 
-.cl-card-info {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: space-between;
-  font-size: 0.9em;
-}
+      & .prop-name {
+        display: flex;
+        align-items: center;
+        opacity: 50%;
+      }
 
-.cl-prop-name {
-  display: flex;
-  align-items: center;
-  opacity: 50%;
-}
-
-.cl-prop-value {
-  font-weight: bold;
-  opacity: 50%;
+      & .prop-value {
+        font-weight: bold;
+        opacity: 50%;
+      }
+    }
+  }
 }

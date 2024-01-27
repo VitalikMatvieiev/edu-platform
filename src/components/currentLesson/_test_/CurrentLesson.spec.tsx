@@ -4,41 +4,36 @@ import CurrentLesson from '../CurrentLesson';
 import '@testing-library/jest-dom';
 
 describe('CurrentLesson', () => {
-  beforeEach(() => {
-    render(
-      <MemoryRouter>
-        <CurrentLesson />
-      </MemoryRouter>
-    )
-  })
-});
 
-test('renders current lesson', () => {
-  const lessonCard = screen.getByTestId('cl-card');
-  expect(lessonCard).toBeInTheDocument();
-});
-
-test('renders custom lesson card with props', () => {
-  const props = [
-    {
+  const props = {
+      courseId: 11,
       courseName: "Science",
       lessonName: "Math",
       lessonCurrentNumber: 3,
       allLessonsCount: 4,
-    },
-  ];
+    }
+  
+  beforeEach(() => {
+    render(
+      <MemoryRouter>
+        <CurrentLesson courseId={props.courseId} courseName={props.courseName}  lessonName={props.lessonName} lessonCurrentNumber={props.lessonCurrentNumber} allLessonsCount={props.allLessonsCount}/>
+      </MemoryRouter>
+    )
+  })
 
-  props.forEach((field) => {
-    const courseName = screen.getByText(field.courseName);
+  test('renders current lesson', () => {
+    const lessonCard = screen.getByTestId('cl-card');
+    expect(lessonCard).toBeInTheDocument();
+  });
+
+  test('renders custom lesson card with props', () => {
+    const courseName = screen.getByText(props.courseName);
     expect(courseName).toBeInTheDocument();
-
-    const lessonName = screen.getByText(field.lessonName);
+  
+    const lessonName = screen.getByText(props.lessonName);
     expect(lessonName).toBeInTheDocument();
-
-    const lessonCurrentNumber = screen.getByLabelText(field.lessonCurrentNumber);
-    expect(lessonCurrentNumber).toBeInTheDocument();
-
-    const allLessonsCount = screen.getByLabelText(field.allLessonsCount);
-    expect(allLessonsCount).toBeInTheDocument();
+  
+    const lessonInfo = screen.getByText(`${props.lessonCurrentNumber}/${props.allLessonsCount}`);
+    expect(lessonInfo).toBeInTheDocument();
   });
 });
