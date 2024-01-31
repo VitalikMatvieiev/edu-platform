@@ -1,6 +1,66 @@
 .footer {
-  background-color: aqua;
+  background-color: #fff;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
   width: 100%;
   display: flex;
   justify-content: space-between;
+  padding: 20px 50px;
+  font-family: 'Montserrat', sans-serif;
+
+  &-social {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+
+    &-logo {
+      display: flex;
+      gap: 10px;
+
+      &-text {
+        font-weight: 500;
+        font-size: 28px;
+        align-items: center;
+      }
+    }
+
+    &-cta {
+    }
+
+    &-icons {
+      display: flex;
+      gap: 15px;
+      margin-top: 30px;
+    }
+  }
+
+  &-contacts {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+
+    &-details {
+      display: flex;
+      flex-direction: column;
+      row-gap: 10px;
+    }
+
+    &-text {
+      display: flex;
+      flex-direction: column;
+    }
+
+    &-phone {
+      display: flex;
+      font-weight: bold;
+      align-items: center;
+      column-gap: 5px;
+    }
+
+    &-email {
+      display: flex;
+      font-weight: bold;
+      align-items: center;
+      column-gap: 5px;
+    }
+  }
 }

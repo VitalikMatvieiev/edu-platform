@@ -1,5 +1,6 @@
 import defaultCoursePhoto from '../../img/defaultCoursePhoto.png';
 import { CourseData } from '../../types/components/componentType';
+import * as model from '../../shared/model';
 import './cardOfCourse.scss';
 
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
@@ -12,6 +13,7 @@ import StarIcon from '@mui/icons-material/Star';
 import { Box, Typography } from '@mui/material';
 import CardMedia from '@mui/material/CardMedia';
 import { useState, useEffect } from 'react';
+import { useDispatch } from 'react-redux';
 import { Link } from 'react-router-dom';
 import Card from '@mui/material/Card';
 import axios from 'axios';
@@ -19,6 +21,8 @@ import axios from 'axios';
 const CardOfCourse = () => {
   const [courseData, setCourseData] = useState<CourseData | null>(null);
   const [isFavorite, setIsFavorite] = useState<boolean>(false);
+
+  const dispatch = useDispatch();
 
   useEffect(() => {
     const fetchData = async () => {
@@ -53,6 +57,12 @@ const CardOfCourse = () => {
 
   const handleFavoriteClick = () => {
     setIsFavorite(!isFavorite);
+  };
+
+  const onAddToCart = () => {
+    if (courseData) {
+      dispatch(model.cart.addToCart(courseData));
+    }
   };
 
   return (
@@ -127,7 +137,7 @@ const CardOfCourse = () => {
         </Typography>
 
         <Box>
-          <IconButton aria-label="Add to Cart">
+          <IconButton onClick={onAddToCart} aria-label="Add to Cart">
             <ShoppingCartIcon sx={{ color: '#000' }} />
           </IconButton>
 

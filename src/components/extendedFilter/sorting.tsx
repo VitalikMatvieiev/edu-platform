@@ -41,15 +41,16 @@ const Sorting: React.FC = () => {
 
   return (
     <>
-      <FormControl sx={{ minWidth: 150, m: 1, height: '20px' }}>
-        <InputLabel id="demo-simple-select-helper-label">Sort by:</InputLabel>
+      <FormControl size="small" sx={{ minWidth: 150, m: 1 }}>
+        <InputLabel id="sort-select-label">Sort by:</InputLabel>
         <Select
-          labelId="demo-simple-select-helper-label"
-          id="demo-simple-select-helper"
+          labelId="sort-select-label"
+          id="sort-select"
           label="Sort by"
           onChange={handleSortChange}
+          value={sortBy}
           placeholder="Sort By"
-          sx={{ borderRadius: '30px', height: '30px' }}
+          sx={{ borderRadius: '30px' }}
         >
           {sortOptions.map((option) => (
             <MenuItem key={option.value} value={option.value}>

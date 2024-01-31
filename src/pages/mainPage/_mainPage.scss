@@ -26,6 +26,13 @@
     &-content {
       display: flex;
       align-items: start;
+
+      &-cards {
+        display: flex;
+        flex-wrap: wrap;
+        column-gap: 20px;
+        max-width: 1000px;
+      }
     }
   }
 }

@@ -93,11 +93,15 @@ export interface MainPageProps {
 }
 
 export interface CourseData {
+  map(
+    arg0: (course: any) => import('react/jsx-runtime').JSX.Element,
+  ): ReactNode;
+  id: string;
   rating: number;
   photoUrl: string;
   name: string;
   category: string;
-  price: number;
+  price: string;
   level: string;
 }
 
