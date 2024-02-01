@@ -1,5 +1,4 @@
 import ExtendedFilter from '../../components/extendedFilter/extendedFilter';
-import CardOfCourse from '../../components/cardOfCourse/CardOfCourse';
 import {
   CourseData,
   MainPageProps,
@@ -15,11 +14,13 @@ import MOCKED_COURSES from './MOCK_DATA.json';
 
 import { FC, useEffect, useState } from 'react';
 import { CourseCard } from '../../components/course-card';
-import { useAppSelector } from '../../shared/model/hooks';
+import { useAppSelector } from '../../shared/model/store';
 
 const MainPage: FC<MainPageProps> = () => {
-  const test = useAppSelector((state) => state.cart);
-  console.log(test);
+  const testCart = useAppSelector((state) => state.cart);
+  console.log(testCart);
+  const testFavorite = useAppSelector((state) => state.favorite);
+  console.log(testFavorite);
 
   const [data, setData] = useState<CourseData[]>([]);
   useEffect(() => {
@@ -42,6 +43,7 @@ const MainPage: FC<MainPageProps> = () => {
             {data.map((course) => (
               <CourseCard
                 key={course.id}
+                id={course.id}
                 category={course.category}
                 rating={course.rating}
                 level={course.level}

@@ -16,10 +16,21 @@ const cartSlice = createSlice({
   initialState,
   reducers: {
     addToCart(state, action: PayloadAction<CourseData>) {
-      // Check if exists in cart already -> then delete if yes
-      state.cart.push(action.payload);
+      // Check if the course is already in the cart
+      const existingCourse = state.cart.find(
+        (course) => course.id === action.payload.id,
+      );
+
+      // If not in the cart, add it
+      if (!existingCourse) {
+        state.cart.push(action.payload);
+      }
     },
-    deleteFromCart(state, action: PayloadAction<string>) {},
+
+    deleteFromCart(state, action: PayloadAction<string>) {
+      // Filter out the course with the specified id
+      state.cart = state.cart.filter((course) => course.id !== action.payload);
+    },
   },
 });
 
