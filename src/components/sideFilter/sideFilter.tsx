@@ -30,6 +30,7 @@ const data = [
   { instructor: 'Alex', category: 'Interactive', level: 'Beginner' },
   { instructor: 'Alex', category: 'Self-paced', level: 'Intermidiate' },
   { instructor: 'Alex', category: 'Certificated', level: 'Expert' },
+  { instructor: 'Alex', category: 'Certificated', level: 'Expert' },
 ];
 
 // Function, which gets array of objects with property - instructor
