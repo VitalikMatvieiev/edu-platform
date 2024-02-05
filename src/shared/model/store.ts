@@ -3,9 +3,14 @@ import { configureStore } from '@reduxjs/toolkit';
 
 import cartReducer from './cartSlice';
 import favoriteReducer from './favoriteSlice';
+import coursesReducer from './coursesSlice';
 
 export const store = configureStore({
-  reducer: { cart: cartReducer, favorite: favoriteReducer },
+  reducer: {
+    cart: cartReducer,
+    favorite: favoriteReducer,
+    courses: coursesReducer,
+  },
 });
 
 export const useAppDispatch: () => typeof store.dispatch = useDispatch;

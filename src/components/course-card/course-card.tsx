@@ -21,6 +21,7 @@ interface Props {
   category: string;
   level: string;
   price: string;
+  instructor: string;
 }
 
 export const CourseCard = ({
@@ -31,6 +32,7 @@ export const CourseCard = ({
   category,
   level,
   price,
+  instructor,
 }: Props) => {
   const [isFavorite, setIsFavorite] = useState(false);
   const dispatch = useAppDispatch();
@@ -43,6 +45,7 @@ export const CourseCard = ({
     category,
     level,
     price,
+    instructor,
   };
 
   return (

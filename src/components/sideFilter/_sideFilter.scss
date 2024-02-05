@@ -49,9 +49,9 @@ $font-montserrat: 'Montserrat', sans-serif;
     margin-top: 30px;
     display: flex;
     justify-content: center;
+    align-items: center;
 
     & .filter-apply-button {
-      @include montserrat-bold;
       width: 50%;
       height: 40px;
       line-height: 18px;
@@ -70,6 +70,7 @@ $font-montserrat: 'Montserrat', sans-serif;
       cursor: pointer;
 
       & .apply-button-text {
+        @include montserrat-bold;
         position: relative;
         z-index: 2;
       }

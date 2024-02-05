@@ -1,20 +1,19 @@
 import ExtendedFilter from '../../components/extendedFilter/extendedFilter';
-import {
-  CourseData,
-  MainPageProps,
-} from '../../types/components/componentType';
 import HeaderMain from '../../components/headerMain/headerMain';
 import FilterBy from '../../components/extendedFilter/filterBy';
 import SideFilter from '../../components/sideFilter/sideFilter';
 import Sorting from '../../components/extendedFilter/sorting';
+import { useAppSelector } from '../../shared/model/store';
+import { CourseCard } from '../../components/course-card';
 import { FooterMain } from '../../components/footer-main';
-// import { Sidebar } from '../../shared/components';
-import './_mainPage.scss';
+import {
+  CourseData,
+  MainPageProps,
+} from '../../types/components/componentType';
 import MOCKED_COURSES from './MOCK_DATA.json';
+import './_mainPage.scss';
 
 import { FC, useEffect, useState } from 'react';
-import { CourseCard } from '../../components/course-card';
-import { useAppSelector } from '../../shared/model/store';
 
 const MainPage: FC<MainPageProps> = () => {
   const testCart = useAppSelector((state) => state.cart);
@@ -29,7 +28,6 @@ const MainPage: FC<MainPageProps> = () => {
 
   return (
     <div data-testid="main-page" className="main-page">
-      {/* <Sidebar /> */}
       <div className="main-page-container">
         <HeaderMain />
         <ExtendedFilter />
@@ -50,10 +48,10 @@ const MainPage: FC<MainPageProps> = () => {
                 price={course.price}
                 name={course.name}
                 photoUrl={course.photoUrl}
+                instructor={course.instructor}
               />
             ))}
           </div>
-          {/* <CardOfCourse /> */}
         </div>
         <FooterMain />
       </div>

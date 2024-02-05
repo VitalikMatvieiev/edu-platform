@@ -103,6 +103,7 @@ export interface CourseData {
   category: string;
   price: string;
   level: string;
+  instructor: string;
 }
 
 export interface Course {
