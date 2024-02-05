@@ -1,16 +1,4 @@
-import MOCKED_COURSES from '../../pages/mainPage/MOCK_DATA.json';
-import './_sideFilter.scss';
-import {
-  InstructorCount,
-  CategoryCount,
-  Instructor,
-  LevelCount,
-  Category,
-  Level,
-  CourseData,
-} from '../../types/components/componentType';
-
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import {
   FormControlLabel,
   InputAdornment,
@@ -20,31 +8,47 @@ import {
   Slider,
 } from '@mui/material';
 
-const [data, setData] = useState<CourseData[]>([]);
-useEffect(() => {
-  setData(MOCKED_COURSES as CourseData[]);
-}, []);
+import './_sideFilter.scss';
+import {
+  InstructorCount,
+  CategoryCount,
+  Instructor,
+  LevelCount,
+  Category,
+  Level,
+} from '../../types/components/componentType';
 
-// //Test array, next will be array which we get from backend
-// const data = [
-//   { instructor: 'John', category: 'Interactive', level: 'Beginner' },
-//   { instructor: 'John', category: 'Self-paced', level: 'Intermidiate' },
-//   { instructor: 'John', category: 'Certificated', level: 'Expert' },
-//   { instructor: 'John', category: 'Interactive', level: 'Practical' },
-//   { instructor: 'Ann', category: 'Interactive', level: 'Intermidiate' },
-//   { instructor: 'Ann', category: 'Certificated', level: 'Practical' },
-//   { instructor: 'Ann', category: 'Certificated', level: 'Expert' },
-//   { instructor: 'Alex', category: 'Interactive', level: 'Beginner' },
-//   { instructor: 'Alex', category: 'Self-paced', level: 'Intermidiate' },
-//   { instructor: 'Alex', category: 'Certificated', level: 'Expert' },
-//   { instructor: 'Alex', category: 'Certificated', level: 'Expert' },
-// ];
+// const coursesData = MOCKED_COURSES as CourseData[];
+// const dispatch = useAppDispatch();
+
+// useEffect(() => {
+//   // Додаємо дані до Redux при завантаженні компонента
+//   coursesData.forEach((course) => {
+//     dispatch(model.courses.addToCourses(course));
+//   });
+// }, [dispatch, coursesData]);
+// const [data, setData] = useState<CourseData[]>([]);
+// useEffect(() => {
+//   setData(MOCKED_COURSES as CourseData[]);
+// }, []);
+
+//Test array, next will be array which we get from backend
+const data = [
+  { instructor: 'John', category: 'Interactive', level: 'Beginner' },
+  { instructor: 'John', category: 'Self-paced', level: 'Intermidiate' },
+  { instructor: 'John', category: 'Certificated', level: 'Expert' },
+  { instructor: 'John', category: 'Interactive', level: 'Practical' },
+  { instructor: 'Ann', category: 'Interactive', level: 'Intermidiate' },
+  { instructor: 'Ann', category: 'Certificated', level: 'Practical' },
+  { instructor: 'Ann', category: 'Certificated', level: 'Expert' },
+  { instructor: 'Alex', category: 'Interactive', level: 'Beginner' },
+  { instructor: 'Alex', category: 'Self-paced', level: 'Intermidiate' },
+  { instructor: 'Alex', category: 'Certificated', level: 'Expert' },
+  { instructor: 'Alex', category: 'Certificated', level: 'Expert' },
+];
 
 // Function, which gets array of objects with property - instructor
 const getInstructorCounts = (data: Instructor[]): InstructorCount[] => {
-  console.log(data);
-  console.log(MOCKED_COURSES);
-
   // Use reduce to calculate the quantities of each instructor
   return data.reduce((acc: InstructorCount[], item) => {
     // Search instructor in acc

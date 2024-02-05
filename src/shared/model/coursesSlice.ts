@@ -4,6 +4,9 @@ import type { PayloadAction } from '@reduxjs/toolkit';
 import { createSlice } from '@reduxjs/toolkit';
 
 interface CoursesState {
+  map(
+    arg0: (course: any) => import('react/jsx-runtime').JSX.Element,
+  ): import('react').ReactNode;
   courses: CourseData[];
 }
 
@@ -24,8 +27,13 @@ const coursesSlice = createSlice({
         (course) => course.id !== action.payload,
       );
     },
+
+    setCourses(state, action: PayloadAction<CourseData[]>) {
+      state.courses = action.payload;
+    },
   },
 });
 
-export const { addToCourses, deleteFromCourses } = coursesSlice.actions;
+export const { addToCourses, deleteFromCourses, setCourses } =
+  coursesSlice.actions;
 export default coursesSlice.reducer;
