@@ -8,19 +8,20 @@ import {
   Slider,
 } from '@mui/material';
 
-import './_sideFilter.scss';
+import './_sideFilterNew.scss';
 import {
   InstructorCount,
   CategoryCount,
-  Instructor,
   LevelCount,
-  Category,
-  Level,
 } from '../../types/components/componentType';
+import {
+  getInstructorCounts,
+  getCategoryCounts,
+  getLevelCounts,
+} from '../../shared/helpers/courses';
 import { useAppSelector } from '../../shared/model/store';
 
 // const coursesData = MOCKED_COURSES as CourseData[];
-// const data = useAppSelector((state) => state.courses.courses);
 
 // useEffect(() => {
 //   // Додаємо дані до Redux при завантаженні компонента
@@ -34,76 +35,28 @@ import { useAppSelector } from '../../shared/model/store';
 // }, []);
 
 // Test array, next will be array which we get from backend
-const data = [
-  { instructor: 'John', category: 'Interactive', level: 'Beginner' },
-  { instructor: 'John', category: 'Self-paced', level: 'Intermidiate' },
-  { instructor: 'John', category: 'Certificated', level: 'Expert' },
-  { instructor: 'John', category: 'Interactive', level: 'Practical' },
-  { instructor: 'Ann', category: 'Interactive', level: 'Intermidiate' },
-  { instructor: 'Ann', category: 'Certificated', level: 'Practical' },
-  { instructor: 'Ann', category: 'Certificated', level: 'Expert' },
-  { instructor: 'Alex', category: 'Interactive', level: 'Beginner' },
-  { instructor: 'Alex', category: 'Self-paced', level: 'Intermidiate' },
-  { instructor: 'Alex', category: 'Certificated', level: 'Expert' },
-  { instructor: 'Alex', category: 'Certificated', level: 'Expert' },
-];
+// const data = [
+//   { instructor: 'John', category: 'Interactive', level: 'Beginner' },
+//   { instructor: 'John', category: 'Self-paced', level: 'Intermidiate' },
+//   { instructor: 'John', category: 'Certificated', level: 'Expert' },
+//   { instructor: 'John', category: 'Interactive', level: 'Practical' },
+//   { instructor: 'Ann', category: 'Interactive', level: 'Intermidiate' },
+//   { instructor: 'Ann', category: 'Certificated', level: 'Practical' },
+//   { instructor: 'Ann', category: 'Certificated', level: 'Expert' },
+//   { instructor: 'Alex', category: 'Interactive', level: 'Beginner' },
+//   { instructor: 'Alex', category: 'Self-paced', level: 'Intermidiate' },
+//   { instructor: 'Alex', category: 'Certificated', level: 'Expert' },
+//   { instructor: 'Alex', category: 'Certificated', level: 'Expert' },
+// ];
 
-// Function, which gets array of objects with property - instructor
-const getInstructorCounts = (data: Instructor[]): InstructorCount[] => {
-  // Use reduce to calculate the quantities of each instructor
-  return data.reduce((acc: InstructorCount[], item) => {
-    // Search instructor in acc
-    const existingItem = acc.find(
-      (accItem) => accItem.instructor === item.instructor,
-    );
-    // If instructor already exists, increase its quantity by 1
-    if (existingItem) {
-      existingItem.quantity++;
-    } else {
-      // If there is no instructor, add a new object with an instructor and an initial number of 1
-      acc.push({ instructor: item.instructor, quantity: 1 });
-    }
+export const SideFilterNew: React.FC = () => {
+  const data = useAppSelector((state) => state.courses.courses);
 
-    return acc;
-  }, []);
-};
+  // Example usage
+  const instructorCounts: InstructorCount[] = getInstructorCounts(data);
+  const categoryCounts: CategoryCount[] = getCategoryCounts(data);
+  const levelCounts: LevelCount[] = getLevelCounts(data);
 
-// Function, which gets array of objects with property - category
-const getCategoryCounts = (data: Category[]): CategoryCount[] => {
-  return data.reduce((acc: CategoryCount[], item) => {
-    const existingItem = acc.find(
-      (accItem) => accItem.category === item.category,
-    );
-    if (existingItem) {
-      existingItem.quantity++;
-    } else {
-      acc.push({ category: item.category, quantity: 1 });
-    }
-
-    return acc;
-  }, []);
-};
-
-// Function, which gets array of objects with property - level
-const getLevelCounts = (data: Level[]): LevelCount[] => {
-  return data.reduce((acc: LevelCount[], item) => {
-    const existingItem = acc.find((accItem) => accItem.level === item.level);
-    if (existingItem) {
-      existingItem.quantity++;
-    } else {
-      acc.push({ level: item.level, quantity: 1 });
-    }
-
-    return acc;
-  }, []);
-};
-
-// Example usage
-const instructorCounts: InstructorCount[] = getInstructorCounts(data);
-const categoryCounts: CategoryCount[] = getCategoryCounts(data);
-const levelCounts: LevelCount[] = getLevelCounts(data);
-
-export const SideFilter: React.FC = () => {
   const minPrice: number = 0;
   const maxPrice: number = 1000;
 

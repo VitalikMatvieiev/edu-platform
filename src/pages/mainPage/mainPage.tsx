@@ -1,9 +1,10 @@
+import { SideFilterNew } from '../../components/sideFilterNew/sideFilterNew';
 import ExtendedFilter from '../../components/extendedFilter/extendedFilter';
+import { useAppDispatch, useAppSelector } from '../../shared/model/store';
+import { SideFilter } from '../../components/sideFilter/sideFilter';
 import HeaderMain from '../../components/headerMain/headerMain';
 import FilterBy from '../../components/extendedFilter/filterBy';
-import SideFilter from '../../components/sideFilter/sideFilter';
 import Sorting from '../../components/extendedFilter/sorting';
-import { useAppDispatch, useAppSelector } from '../../shared/model/store';
 import { CourseCard } from '../../components/course-card';
 import { FooterMain } from '../../components/footer-main';
 import {
@@ -14,7 +15,7 @@ import MOCKED_COURSES from './MOCK_DATA.json';
 import * as model from '../../shared/model';
 import './_mainPage.scss';
 
-import { FC, useEffect, useState } from 'react';
+import { FC, useEffect } from 'react';
 
 const MainPage: FC<MainPageProps> = () => {
   //   const testCart = useAppSelector((state) => state.cart);
@@ -44,7 +45,8 @@ const MainPage: FC<MainPageProps> = () => {
           <Sorting />
         </div>
         <div className="main-page-container-content">
-          <SideFilter />
+          {/* <SideFilter /> */}
+          <SideFilterNew />
           <div className="main-page-container-content-cards">
             {coursesData.map((course) => (
               <CourseCard
