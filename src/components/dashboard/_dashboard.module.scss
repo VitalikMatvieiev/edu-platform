@@ -1,9 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@700&display=swap');
-
-$font-montserrat: 'Montserrat', sans-serif;
-@mixin montserrat-regular {
-  font-family: $font-montserrat;
-}
+@import '../../styles/mixins';
 
 .dashboard-text-search-container {
   display: flex;
@@ -23,7 +18,7 @@ $font-montserrat: 'Montserrat', sans-serif;
   padding-top: 3px;
 }
 
-.dashboard-search-icons{
+.dashboard-search-icons {
   display: flex;
   flex-direction: row;
   justify-content: space-between;

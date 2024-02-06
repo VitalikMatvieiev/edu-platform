@@ -1,6 +1,6 @@
 import { render, screen } from '@testing-library/react';
 import { MemoryRouter } from 'react-router-dom';
-import CalendarComponent from '../calendarComponent';
+import { CalendarComponent } from '../calendarComponent';
 import '@testing-library/jest-dom';
 
 describe('CalendarComponent', () => {

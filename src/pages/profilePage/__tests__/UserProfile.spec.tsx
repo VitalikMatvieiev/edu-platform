@@ -1,7 +1,7 @@
 import { render, screen, fireEvent, waitFor } from '@testing-library/react';
 import '@testing-library/jest-dom';
 import { MemoryRouter } from 'react-router-dom';
-import UserProfile from '../userProfile';
+import { UserProfile } from '../userProfile';
 
 jest.mock('axios');
 

@@ -1,22 +1,21 @@
 import { GoogleAuthButton, CustomButton, Input } from '../../shared/components';
-import { InputName } from '../../types/components/componentType';
+import { InputName } from '../../types/pages/PagesTypes';
 import Checkbox from '../../components/checkbox/checkbox';
 import Title from '../../components/title/title';
-import './_loginPage.scss';
-
+import styles from './_loginPage.module.scss';
 import { GoogleOAuthProvider } from '@react-oauth/google';
 import { SubmitHandler, useForm } from 'react-hook-form';
 import { Link, useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import { useState } from 'react';
 
-const LoginPage: React.FC = () => {
+export const LoginPage: React.FC = () => {
   const navigate = useNavigate();
 
   // State for making password visible
   const [showPassword, setShowPassword] = useState(false);
 
-  const clientId = import.meta.env.VITE_REACT_APP_GOOGLE_OAUTH_CLIENT_ID;
+  const CLIENT_ID = import.meta.env.VITE_REACT_APP_GOOGLE_OAUTH_CLIENT_ID;
 
   const {
     register,
@@ -25,7 +24,7 @@ const LoginPage: React.FC = () => {
   } = useForm<InputName>();
 
   // Getting data from inputs and send it to backend
-  const loginHandler: SubmitHandler<InputName> = async (data) => {
+  const handleLogin: SubmitHandler<InputName> = async (data) => {
     try {
       /* eslint-disable */
       // @ts-ignore: Unreachable code error
@@ -46,11 +45,11 @@ const LoginPage: React.FC = () => {
 
   return (
     <div>
-      <section className="container-login">
-        <div className="login-title-container">
+      <section className={styles['container-login']}>
+        <div className={styles['login-title-container']}>
           <Title headerText="Welcome!" />
         </div>
-        <form onSubmit={handleSubmit(loginHandler)}>
+        <form onSubmit={handleSubmit(handleLogin)}>
           <Input
             type="text"
             placeholder="username"
@@ -96,18 +95,18 @@ const LoginPage: React.FC = () => {
             checked={showPassword}
             onChange={handleCheckboxChange}
           />
-          <CustomButton variant="submit-btn">Login</CustomButton>
+          <CustomButton type='submit' variant="submit-btn">Login</CustomButton>
         </form>
-        <p className="account-not account-not-or">or</p>
-        <GoogleOAuthProvider clientId={clientId}>
+        <p className={`${styles['account-not']} ${styles['account-not-or']}`}>
+          or
+        </p>
+        <GoogleOAuthProvider clientId={CLIENT_ID}>
           <GoogleAuthButton />
         </GoogleOAuthProvider>
-        <Link to={'/sign-up'} className="account-not">
+        <Link to={'/sign-up'} className={styles['account-not']}>
           <p>Don&apos;t have an account?</p>
         </Link>
       </section>
     </div>
   );
 };
-
-export default LoginPage;

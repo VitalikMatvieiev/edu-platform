@@ -1,6 +1,6 @@
 import '@testing-library/jest-dom';
 import { fireEvent, render, screen } from '@testing-library/react';
-import LoginPage from '../loginPage';
+import { LoginPage } from '../LoginPage';
 import { MemoryRouter } from 'react-router-dom';
 
 describe('LoginPage - render and checking functionality', () => {
@@ -11,7 +11,7 @@ describe('LoginPage - render and checking functionality', () => {
       </MemoryRouter>,
     );
   });
-  
+
   test('renders login page', () => {
     // Check if the title is rendered
     expect(screen.getByText(/Welcome!/i)).toBeInTheDocument();

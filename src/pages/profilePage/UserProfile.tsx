@@ -1,13 +1,12 @@
-import { UserProfile as UserProfileType } from '../../types/components/componentType';
+import { UserProfile as UserProfileType } from '../../types/pages/PagesTypes';
 import { handlePhotoChange } from './utility/photoUtils';
 import { CustomButton } from '../../shared/components';
 import photoUpload from '../../img/photoUpload.svg';
 import useUserFormik from './utility/formikConfig';
-import './userProfile.scss';
-
+import styles from './_userProfile.module.scss';
 import React, { useState, useEffect } from 'react';
 
-const UserProfile: React.FC = () => {
+export const UserProfile: React.FC = () => {
   const [userProfile, setUserProfile] = useState<UserProfileType | null>(null);
   const [isEditing, setIsEditing] = useState(false);
   const [error, setError] = useState<string | null>(null);
@@ -16,7 +15,7 @@ const UserProfile: React.FC = () => {
 
   useEffect(() => {
     // Симулюємо отримання даних зі статичних об'єктів
-    const fetchUserProfile = async () => {
+    const handleFetchUserProfile = async () => {
       try {
         setIsLoading(true);
 
@@ -38,7 +37,7 @@ const UserProfile: React.FC = () => {
       }
     };
 
-    fetchUserProfile();
+    handleFetchUserProfile();
   }, []);
 
   const formik = useUserFormik({
@@ -73,17 +72,17 @@ const UserProfile: React.FC = () => {
   };
 
   return (
-    <div className="container-profile">
-      <form className="form" onSubmit={formik.handleSubmit}>
+    <div className={styles["container-profile"]}>
+      <form className={styles.form} onSubmit={formik.handleSubmit}>
         {isLoading ? (
           <p>Loading user profile...</p>
         ) : userProfile ? (
-          <div className="profile-width">
-            <h1 className="heading--h1">Personal information</h1>
+          <div className={styles["profile-width"]}>
+            <h1 className={styles["heading--h1"]}>Personal information</h1>
             {isEditing ? (
               <img
                 onClick={handleAddPhoto}
-                className="photo-upload"
+                className={styles["photo-upload"]}
                 src={formik.values.profilePhoto || '' || photoUpload}
                 alt="profilePhoto"
               />
@@ -91,21 +90,21 @@ const UserProfile: React.FC = () => {
               <img
                 src={'' || photoUpload || formik.values.profilePhoto}
                 alt="profilePhoto"
-                className="photo-upload"
+                className={styles["photo-upload"]}
               />
             )}
-            <label className="label">
-              <span className="color-gray">Full name</span>
+            <label className={styles.label}>
+              <span className={styles["color-gray"]}>Full name</span>
               {isEditing ? (
                 <>
                   <input
                     type="text"
                     {...formik.getFieldProps('username')}
                     required
-                    className="editing-input"
+                    className={styles["editing-input"]}
                   />
                   {formik.touched.username && formik.errors.username && (
-                    <div className="error-message">
+                    <div className={styles["error-message"]}>
                       {formik.errors.username}
                     </div>
                   )}
@@ -114,36 +113,36 @@ const UserProfile: React.FC = () => {
                 <span>{userProfile.username}</span>
               )}
             </label>
-            <label className="label">
-              <span className="color-gray">Email</span>
+            <label className={styles.label}>
+              <span className={styles["color-gray"]}>Email</span>
               {isEditing ? (
                 <>
                   <input
                     type="email"
                     {...formik.getFieldProps('email')}
                     required
-                    className="editing-input"
+                    className={styles["editing-input"]}
                   />
                   {formik.touched.email && formik.errors.email && (
-                    <div className="error-message">{formik.errors.email}</div>
+                    <div className={styles["error-message"]}>{formik.errors.email}</div>
                   )}
                 </>
               ) : (
                 <span>{userProfile.email}</span>
               )}
             </label>
-            <label className="label">
-              <span className="color-gray">Date of Birth</span>
+            <label className={styles.label}>
+              <span className={styles["color-gray"]}>Date of Birth</span>
               {isEditing ? (
                 <>
                   <input
                     type="date"
                     {...formik.getFieldProps('dateOfBirth')}
                     required
-                    className="editing-input"
+                    className={styles["editing-input"]}
                   />
                   {formik.touched.dateOfBirth && formik.errors.dateOfBirth && (
-                    <div className="error-message">
+                    <div className={styles["error-message"]}>
                       {formik.errors.dateOfBirth}
                     </div>
                   )}
@@ -152,12 +151,12 @@ const UserProfile: React.FC = () => {
                 <span>{userProfile.dateOfBirth}</span>
               )}
             </label>
-            <label className="label">
-              <span className="color-gray">Registration Date</span>
+            <label className={styles.label}>
+              <span className={styles["color-gray"]}>Registration Date</span>
               <span>{userProfile.registrationDate}</span>
             </label>
-            <label className="label">
-              <span className="color-gray">Last login date</span>
+            <label className={styles.label}>
+              <span className={styles["color-gray"]}>Last login date</span>
               <span>{userProfile.lastLoginTimestamp}</span>
             </label>
             {isEditing ? (
@@ -194,4 +193,3 @@ const UserProfile: React.FC = () => {
   );
 };
 
-export default UserProfile;

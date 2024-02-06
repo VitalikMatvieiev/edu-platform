@@ -1,6 +1,5 @@
 import { CustomButtonProps } from '../../../types/components/componentType';
-import './_button.scss';
-
+import styles from './_button.module.scss';
 import { Link } from 'react-router-dom';
 import { FC } from 'react';
 
@@ -12,8 +11,8 @@ export const CustomButton: FC<CustomButtonProps> = ({
   to,
   variant,
 }) => {
-  const commonClasses = `${variant} ${
-    color === 'primary' ? `${variant}--secondary` : ''
+  const commonClasses = `${styles[`${variant}`]} ${
+    color === 'primary' ? styles[`${variant}--secondary`] : ''
   }`;
 
   if (to) {
