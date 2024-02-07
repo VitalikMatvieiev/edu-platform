@@ -1,10 +1,11 @@
-import CalendarComponent from "../../components/calendarComponent/calendarComponent";
+import { CalendarComponent } from '../../components/calendarComponent/calendarComponent';
 
 const DashboardPage = () => {
-  return ( 
-  <>
-    <CalendarComponent />
-  </> );
-}
- 
+  return (
+    <>
+      <CalendarComponent />
+    </>
+  );
+};
+
 export default DashboardPage;

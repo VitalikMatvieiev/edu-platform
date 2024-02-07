@@ -1,14 +1,13 @@
 import GoogleIcon from '/src/img/google-icon.svg';
-import './_button.scss';
-
+import styles from './_button.module.scss';
 import { useGoogleLogin } from '@react-oauth/google';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 
-export function GoogleAuthButton() {
+export const GoogleAuthButton: React.FC = () => {
   const navigate = useNavigate();
 
-  const loginGoogle = useGoogleLogin({
+  const handleLoginGoogle = useGoogleLogin({
     onSuccess: async (response) => {
       try {
         const res = await axios.get(
@@ -30,10 +29,10 @@ export function GoogleAuthButton() {
 
   return (
     <>
-      <button className="btn-google" onClick={() => loginGoogle()}>
+      <button className={styles["btn-google"]} onClick={() => handleLoginGoogle()}>
         <img src={GoogleIcon} alt="Google icon" />
         <p>Sign in with Google</p>
       </button>
     </>
   );
-}
+};

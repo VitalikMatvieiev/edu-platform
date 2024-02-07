@@ -1,7 +1,7 @@
 import React from 'react';
 import { CustomCalendarTileProps } from '../../types/components/componentType';
 
-const CustomCalendarTile: React.FC<CustomCalendarTileProps> = ({
+export const CustomCalendarTile: React.FC<CustomCalendarTileProps> = ({
   date,
   view,
   events,
@@ -37,4 +37,3 @@ const CustomCalendarTile: React.FC<CustomCalendarTileProps> = ({
   );
 };
 
-export default CustomCalendarTile;

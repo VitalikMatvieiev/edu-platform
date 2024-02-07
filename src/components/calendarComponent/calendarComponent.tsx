@@ -3,16 +3,16 @@ import Calendar from 'react-calendar';
 import 'react-calendar/dist/Calendar.css';
 import './calendar.scss';
 import { Event } from '../../types/components/componentType';
-import CustomCalendarTile from './customCalendarTile';
+import { CustomCalendarTile } from './customCalendarTile';
 
-const CalendarComponent: React.FC = () => {
+export const CalendarComponent: React.FC = () => {
   const [date, setDate] = useState<Date>(new Date());
 
   // State for managing events data (with the date as the key)
   const [events, setEvents] = useState<{ [date: string]: Event }>({});
 
   // Function to fetch events
-  const fetchEvents = () => {
+  const handleFetchEvents = () => {
     // Examples
     const courses: Event[] = [
       {
@@ -46,7 +46,7 @@ const CalendarComponent: React.FC = () => {
 
   // fetch events when the component render
   useEffect(() => {
-    fetchEvents();
+    handleFetchEvents();
   }, []);
 
   // Function to determine the className for each tile based on the presence of events
@@ -65,7 +65,7 @@ const CalendarComponent: React.FC = () => {
           nextLabel={nextLabel}
           value={date}
           tileContent={({ date }) => (
-            <CustomCalendarTile date={date} view="month" events={events}/>
+            <CustomCalendarTile date={date} view="month" events={events} />
           )}
           tileClassName={tileClassName}
           onClickDay={(value) => setDate(value)}
@@ -74,5 +74,3 @@ const CalendarComponent: React.FC = () => {
     </div>
   );
 };
-
-export default CalendarComponent;

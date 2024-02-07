@@ -1,5 +1,51 @@
-@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@200;400;500;600;700;800;900;1000&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@200;400;500;600;700;800;900;1000&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100&display=swap');
+
+$font-montserrat: 'Montserrat', sans-serif;
+
+@mixin montserrat-thin {
+  font-family: $font-montserrat;
+  font-weight: 100;
+}
+
+@mixin montserrat-extra-light {
+  font-family: $font-montserrat;
+  font-weight: 200;
+}
+
+@mixin montserrat-light {
+  font-family: $font-montserrat;
+  font-weight: 300;
+}
+
+@mixin montserrat-regular {
+  font-family: $font-montserrat;
+  font-weight: 400;
+}
+
+@mixin montserrat-medium {
+  font-family: $font-montserrat;
+  font-weight: 500;
+}
+
+@mixin montserrat-semi-bold {
+  font-family: $font-montserrat;
+  font-weight: 600;
+}
+
+@mixin montserrat-bold {
+  font-family: $font-montserrat;
+  font-weight: 700;
+}
+
+@mixin montserrat-extra-bold {
+  font-family: $font-montserrat;
+  font-weight: 800;
+}
+
+@mixin montserrat-black {
+  font-family: $font-montserrat;
+  font-weight: 900;
+}
 
 @mixin flex-box($direction: row, $justify: initial, $gap: 0) {
   display: flex;
@@ -12,7 +58,7 @@
   $font-size: 14,
   $line-height: 24,
   $font-weight: 400,
-  $font-family: 'Lexend',
+  $font-family: 'Montserrat',
   $color: #000
 ) {
   font-size: #{$font-size}px;

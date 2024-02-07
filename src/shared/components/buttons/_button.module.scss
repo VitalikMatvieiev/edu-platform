@@ -1,12 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Lexend:wght@500&display=swap');
 @import '../../../styles/mixins';
-
-$font-lexend: 'Lexend', sans-serif;
-
-@mixin lexend-medium {
-  font-family: $font-lexend;
-  font-weight: 500;
-}
 
 // .custom-button {
 //   border: 1px solid #000;
@@ -41,7 +33,7 @@ $font-lexend: 'Lexend', sans-serif;
   height: 56px;
   padding: 16px 0 16px 0;
   background-color: #7101ff;
-  @include lexend-medium;
+  @include montserrat-medium;
   font-size: 16px;
   line-height: 24px;
   letter-spacing: -0.32px;
@@ -127,7 +119,7 @@ a {
 .btn-google {
   width: 376px;
   height: 56px;
-  @include lexend-medium;
+  @include montserrat-medium;
   font-size: 16px;
   line-height: 24px;
   letter-spacing: -0.32px;
