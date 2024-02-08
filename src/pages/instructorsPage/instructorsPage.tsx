@@ -1,11 +1,11 @@
 import './_instructorsPage.scss';
 import { useEffect, useState } from 'react';
 import { useAppDispatch, useAppSelector } from '../../redux/store/hooks';
-import HeaderInstructors from '../../components/headerInstructors/headerInstructors';
+import { HeaderInstructors } from '../../components/headerInstructors/headerInstructors';
 import { getInstructors } from '../../redux/instructors/instructorsAction';
 import {filterByCategory, searchInstructors} from '../../redux/instructors/instructorsSlice';
 import InstructorCard from '../../components/instructorCard/instructorCard';
-import InstructorCategory from '../../components/instructorCategory/instructorCategory';
+import { InstructorCategory } from '../../components/instructorCategory/instructorCategory';
 
 const InstructorsPage: React.FC = () => {
   const dispatch = useAppDispatch();

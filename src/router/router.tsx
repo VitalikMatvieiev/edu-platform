@@ -1,6 +1,6 @@
 import RegistrationPage from '../pages/registrationPage/registrationPage';
-import { UserProfile } from '../pages/profilePage/userProfile';
-import { LoginPage } from '../pages/loginPage/LoginPage';
+import { UserProfile } from '../pages/profilePage/UserProfile';
+import { LoginPage } from '../pages/loginPage/loginPage';
 import MainPage from '../pages/mainPage/mainPage';
 import PrimaryPage from '../pages/primaryPage/primaryPage';
 import InstructorsPage from '../pages/instructorsPage/instructorsPage';
