@@ -1,11 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Lexend&display=swap');
-
-$font-lexend: 'Lexend', sans-serif;
-
-@mixin lexend-regular {
-  font-family: $font-lexend;
-  font-weight: 400;
-}
+@import '../../styles/mixins';
 
 body {
   background-color: #fff;
@@ -26,10 +19,7 @@ body {
     display: block;
     text-align: center;
     text-decoration: none;
-    @include lexend-regular;
-    color: #131314;
-    font-size: 14px;
-    line-height: 24px;
+    @include font-style(14, 24, 400, 'Montserrat', #131314);
     margin-top: 5px;
   }
 }
