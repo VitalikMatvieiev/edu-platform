@@ -4,7 +4,7 @@ import { useAppDispatch, useAppSelector } from '../../redux/store/hooks';
 import HeaderInstructors from '../../components/headerInstructors/headerInstructors';
 import { getInstructors } from '../../redux/instructors/instructorsAction';
 import {filterByCategory, searchInstructors} from '../../redux/instructors/instructorsSlice';
-import InstructorCard from '../../components/instructorCard/instructorCard';
+import {InstructorCard} from '../../components/instructorCard/instructorCard';
 import InstructorCategory from '../../components/instructorCategory/instructorCategory';
 
 const InstructorsPage: React.FC = () => {

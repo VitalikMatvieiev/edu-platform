@@ -24,6 +24,7 @@ const instructorsSlice = createSlice({
       });
       state.filteredInstructors = filteredData;
     },
+
     filterByCategory: (state, action) => {
       if (action.payload === '') {
         state.filteredInstructors = state.instructors;
@@ -37,6 +38,7 @@ const instructorsSlice = createSlice({
       }
     },
   },
+
   extraReducers: (builder) => {
     builder
       .addCase(getInstructors.pending, (state) => {
