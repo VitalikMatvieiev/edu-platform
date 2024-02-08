@@ -1,15 +1,16 @@
-import { InputName } from '../../types/components/componentType';
+import { InputName } from '../../types/pages/PagesTypes';
 import { Input, CustomButton } from '../../shared/components';
 import Checkbox from '../../components/checkbox/checkbox';
-import Title from '../../components/title/title';
-import './_registrationPage.scss';
+import { Title } from '../../components/title/title';
 
 import { SubmitHandler, useForm } from 'react-hook-form';
 import { Link, useNavigate } from 'react-router-dom';
 import React, { useState } from 'react';
 import { toast } from 'react-toastify';
 
-const RegistrationPage: React.FC = () => {
+import registrationPageStyles from './_registrationPage.module.scss';
+
+export const RegistrationPage: React.FC = () => {
   const navigate = useNavigate();
 
   // State for making password visible
@@ -47,8 +48,8 @@ const RegistrationPage: React.FC = () => {
   };
 
   return (
-    <section className="container-registration">
-      <div className="reg-title-container">
+    <section className={registrationPageStyles['container-registration']}>
+      <div className={registrationPageStyles['reg-title-container']}>
         <Title headerText="Create your account" />
       </div>
       <form onSubmit={handleSubmit(registrationHandler)}>
@@ -144,11 +145,9 @@ const RegistrationPage: React.FC = () => {
           Create account
         </CustomButton>
       </form>
-      <Link to={'/'} className="account-is">
+      <Link to={'/'} className={registrationPageStyles['account-is']}>
         <p>Have account?</p>
       </Link>
     </section>
   );
 };
-
-export default RegistrationPage;

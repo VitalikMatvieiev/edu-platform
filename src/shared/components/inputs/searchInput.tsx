@@ -1,7 +1,7 @@
 import { SearchInputProps } from '../../../types/components/componentType';
-import './_searchInput.scss';
-
 import SearchIcon from '@mui/icons-material/Search';
+
+import searchInputStyles from './_searchInput.module.scss';
 
 export const SearchInput: React.FC<SearchInputProps> = ({
   value,
@@ -9,14 +9,14 @@ export const SearchInput: React.FC<SearchInputProps> = ({
   onChange,
 }) => {
   return (
-    <div className="search-container">
+    <div className={searchInputStyles['search-container']}>
       <SearchIcon
-        className="search-icon"
+        className={searchInputStyles['search-icon']}
         fontSize="small"
         style={{ color: '#333334' }}
       />
       <input
-        className="search-input"
+        className={searchInputStyles['search-input']}
         type="text"
         placeholder={placeholder}
         value={value}
