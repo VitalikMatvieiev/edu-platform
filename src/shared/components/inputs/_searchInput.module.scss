@@ -1,19 +1,15 @@
-@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@500&display=swap');
-
-$font-nunito: 'Nunito', sans-serif;
-@mixin nunito-medium {
-  font-family: $font-nunito;
-  font-weight: 500;
-}
+@import '../../../styles/mixins';
 
 .search-container {
     min-width: 350px;
     position: relative;
+
     & .search-icon {
       position: absolute;
       top: 5px;
       left: 5px;
     }
+
     & .search-input {
       min-width: inherit;
       height: 30px;
@@ -21,16 +17,12 @@ $font-nunito: 'Nunito', sans-serif;
       border: 0.5px solid rgb(228, 226, 226);
       border-radius: 15px;
       outline: none;
-      @include nunito-medium;
-      font-size: 13px;
-      line-height: 13px;
-      color: #333334;
+      @include font-style(13, 13, 500, 'Montserrat', #333334);
+
       &::placeholder {
-        @include nunito-medium;
-        font-size: 13px;
-        line-height: 13px;
-        color: #7a7a7c;
+        @include font-style(13, 13, 500, 'Montserrat', #7a7a7c);
       }
+      
       &:focus {
         border: 1px solid #626264;
         outline: none;

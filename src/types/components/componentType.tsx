@@ -42,6 +42,15 @@ export interface InstructorCardProps {
   email: string;
 }
 
+export interface UserProfile {
+  profilePhoto: string;
+  username: string;
+  email: string;
+  dateOfBirth: string;
+  registrationDate: string;
+  lastLoginTimestamp: string;
+}
+
 export interface ButtonProps {
   children: ReactNode;
   color?: 'primary' | 'secondary';

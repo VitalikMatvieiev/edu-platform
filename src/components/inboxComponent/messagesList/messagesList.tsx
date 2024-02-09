@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import { MessageProps } from '../../../types/components/componentType';
 import InboxMessageComponent from '../inboxMessageComponent/inboxMessageComponent';
-//import { InboxMessageService } from '../../../services/inbox-message-service';
+//import { InboxMessageService } from '../../../services/inboxMessageService';
 import { Grid } from '@mui/material';
 
 // Test data which we will get from backend

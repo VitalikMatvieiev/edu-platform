@@ -1,7 +1,7 @@
 import { GoogleAuthButton, CustomButton, Input } from '../../shared/components';
 import { InputName } from '../../types/pages/PagesTypes';
 import Checkbox from '../../components/checkbox/checkbox';
-import Title from '../../components/title/title';
+import { Title } from '../../components/title/title';
 import styles from './_loginPage.module.scss';
 import { GoogleOAuthProvider } from '@react-oauth/google';
 import { SubmitHandler, useForm } from 'react-hook-form';
