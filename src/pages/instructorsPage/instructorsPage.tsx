@@ -1,13 +1,13 @@
-import './_instructorsPage.scss';
+import styles from './_instructorsPage.module.scss';
 import { useEffect, useState } from 'react';
 import { useAppDispatch, useAppSelector } from '../../redux/store/hooks';
 import HeaderInstructors from '../../components/headerInstructors/headerInstructors';
 import { getInstructors } from '../../redux/instructors/instructorsAction';
-import {filterByCategory, searchInstructors} from '../../redux/instructors/instructorsSlice';
-import {InstructorCard} from '../../components/instructorCard/instructorCard';
+import { filterByCategory, searchInstructors } from '../../redux/instructors/instructorsSlice';
+import { InstructorCard } from '../../components/instructorCard/instructorCard';
 import InstructorCategory from '../../components/instructorCategory/instructorCategory';
 
-const InstructorsPage: React.FC = () => {
+export const InstructorsPage: React.FC = () => {
   const dispatch = useAppDispatch();
   const data = useAppSelector((state) => state.instructorsReducer);
 
@@ -37,9 +37,9 @@ const InstructorsPage: React.FC = () => {
   };
 
   return (
-    <div className="instructors-container">
+    <div className={styles["instructors-container"]}>
       <HeaderInstructors value={searchValue} onChange={searchHandler} />
-      <div className="instructors-categories-container">
+      <div className={styles["instructors-categories-container"]}>
         <InstructorCategory
           index={0.5}
           category={'All instructors'}
@@ -54,7 +54,7 @@ const InstructorsPage: React.FC = () => {
           />
         ))}
       </div>
-      <div className="instructors-cards-container">
+      <div className={styles["instructors-cards-container"]}>
         {data.filteredInstructors.map((instructor) => (
           <InstructorCard
             key={instructor.id}
@@ -68,4 +68,3 @@ const InstructorsPage: React.FC = () => {
   );
 };
 
-export default InstructorsPage;

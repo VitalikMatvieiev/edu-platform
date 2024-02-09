@@ -2,7 +2,6 @@ import { createSlice } from '@reduxjs/toolkit';
 import { getInstructors } from './instructorsAction';
 import { Instructor, InstructorsState } from '../../types/types';
 
-
 // Define the initial state using that type
 const initialState: InstructorsState = {
   instructors: [],
