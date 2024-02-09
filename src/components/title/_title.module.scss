@@ -5,6 +5,7 @@
   width: 80px;
   height: 80px;
 }
+
 .title-text {
   @include font-style(20, 32, 700);
   max-width: 100%;
