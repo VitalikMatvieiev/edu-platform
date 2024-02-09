@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import { EnrolledCoursesData } from '../../../types/components/componentType';
 import { EnrolledCardOfCourse } from '../enrolledCardOfCourse/enrolledCardOfCourse';
-import { DashboardService } from '../../../services/dashboard-service';
+import { DashboardService } from '../../../services/dashboardService';
 import { Grid } from '@mui/material';
 
 const defaultCoursePhoto = 'src/img/defaultCoursePhoto.png';
