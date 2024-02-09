@@ -2,6 +2,8 @@ import { CourseData } from '../../types/components/componentType';
 
 import type { PayloadAction } from '@reduxjs/toolkit';
 import { createSlice } from '@reduxjs/toolkit';
+import { ReactNode } from 'react';
+import { JSX } from 'react/jsx-runtime';
 
 interface CoursesState {
   map(
@@ -12,6 +14,9 @@ interface CoursesState {
 
 const initialState: CoursesState = {
   courses: [],
+  map: function (arg0: (course: any) => JSX.Element): ReactNode {
+    throw new Error('Function not implemented.');
+  },
 };
 
 const coursesSlice = createSlice({

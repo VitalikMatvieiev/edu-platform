@@ -1,15 +1,17 @@
 import { TypedUseSelectorHook, useDispatch, useSelector } from 'react-redux';
 import { configureStore } from '@reduxjs/toolkit';
 
-import cartReducer from './cartSlice';
+import filteredCoursesReducer from './filteredCoursesSlice';
 import favoriteReducer from './favoriteSlice';
 import coursesReducer from './coursesSlice';
+import cartReducer from './cartSlice';
 
 export const store = configureStore({
   reducer: {
     cart: cartReducer,
     favorite: favoriteReducer,
     courses: coursesReducer,
+    filteredCourses: filteredCoursesReducer,
   },
 });
 

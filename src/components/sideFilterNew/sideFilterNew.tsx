@@ -1,4 +1,20 @@
-import { useState } from 'react';
+import { useAppDispatch, useAppSelector } from '../../shared/model/store';
+import {
+  InstructorCount,
+  CategoryCount,
+  LevelCount,
+  CourseData,
+} from '../../types/components/componentType';
+import {
+  getInstructorCounts,
+  getCategoryCounts,
+  getLevelCounts,
+} from '../../shared/helpers/courses';
+import './_sideFilterNew.scss';
+
+import * as model from '../../shared/model/';
+
+import { useEffect, useState } from 'react';
 import {
   FormControlLabel,
   InputAdornment,
@@ -7,50 +23,18 @@ import {
   Checkbox,
   Slider,
 } from '@mui/material';
+import { CourseCard } from '../course-card';
 
-import './_sideFilterNew.scss';
-import {
-  InstructorCount,
-  CategoryCount,
-  LevelCount,
-} from '../../types/components/componentType';
-import {
-  getInstructorCounts,
-  getCategoryCounts,
-  getLevelCounts,
-} from '../../shared/helpers/courses';
-import { useAppSelector } from '../../shared/model/store';
-
-// const coursesData = MOCKED_COURSES as CourseData[];
-
-// useEffect(() => {
-//   // Додаємо дані до Redux при завантаженні компонента
-//   coursesData.forEach((course) => {
-//     dispatch(model.courses.addToCourses(course));
-//   });
-// }, [dispatch, coursesData]);
-// const [data, setData] = useState<CourseData[]>([]);
-// useEffect(() => {
-//   setData(MOCKED_COURSES as CourseData[]);
-// }, []);
-
-// Test array, next will be array which we get from backend
-// const data = [
-//   { instructor: 'John', category: 'Interactive', level: 'Beginner' },
-//   { instructor: 'John', category: 'Self-paced', level: 'Intermidiate' },
-//   { instructor: 'John', category: 'Certificated', level: 'Expert' },
-//   { instructor: 'John', category: 'Interactive', level: 'Practical' },
-//   { instructor: 'Ann', category: 'Interactive', level: 'Intermidiate' },
-//   { instructor: 'Ann', category: 'Certificated', level: 'Practical' },
-//   { instructor: 'Ann', category: 'Certificated', level: 'Expert' },
-//   { instructor: 'Alex', category: 'Interactive', level: 'Beginner' },
-//   { instructor: 'Alex', category: 'Self-paced', level: 'Intermidiate' },
-//   { instructor: 'Alex', category: 'Certificated', level: 'Expert' },
-//   { instructor: 'Alex', category: 'Certificated', level: 'Expert' },
-// ];
+interface Filters {
+  priceRangeValue: number[];
+  selectedInstructors: string[];
+  selectedCategories: string[];
+  selectedLevels: string[];
+}
 
 export const SideFilterNew: React.FC = () => {
   const data = useAppSelector((state) => state.courses.courses);
+  const dispatch = useAppDispatch();
 
   // Example usage
   const instructorCounts: InstructorCount[] = getInstructorCounts(data);
@@ -67,14 +51,43 @@ export const SideFilterNew: React.FC = () => {
 
   const handleApply = () => {
     try {
-      // will be send filtered data to redux state
-      const filteredData = {
+      const filters: Filters = {
         priceRangeValue,
         selectedInstructors,
         selectedCategories,
         selectedLevels,
       };
+
+      const filteredData = data.filter((item) => {
+        const instructorMatch =
+          filters.selectedInstructors.length === 0 ||
+          filters.selectedInstructors.some(
+            (instructor) => instructor === item.instructor,
+          );
+
+        const levelMatch =
+          filters.selectedLevels.length === 0 ||
+          filters.selectedLevels.some((level) => level === item.level);
+
+        const categoryMatch =
+          filters.selectedCategories.length === 0 ||
+          filters.selectedCategories.some(
+            (category) => category === item.category,
+          );
+
+        const priceMatch =
+          item.price >= filters.priceRangeValue[0] &&
+          item.price <= filters.priceRangeValue[1];
+
+        return instructorMatch && levelMatch && priceMatch && categoryMatch;
+      });
+
       console.log(filteredData);
+
+      // useEffect(() => {
+      //   // add data to Redux
+      //   dispatch(model.filteredCourses.setFilteredCourses(filteredData));
+      // }, [dispatch, filteredData]);
     } catch (err: any) {
       console.error(`Error in apply filter: ${err}`);
     }
@@ -119,6 +132,21 @@ export const SideFilterNew: React.FC = () => {
 
   return (
     <div className="side-filter-container">
+      {/* <div>
+        {filterData.map((course: any) => (
+          <CourseCard
+            key={course.id}
+            id={course.id}
+            category={course.category}
+            rating={course.rating}
+            level={course.level}
+            price={course.price}
+            name={course.name}
+            photoUrl={course.photoUrl}
+            instructor={course.instructor}
+          />
+        ))}
+      </div> */}
       <span className="filter-range">Duration range</span>
       <div className="inputs-price-container">
         <TextField

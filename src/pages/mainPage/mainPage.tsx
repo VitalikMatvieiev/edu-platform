@@ -18,22 +18,18 @@ import './_mainPage.scss';
 import { FC, useEffect } from 'react';
 
 const MainPage: FC<MainPageProps> = () => {
-  //   const testCart = useAppSelector((state) => state.cart);
-  //   console.log(testCart);
-  //   const testFavorite = useAppSelector((state) => state.favorite);
-  //   console.log(testFavorite);
-
   const coursesData = MOCKED_COURSES as CourseData[];
   const dispatch = useAppDispatch();
+  const filteredData = useAppSelector(
+    (state) => state.filteredCourses.filteredCourses,
+  );
 
   useEffect(() => {
     // add data to Redux
     dispatch(model.courses.setCourses(coursesData));
   }, [dispatch, coursesData]);
 
-  const testCourses = useAppSelector((state) => state.courses);
-  console.log(testCourses);
-  console.log(coursesData);
+  //   const testCourses = useAppSelector((state) => state.courses);
 
   return (
     <div data-testid="main-page" className="main-page">

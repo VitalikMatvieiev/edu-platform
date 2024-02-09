@@ -20,7 +20,7 @@ interface Props {
   name: string;
   category: string;
   level: string;
-  price: string;
+  price: number;
   instructor: string;
 }
 
@@ -141,7 +141,7 @@ export const CourseCard = ({
             variant="h6"
             fontFamily="Montserrat"
           >
-            {price}
+            ${price}
           </Typography>
 
           <Box>

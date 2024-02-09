@@ -101,7 +101,7 @@ export interface CourseData {
   photoUrl: string;
   name: string;
   category: string;
-  price: string;
+  price: number;
   level: string;
   instructor: string;
 }
