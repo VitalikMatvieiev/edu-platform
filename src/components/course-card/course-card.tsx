@@ -56,6 +56,7 @@ export const CourseCard = ({
         padding: '0 10px',
         marginTop: '30px',
         maxWidth: 220,
+        width: '220px',
         display: 'flex',
         flexDirection: 'column',
         justifyContent: 'space-between',

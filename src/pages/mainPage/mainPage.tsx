@@ -1,7 +1,6 @@
 import { SideFilterNew } from '../../components/sideFilterNew/sideFilterNew';
 import ExtendedFilter from '../../components/extendedFilter/extendedFilter';
 import { useAppDispatch, useAppSelector } from '../../shared/model/store';
-import { SideFilter } from '../../components/sideFilter/sideFilter';
 import HeaderMain from '../../components/headerMain/headerMain';
 import FilterBy from '../../components/extendedFilter/filterBy';
 import Sorting from '../../components/extendedFilter/sorting';
@@ -24,12 +23,14 @@ const MainPage: FC<MainPageProps> = () => {
     (state) => state.filteredCourses.filteredCourses,
   );
 
+  console.log(filteredData);
+
   useEffect(() => {
     // add data to Redux
     dispatch(model.courses.setCourses(coursesData));
   }, [dispatch, coursesData]);
 
-  //   const testCourses = useAppSelector((state) => state.courses);
+  const coursesToRender = filteredData.length > 0 ? filteredData : coursesData;
 
   return (
     <div data-testid="main-page" className="main-page">
@@ -44,7 +45,7 @@ const MainPage: FC<MainPageProps> = () => {
           {/* <SideFilter /> */}
           <SideFilterNew />
           <div className="main-page-container-content-cards">
-            {coursesData.map((course) => (
+            {coursesToRender.map((course) => (
               <CourseCard
                 key={course.id}
                 id={course.id}
