@@ -1,7 +1,7 @@
 import '@testing-library/jest-dom';
 import { fireEvent, render, screen } from '@testing-library/react';
 import { MemoryRouter } from 'react-router-dom';
-import InstructorCategory from '../instructorCategory';
+import { InstructorCategory } from '../instructorCategory';
 
 describe('InstructorCategory Component', () => {
   const testProps = {

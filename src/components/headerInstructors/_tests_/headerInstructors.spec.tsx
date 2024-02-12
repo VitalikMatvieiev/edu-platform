@@ -1,7 +1,7 @@
 import '@testing-library/jest-dom';
 import { render, screen } from '@testing-library/react';
 import { MemoryRouter } from 'react-router-dom';
-import HeaderInstructors from '../headerInstructors';
+import { HeaderInstructors } from '../headerInstructors';
 
 jest.mock('../../../img/avatar.jpg', () => 'mocked-avatar-path');
 

@@ -2,7 +2,7 @@ import { fireEvent, render, screen } from '@testing-library/react';
 import { MemoryRouter } from 'react-router-dom';
 import '@testing-library/jest-dom';
 
-import InboxMessageComponent from '../inboxMessageComponent';
+import { InboxMessageComponent } from '../inboxMessageComponent';
 
 describe('InboxMessageComponent Component', () => {
   beforeEach(() => {

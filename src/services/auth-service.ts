@@ -48,14 +48,4 @@ export const AuthService = {
       throw new Error('Login failed');
     }
   },
-
-  async getProfile(): Promise<IAuthResponseData | undefined> {
-    try {
-      const { data } = await instance.get<IAuthResponseData>('auth/profile');
-      if (data) return data;
-    } catch (error) {
-      console.error('Get profile error:', error);
-      throw new Error('Failed to get profile');
-    }
-  },
 };

@@ -1,18 +1,16 @@
 import { InstructorCategoryProps } from '../../types/components/componentType';
-import './_instructorCategory.scss';
+import styles from './_instructorCategory.module.scss';
 
-const InstructorCategory: React.FC<InstructorCategoryProps> = ({
+export const InstructorCategory: React.FC<InstructorCategoryProps> = ({
   category,
   index,
   onClick
 }) => {
   return (
-    <button className="instructors-categories" onClick={onClick}>
-      <span className={`instructors-category-text ${index === 0.5 ? 'bold-category' : ''}`}>
+    <button className={styles['instructors-categories']} onClick={onClick}>
+      <span className={styles[`instructors-category-text ${index === 0.5 ? 'bold-category' : ''}`]}>
         {category}
       </span>
     </button>
   );
 };
-
-export default InstructorCategory;

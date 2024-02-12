@@ -1,8 +1,8 @@
-import MessagesList from './messagesList/messagesList';
+import { MessagesList } from './messagesList/messagesList';
 import { Container } from '@mui/material';
-import TitleOfSection from '../titleOfSection/titleOfSection';
+import { TitleOfSection } from '../titleOfSection/titleOfSection';
 
-const InboxComponent: React.FC = () => {
+export const InboxComponent: React.FC = () => {
   return (
     <Container>
       <TitleOfSection titleText="Inbox" />
@@ -12,5 +12,3 @@ const InboxComponent: React.FC = () => {
     </Container>
   );
 };
-
-export default InboxComponent;

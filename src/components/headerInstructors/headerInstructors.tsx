@@ -1,4 +1,4 @@
-import './_headerInstructors.scss';
+import styles from './_headerInstructors.module.scss';
 import { Link } from 'react-router-dom';
 import IconButton from '@mui/material/IconButton';
 import NotificationsIcon from '@mui/icons-material/Notifications';
@@ -7,17 +7,17 @@ import ChatBubbleIcon from '@mui/icons-material/ChatBubble';
 import { SearchInput } from '../../shared/components';
 import { HeaderInstructorsProps } from '../../types/components/componentType';
 
-const HeaderInstructors: React.FC<HeaderInstructorsProps> = ({
+export const HeaderInstructors: React.FC<HeaderInstructorsProps> = ({
   value,
   onChange,
 }) => {
   return (
-    <div className="header-instructor-container">
+    <div className={styles['header-instructor-container']}>
       <div>
-        <span className="header-instructor-text">Instructors</span>
+        <span className={styles['header-instructor-text']}>Instructors</span>
       </div>
-      <div className="header-instructor-list">
-        <div className="header-list-search">
+      <div className={styles['header-instructor-list']}>
+        <div className={styles['header-list-search']}>
           <SearchInput
             placeholder="Search for instructors"
             value={value}
@@ -46,5 +46,3 @@ const HeaderInstructors: React.FC<HeaderInstructorsProps> = ({
     </div>
   );
 };
-
-export default HeaderInstructors;

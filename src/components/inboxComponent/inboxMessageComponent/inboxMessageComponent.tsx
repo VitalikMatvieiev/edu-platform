@@ -7,7 +7,7 @@ import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
 import Fab from '@mui/material/Fab';
 import './_inboxMessageComponent.scss';
 
-const InboxMessageComponent = (props: MessageProps) => {
+export const InboxMessageComponent = (props: MessageProps) => {
   return (
     <Card
       role="message-card"
@@ -74,5 +74,3 @@ const InboxMessageComponent = (props: MessageProps) => {
     </Card>
   );
 };
-
-export default InboxMessageComponent;
