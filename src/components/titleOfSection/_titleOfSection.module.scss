@@ -1,0 +1,9 @@
+@import '../../styles/mixins';
+
+.title-text {
+  @include montserrat-regular;
+  font-size: 20px;
+  line-height: 20px;
+  padding-top: 20px;
+  padding-bottom: 15px;
+}

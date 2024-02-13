@@ -1,12 +1,10 @@
-import './_titleOfSection.scss';
 import { TitleOfSectionProps } from '../../types/components/componentType';
+import styles from './_titleOfSection.module.scss';
 
-const TitleOfSection: React.FC<TitleOfSectionProps> = ({ titleText }) => {
+export const TitleOfSection: React.FC<TitleOfSectionProps> = ({ titleText }) => {
   return (
     <>
-      <h1 className="title-text">{titleText}</h1>
+      <h1 className={styles['title-text']}>{titleText}</h1>
     </>
   );
 };
-
-export default TitleOfSection;

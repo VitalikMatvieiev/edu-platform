@@ -1,4 +1,4 @@
-import './_input.scss';
+import styles from './_input.module.scss';
 import { InputProps } from '../../../types/components/componentType';
 
 export const Input: React.FC<InputProps> = ({
@@ -13,20 +13,20 @@ export const Input: React.FC<InputProps> = ({
   const inputId = 'input-' + aboveInputText.toLowerCase().replace(/\s/g, '-');
 
   return (
-    <div className="input-container">
-      <label className="input-label" htmlFor={inputId}>
-        <div className="text-above">{aboveInputText}</div>
+    <div className={styles['input-container']}>
+      <label className={styles['input-label']} htmlFor={inputId}>
+        <div className={styles['text-above']}>{aboveInputText}</div>
       </label>
       <input
         autoComplete="off"
-        className="input-field"
+        className={styles['input-field']}
         id={inputId}
         type={type}
         placeholder={placeholder}
         {...register(name, validation)}
       />
       {errors && errors[name] && (
-        <div className="error-message">{errors[name].message}</div>
+        <div className={styles['error-message']}>{errors[name].message}</div>
       )}
     </div>
   );

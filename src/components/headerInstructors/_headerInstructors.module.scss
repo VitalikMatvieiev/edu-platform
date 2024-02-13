@@ -1,10 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@700&display=swap');
-
-$font-nunito: 'Nunito', sans-serif;
-@mixin nunito-bold {
-  font-family: $font-nunito;
-  font-weight: 700;
-}
+@import '../../styles/mixins';
 
 .header-instructor-container {
   display: flex;
@@ -15,14 +9,16 @@ $font-nunito: 'Nunito', sans-serif;
   background-color: #fff;
   min-height: 75px;
   box-shadow: 0 1px 15px -2px gray;
+
   & .header-instructor-text {
-    @include nunito-bold;
+    @include montserrat-bold;
     color: #000;
     font-size: 35px;
     line-height: 35px;
     text-align: center;
     padding-top: 3px;
   }
+
   & .header-instructor-list {
     display: flex;
     flex-direction: row;
