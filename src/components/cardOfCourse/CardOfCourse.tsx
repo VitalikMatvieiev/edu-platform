@@ -13,9 +13,9 @@ import StarIcon from '@mui/icons-material/Star';
 import axios from 'axios';
 import defaultCoursePhoto from '../../img/defaultCoursePhoto.png';
 import { CourseData } from '../../types/components/componentType';
-import './card.scss';
+import styles from './_card.module.scss';
 
-const CardOfCourse = () => {
+export const CardOfCourse = () => {
   const [courseData, setCourseData] = useState<CourseData | null>(null);
   const [isFavorite, setIsFavorite] = useState<boolean>(false);
 
@@ -77,7 +77,7 @@ const CardOfCourse = () => {
         </Box>
         <Box sx={{ display: 'flex', justifyContent: 'space-around', alignItems: 'center' }}>
           <GroupsIcon />
-          <Link to='/sign-up' className='link'>
+          <Link to='/sign-up' className={styles.link}>
             Join our learning
           </Link>
         </Box>
@@ -98,5 +98,3 @@ const CardOfCourse = () => {
     </Card>
   );
 };
-
-export default CardOfCourse;

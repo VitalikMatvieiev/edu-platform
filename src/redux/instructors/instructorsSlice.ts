@@ -2,7 +2,6 @@ import { createSlice } from '@reduxjs/toolkit';
 import { getInstructors } from './instructorsAction';
 import { Instructor, InstructorsState } from '../../types/types';
 
-
 // Define the initial state using that type
 const initialState: InstructorsState = {
   instructors: [],
@@ -24,6 +23,7 @@ const instructorsSlice = createSlice({
       });
       state.filteredInstructors = filteredData;
     },
+
     filterByCategory: (state, action) => {
       if (action.payload === '') {
         state.filteredInstructors = state.instructors;
@@ -37,6 +37,7 @@ const instructorsSlice = createSlice({
       }
     },
   },
+
   extraReducers: (builder) => {
     builder
       .addCase(getInstructors.pending, (state) => {

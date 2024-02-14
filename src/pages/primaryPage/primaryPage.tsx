@@ -1,18 +1,17 @@
 import { Sidebar } from '../../shared/components';
-import './_primaryPage.scss';
+import styles from './_primaryPage.module.scss';
 import { Outlet } from 'react-router-dom';
 
-const PrimaryPage: React.FC = () => {
+export const PrimaryPage: React.FC = () => {
   return (
-    <div className="primary-container">
-      <div className="aside-container">
+    <div className={styles["primary-container"]}>
+      <div className={styles["aside-container"]}>
         <Sidebar />
       </div>
-      <div className="outlet-container">
+      <div className={styles["outlet-container"]}>
         <Outlet />
       </div>
     </div>
   );
 };
 
-export default PrimaryPage;

@@ -1,7 +1,7 @@
 import { render, fireEvent, screen } from '@testing-library/react';
 import { MemoryRouter } from 'react-router-dom';
 import '@testing-library/jest-dom';
-import CardOfCourse from '../CardOfCourse';
+import { CardOfCourse } from '../cardOfCourse';
 
 describe('CardOfCourse Component', () => {
   beforeEach(() => {
@@ -11,6 +11,7 @@ describe('CardOfCourse Component', () => {
       </MemoryRouter>
     );
   });
+
   test('handles favorite button click', () => {
     const favoriteButton = screen.getByLabelText('Add to Favorites');
   

@@ -1,4 +1,4 @@
-import './_instructorCard.scss';
+import styles from './_instructorCard.module.scss';
 import { useState } from 'react';
 import avatar from '../../img/avatar.jpg';
 import EmailIcon from '@mui/icons-material/Email';
@@ -7,40 +7,43 @@ import { InstructorCardProps } from '../../types/components/componentType';
 import Menu from '@mui/material/Menu';
 import MenuItem from '@mui/material/MenuItem';
 
-const InstructorCard: React.FC<InstructorCardProps> = ({
+export const InstructorCard: React.FC<InstructorCardProps> = ({
   category,
   name,
   email,
 }) => {
   const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
   const open = Boolean(anchorEl);
+
   const handleClick = (event: React.MouseEvent<HTMLElement>) => {
     setAnchorEl(event.currentTarget);
   };
+
   const handleClose = () => {
     setAnchorEl(null);
   };
+
   return (
-    <div className="instructor-card-container">
-      <div className="category-container">
-        <span className="category-text">{category.join(', ')}</span>
+    <div className={styles["instructor-card-container"]}>
+      <div className={styles["category-container"]}>
+        <span className={styles["category-text"]}>{category.join(', ')}</span>
       </div>
-      <div className="info-container">
-        <div className="img-container">
+      <div className={styles["info-container"]}>
+        <div className={styles["img-container"]}>
           <img src={avatar} alt="ava" />
         </div>
-        <div className="name-container">
+        <div className={styles["name-container"]}>
           <span>{name}</span>
         </div>
         <div className="email-container">
           <span>{email}</span>
         </div>
       </div>
-      <div className="buttons-container">
-        <button className="button-action">
+      <div className={styles["buttons-container"]}>
+        <button className={styles["button-action"]}>
           <EmailIcon fontSize="small" style={{ color: 'black' }} />
         </button>
-        <button className="button-action" onClick={handleClick}>
+        <button className={styles["button-action"]} onClick={handleClick}>
           <MoreHorizIcon fontSize="small" style={{ color: 'black' }} />
         </button>
       </div>
@@ -61,7 +64,7 @@ const InstructorCard: React.FC<InstructorCardProps> = ({
       >
         <MenuItem
           sx={{
-            fontFamily: 'Nunito, sans-serif',
+            fontFamily: 'Montserrat, sans-serif',
             fontWeight: 500,
             fontSize: '15px',
             lineHeight: '15px',
@@ -73,7 +76,7 @@ const InstructorCard: React.FC<InstructorCardProps> = ({
         </MenuItem>
         <MenuItem
           sx={{
-            fontFamily: 'Nunito, sans-serif',
+            fontFamily: 'Montserrat, sans-serif',
             fontWeight: 500,
             fontSize: '15px',
             lineHeight: '15px',
@@ -85,7 +88,7 @@ const InstructorCard: React.FC<InstructorCardProps> = ({
         </MenuItem>
         <MenuItem
           sx={{
-            fontFamily: 'Nunito, sans-serif',
+            fontFamily: 'Montserrat, sans-serif',
             fontWeight: 500,
             fontSize: '15px',
             lineHeight: '15px',
@@ -100,4 +103,3 @@ const InstructorCard: React.FC<InstructorCardProps> = ({
   );
 };
 
-export default InstructorCard;
