@@ -1,7 +1,11 @@
+import { useAppDispatch, useAppSelector } from '../../shared/model/store';
+import { SearchInput } from '../../shared/components/inputs';
+import * as model from '../../shared/model';
+import './_headerMain.scss';
+
 import ShoppingBasketIcon from '@mui/icons-material/ShoppingBasket';
 import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
-import { SearchInput } from '../../shared/components/inputs';
 import NoAccountsIcon from '@mui/icons-material/NoAccounts';
 import LocalMallIcon from '@mui/icons-material/LocalMall';
 import { Link, useNavigate } from 'react-router-dom';
@@ -12,8 +16,6 @@ import Button from '@mui/material/Button';
 import Stack from '@mui/material/Stack';
 import Modal from '@mui/material/Modal';
 import Box from '@mui/material/Box';
-
-import './_headerMain.scss';
 
 //Styles for modal from mui
 const style = {
@@ -31,20 +33,18 @@ const style = {
 const HeaderMain: React.FC = () => {
   const navigate = useNavigate();
   const isLogged = false;
-  {
-    /*Instead of this we will check from redux state, if user isLooged or no*/
-  }
-  const [searchValue, setSearchValue] = useState<string>('');
+
+  const dispatch = useAppDispatch();
+  const searchValue = useAppSelector((state) => state.courses.searchTerm);
+  const searchResults = useAppSelector((state) => state.courses.searchResults);
+
   const [open, setOpen] = useState<boolean>(false);
   const handleOpen = (): void => setOpen(true);
   const handleClose = (): void => setOpen(false);
   const inputChangeHandler = (e: React.ChangeEvent<HTMLInputElement>): void => {
-    setSearchValue(e.target.value);
+    dispatch(model.courses.setSearchTerm(e.target.value));
+    dispatch(model.courses.performSearch());
   };
-
-  useEffect(() => {
-    //Here will be axios request for backend, every time when searchValue is changed
-  }, [searchValue]);
 
   return (
     <div className="header-container">

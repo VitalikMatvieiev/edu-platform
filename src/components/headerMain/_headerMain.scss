@@ -1,8 +1,8 @@
-@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=montserrat:wght@500&display=swap');
 
-$font-nunito: 'Nunito', sans-serif;
-@mixin nunito-medium {
-  font-family: $font-nunito;
+$font-montserrat: 'Montserrat', sans-serif;
+@mixin montserrat-medium {
+  font-family: $font-montserrat;
   font-weight: 500;
 }
 
@@ -22,7 +22,7 @@ $font-nunito: 'Nunito', sans-serif;
     gap: 5px;
 
     & .header-text {
-      @include nunito-medium;
+      @include montserrat-medium;
       color: white;
       font-size: 20px;
       line-height: 20px;

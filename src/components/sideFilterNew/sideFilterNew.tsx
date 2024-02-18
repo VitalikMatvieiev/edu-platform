@@ -47,7 +47,8 @@ export const SideFilterNew: React.FC = () => {
   const [selectedCategories, setSelectedCategories] = useState<string[]>([]);
   const [selectedLevels, setSelectedLevels] = useState<string[]>([]);
 
-  const [showMore, setShowMore] = useState(false);
+  const [showMoreInstructor, setShowMoreInstructor] = useState(false);
+  const [showMoreCategory, setShowMoreCategory] = useState(false);
 
   const handleApply = () => {
     try {
@@ -82,7 +83,7 @@ export const SideFilterNew: React.FC = () => {
         return instructorMatch && levelMatch && priceMatch && categoryMatch;
       });
 
-      dispatch(model.filteredCourses.setFilteredCourses(filteredData));
+      dispatch(model.courses.setFilteredCourses(filteredData));
     } catch (err: any) {
       console.error(`Error in apply filter: ${err}`);
     }
@@ -223,16 +224,17 @@ export const SideFilterNew: React.FC = () => {
       />
       <div className="checkbox-wrapper">
         <span className="filter-range">Instructor</span>
+
         <FormGroup>
           {instructorCounts
-            .slice(0, showMore ? instructorCounts.length : 5)
+            .slice(0, showMoreInstructor ? instructorCounts.length : 5)
             .map((item) => (
               <FormControlLabel
                 key={item.instructor}
                 sx={{
                   color: '#222020',
                   '& .MuiTypography-root': {
-                    fontFamily: `'Nunito', sans-serif`,
+                    fontFamily: `'Montserrat', sans-serif`,
                     fontWeight: '500',
                   },
                 }}
@@ -254,44 +256,55 @@ export const SideFilterNew: React.FC = () => {
               />
             ))}
         </FormGroup>
-        <button onClick={() => setShowMore(!showMore)}>
-          {showMore ? 'Show Less' : 'Show More'}
+
+        <button onClick={() => setShowMoreInstructor(!showMoreInstructor)}>
+          {showMoreInstructor ? 'Show Less' : 'Show More'}
         </button>
       </div>
+
       <div className="checkbox-wrapper">
         <span className="filter-range">Category</span>
+
         <FormGroup>
-          {categoryCounts.map((item) => (
-            <FormControlLabel
-              key={item.category}
-              sx={{
-                color: '#222020',
-                '& .MuiTypography-root': {
-                  fontFamily: `'Nunito', sans-serif`,
-                  fontWeight: '500',
-                },
-              }}
-              value={item.category}
-              control={
-                <Checkbox
-                  sx={{
-                    color: 'red',
-                    '&.Mui-checked': {
+          {categoryCounts
+            .slice(0, showMoreCategory ? categoryCounts.length : 5)
+            .map((item) => (
+              <FormControlLabel
+                key={item.category}
+                sx={{
+                  color: '#222020',
+                  '& .MuiTypography-root': {
+                    fontFamily: `'Montserrat', sans-serif`,
+                    fontWeight: '500',
+                  },
+                }}
+                value={item.category}
+                control={
+                  <Checkbox
+                    sx={{
                       color: 'red',
-                    },
-                  }}
-                  size="small"
-                  checked={selectedCategories.includes(item.category)}
-                  onChange={() => handleSelectCategories(item.category)}
-                />
-              }
-              label={`${item.category} (${item.quantity})`}
-            />
-          ))}
+                      '&.Mui-checked': {
+                        color: 'red',
+                      },
+                    }}
+                    size="small"
+                    checked={selectedCategories.includes(item.category)}
+                    onChange={() => handleSelectCategories(item.category)}
+                  />
+                }
+                label={`${item.category} (${item.quantity})`}
+              />
+            ))}
         </FormGroup>
+
+        <button onClick={() => setShowMoreCategory(!showMoreCategory)}>
+          {showMoreCategory ? 'Show Less' : 'Show More'}
+        </button>
       </div>
+
       <div className="checkbox-wrapper">
         <span className="filter-range">Level</span>
+
         <FormGroup>
           {levelCounts.map((item) => (
             <FormControlLabel
@@ -299,7 +312,7 @@ export const SideFilterNew: React.FC = () => {
               sx={{
                 color: '#222020',
                 '& .MuiTypography-root': {
-                  fontFamily: `'Nunito', sans-serif`,
+                  fontFamily: `'Montserrat', sans-serif`,
                   fontWeight: '500',
                 },
               }}

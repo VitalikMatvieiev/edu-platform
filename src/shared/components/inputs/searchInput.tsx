@@ -12,7 +12,7 @@ export const SearchInput: React.FC<SearchInputProps> = ({
     <div className="search-container">
       <SearchIcon
         className="search-icon"
-        fontSize="small"
+        fontSize="medium"
         style={{ color: '#333334' }}
       />
       <input

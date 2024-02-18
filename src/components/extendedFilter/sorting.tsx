@@ -1,4 +1,7 @@
-import { DetailsOfCourse } from '../../types/components/componentType';
+import {
+  CourseData,
+  DetailsOfCourse,
+} from '../../types/components/componentType';
 import './extendedFilter.scss';
 
 import Select, { SelectChangeEvent } from '@mui/material/Select';
@@ -6,20 +9,22 @@ import FormControl from '@mui/material/FormControl';
 import React, { useEffect, useState } from 'react';
 import InputLabel from '@mui/material/InputLabel';
 import MenuItem from '@mui/material/MenuItem';
+import MOCKED_COURSES from '../../pages/mainPage/MOCK_DATA.json';
 
 const Sorting: React.FC = () => {
   const [sortBy, setSortBy] = useState<string>('rating');
   const [data, setData] = useState<DetailsOfCourse[] | undefined>(undefined);
+  const coursesData = MOCKED_COURSES as CourseData[];
 
   const sortOptions: { label: string; value: keyof DetailsOfCourse }[] = [
     { label: 'Rating', value: 'rating' },
-    { label: 'Most Popular', value: 'popularity' },
-    { label: 'Newest', value: 'date' },
+    //  { label: 'Most Popular', value: 'popularity' },
+    //  { label: 'Newest', value: 'date' },
     { label: 'Price', value: 'price' },
   ];
 
   //add api
-  useEffect(() => {}, [sortBy]);
+  //   useEffect(() => {}, [sortBy]);
 
   const applySorting = (sortBy: keyof DetailsOfCourse) => {
     const sortedData = [...(data || [])];

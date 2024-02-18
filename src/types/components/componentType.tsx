@@ -113,10 +113,12 @@ export interface Course {
 
 export interface DetailsOfCourse {
   name: string;
-  rating: number;
-  popularity: number;
-  date: string;
-  price: number;
+  ratingAsc: number;
+  priceAsc: number;
+  ratingDesc: number;
+  priceDesc: number;
+  //   popularity: number;
+  //   date: string;
 }
 
 export interface EnrolledCoursesData {

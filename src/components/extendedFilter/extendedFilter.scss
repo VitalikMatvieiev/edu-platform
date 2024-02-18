@@ -6,6 +6,7 @@
   align-items: start;
   padding: 0 50px;
   width: 100%;
+  font-family: 'Montserrat', sans-serif;
 }
 
 .scroll-buttons {
@@ -46,7 +47,7 @@
 }
 
 .name-list {
-  @include font-style(14, 20, 400, 'Lexend', lighten(#000, 50));
+  @include font-style(14, 20, 400, 'Montserrat', lighten(#000, 50));
   text-wrap: nowrap;
   cursor: pointer;
 }
