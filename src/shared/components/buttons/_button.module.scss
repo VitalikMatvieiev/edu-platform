@@ -1,0 +1,140 @@
+@import '../../../styles/mixins';
+
+// .custom-button {
+//   border: 1px solid #000;
+//   padding: 5px 40px;
+//   @include font-style(15, 24, 500);
+//   background-color: #7101ff;
+//   color: #fff;
+//   border-color: #7101ff;
+//   max-height: 56px;
+//   text-align: center;
+//   cursor: pointer;
+
+//   &:hover {
+//     background-color: lighten(#7101ff, 15%);
+//     cursor: pointer;
+//   }
+
+//   &--secondary {
+//     background: #fff;
+//     color: #000;
+//     border-color: #000;
+
+//     &:hover {
+//       background: lighten(#fff, 15%);
+//       cursor: pointer;
+//     }
+//   }
+// }
+
+.submit-btn {
+  width: 376px;
+  height: 56px;
+  padding: 16px 0 16px 0;
+  background-color: #7101ff;
+  @include montserrat-medium;
+  font-size: 16px;
+  line-height: 24px;
+  letter-spacing: -0.32px;
+  color: #fff;
+  text-align: center;
+  border: none;
+
+  &:hover {
+    background-color: lighten(#7101ff, 15%);
+    cursor: pointer;
+  }
+}
+
+.user-page-btn {
+  border: 1px solid #000;
+  padding: 5px 40px;
+  @include font-style(15, 24, 500);
+  background-color: #7101ff;
+  color: #fff;
+  border-color: #7101ff;
+  max-height: 56px;
+  text-align: center;
+  cursor: pointer;
+
+  &:hover {
+    background-color: lighten(#7101ff, 15%);
+    cursor: pointer;
+  }
+
+  &--secondary {
+    background: #fff;
+    color: #000;
+    border-color: #000;
+
+    &:hover {
+      background: lighten(#fff, 15%);
+      cursor: pointer;
+    }
+  }
+}
+
+// .btn-user-page {
+//   border: 1px solid #000;
+//   padding: 5px 40px;
+//   @include font-style(15, 24, 500);
+//   background-color: #7101ff;
+//   color: #fff;
+//   border-color: #7101ff;
+//   max-height: 56px;
+//   text-align: center;
+//   cursor: pointer;
+
+//   &--secondary {
+//     background: #fff;
+//     color: #000;
+//     border-color: #000;
+//   }
+// }
+
+a {
+  text-decoration: none;
+}
+
+// .btn-submit {
+//   width: 376px;
+//   height: 56px;
+//   padding: 16px 0 16px 0;
+//   background-color: #7101ff;
+//   @include lexend-medium;
+//   font-size: 16px;
+//   line-height: 24px;
+//   letter-spacing: -0.32px;
+//   color: #fff;
+//   text-align: center;
+//   border: none;
+
+//   &:hover {
+//     background-color: lighten(#7101ff, 15%);
+//     cursor: pointer;
+//   }
+// }
+
+.btn-google {
+  width: 376px;
+  height: 56px;
+  @include montserrat-medium;
+  font-size: 16px;
+  line-height: 24px;
+  letter-spacing: -0.32px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #fff;
+  color: black;
+  border: solid #7101ff;
+  &:hover {
+    color: #7101ff;
+    cursor: pointer;
+  }
+  & img {
+    width: 20px;
+    margin: 5px;
+  }
+}

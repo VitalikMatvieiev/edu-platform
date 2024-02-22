@@ -1,0 +1,14 @@
+.link {
+  color: gray;
+  font-size: 13px; 
+  font-family: 'Montserrat', sans-serif;
+  letter-spacing: 0.03rem;
+  cursor: 'pointer'
+}
+
+@media (min-width: 600px) {
+  #Card {
+    --content-padding: 2rem;
+    grid-template-columns: 1fr 1fr;
+  }
+}

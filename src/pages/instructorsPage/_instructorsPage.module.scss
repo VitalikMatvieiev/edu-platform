@@ -1,0 +1,25 @@
+.instructors-container {
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  max-height: 100vh;
+
+  & .instructors-categories-container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: start;
+    gap: 10px;
+    margin: 30px 15px 20px 15px;
+  }
+  
+  & .instructors-cards-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-column-gap: 15px;
+    grid-row-gap: 15px;
+    padding: 5px 15px 20px 15px;
+    flex-grow: 1;
+    overflow-y: auto;
+  }
+}

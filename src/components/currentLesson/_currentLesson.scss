@@ -1,0 +1,67 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@500&display=swap');
+
+$font-nunito: 'Nunito', sans-serif;
+@mixin nunito-medium {
+  font-family: $font-nunito;
+  font-weight: 500;
+}
+
+.cl-card {
+  max-width: 300px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  overflow: hidden;
+  margin: 20px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  padding: 10px 7px;
+  font-family: $font-nunito;
+  cursor: pointer;
+
+  & .image {
+    width: 100%;
+    max-height: 170px;
+    display: block;
+    object-fit: fill;
+    border-radius: 15px;
+  }
+
+  & .content {
+    padding: 15px 5px 10px 5px;
+    background: white;
+    display: flex;
+    flex-direction: column;
+
+    & .course-name {
+      font-weight: bold;
+      font-size: 1.2em;
+      margin: 0 0 11px;
+    }
+
+    & .lesson-name {
+      font-weight: bold;
+      font-size: 1.05em;
+      margin: 0 0 5px;
+    }
+
+    & .card-info {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: space-between;
+      font-size: 0.9em;
+
+      & .prop-name {
+        display: flex;
+        align-items: center;
+        opacity: 50%;
+      }
+
+      & .prop-value {
+        font-weight: bold;
+        opacity: 50%;
+      }
+    }
+  }
+}

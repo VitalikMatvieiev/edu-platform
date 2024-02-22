@@ -1,0 +1,27 @@
+@import '../../styles/mixins';
+
+.dashboard-text-search-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 15px 0 15px;
+  background-color: white;
+  min-height: 75px;
+}
+
+.dashboard-text {
+  @include montserrat-regular;
+  font-size: 20px;
+  line-height: 20px;
+  text-align: center;
+  padding-top: 3px;
+}
+
+.dashboard-search-icons {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  gap: 15px;
+}
