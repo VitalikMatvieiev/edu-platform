@@ -2,7 +2,7 @@ import { SideFilterNew } from '../../components/sideFilterNew/sideFilterNew';
 import ExtendedFilter from '../../components/extendedFilter/extendedFilter';
 import { useAppDispatch, useAppSelector } from '../../shared/model/store';
 import SortingNew from '../../components/extendedFilter/sortingNew';
-import HeaderMain from '../../components/headerMain/headerMain';
+import { HeaderMain } from '../../components/headerMain/headerMain';
 import FilterBy from '../../components/extendedFilter/filterBy';
 import { CourseCard } from '../../components/course-card';
 import { FooterMain } from '../../components/footer-main';

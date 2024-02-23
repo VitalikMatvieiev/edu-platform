@@ -1,6 +1,5 @@
-@import url('https://fonts.googleapis.com/css2?family=montserrat:wght@500&display=swap');
-
 $font-montserrat: 'Montserrat', sans-serif;
+
 @mixin montserrat-medium {
   font-family: $font-montserrat;
   font-weight: 500;
