@@ -1,5 +1,5 @@
 import styles from './_mainPage.module.scss';
-import { CardOfCourse } from '../../components/cardOfCourse/cardOfCourse';
+import { CardOfCourse } from '../../components/cardOfCourse/CardOfCourse';
 import { MainPageProps } from '../../types/components/componentType';
 import SideFilter from '../../components/sideFilter/sideFilter';
 import ExtendedFilter from '../../components/extendedFilter/extendedFilter';
@@ -12,12 +12,12 @@ import React from 'react';
 
 export const MainPage: React.FC<MainPageProps> = () => {
   return (
-    <div data-testid="main-page" className={styles["main-page"]}>
+    <div data-testid="main-page" className={styles['main-page']}>
       <Sidebar />
-      <div className={styles["main-page-container"]}>
+      <div className={styles['main-page-container']}>
         <HeaderMain />
         <ExtendedFilter />
-        <div className={styles["flex-row"]}>
+        <div className={styles['flex-row']}>
           <FilterBy />
           <Sorting />
         </div>
@@ -27,4 +27,3 @@ export const MainPage: React.FC<MainPageProps> = () => {
     </div>
   );
 };
-
