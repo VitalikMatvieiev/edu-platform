@@ -8,18 +8,18 @@ import {
   CourseData,
   MainPageProps,
 } from '../../types/components/componentType';
+import styles from './_mainPage.module.scss';
 import * as model from '../../shared/model';
 import {
   ExtendedFilter,
   SortingNew,
   FilterBy,
 } from '../../components/extendedFilter';
-import './_mainPage.scss';
 
 import { FC, useEffect, useState } from 'react';
 
 // Функція для фільтрації курсів за різними критеріями
-function filterCourses(
+function handleFilterCourses(
   courses: CourseData[],
   searchedData: CourseData[],
   filteredData: CourseData[],
@@ -64,21 +64,22 @@ function filterCourses(
   return currentData;
 }
 
-const MainPage: FC<MainPageProps> = () => {
-  const coursesMockData = MOCKED_COURSES as CourseData[];
+export const MainPage: FC<MainPageProps> = () => {
+  const COURSES_MOCK_DATA = MOCKED_COURSES as CourseData[];
   const dispatch = useAppDispatch();
 
   const filteredData = useAppSelector((state) => state.courses.filteredCourses);
   const searchedData = useAppSelector((state) => state.courses.searchResults);
   const coursesData = useAppSelector((state) => state.courses.courses);
-  const [coursesToRender, setCoursesToRender] = useState(coursesData);
   const sortBy = useAppSelector((state) => state.courses.sortBy);
   const order = useAppSelector((state) => state.courses.order);
 
+  const [coursesToRender, setCoursesToRender] = useState(coursesData);
+
   useEffect(() => {
-    dispatch(model.courses.setCourses(coursesMockData));
+    dispatch(model.courses.setCourses(COURSES_MOCK_DATA));
     // Оновлення coursesToRender на основі фільтрів, пошуку та сортування
-    const updatedCourses = filterCourses(
+    const updatedCourses = handleFilterCourses(
       coursesData,
       searchedData,
       filteredData,
@@ -87,27 +88,30 @@ const MainPage: FC<MainPageProps> = () => {
     );
     setCoursesToRender(updatedCourses);
   }, [
-    dispatch,
-    coursesMockData,
-    coursesData,
+    COURSES_MOCK_DATA,
     searchedData,
     filteredData,
+    coursesData,
+    dispatch,
     sortBy,
     order,
   ]);
 
   return (
-    <div data-testid="main-page" className="main-page">
-      <div className="main-page-container">
+    <div data-testid="main-page" className={styles['main-page']}>
+      <div className={styles['main-page-container']}>
         <HeaderMain />
         <ExtendedFilter />
-        <div className="main-page-container-filter">
+
+        <div className={styles['main-page-container-filter']}>
           <FilterBy />
           <SortingNew />
         </div>
-        <div className="main-page-container-content">
+
+        <div className={styles['main-page-container-content']}>
           <SideFilterNew />
-          <div className="main-page-container-content-cards">
+
+          <div className={styles['main-page-container-content-cards']}>
             {coursesToRender.map((course) => (
               <CourseCard
                 key={course.id}
@@ -123,10 +127,9 @@ const MainPage: FC<MainPageProps> = () => {
             ))}
           </div>
         </div>
+
         <FooterMain />
       </div>
     </div>
   );
 };
-
-export default MainPage;
