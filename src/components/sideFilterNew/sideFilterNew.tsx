@@ -1,4 +1,5 @@
 import { useAppDispatch, useAppSelector } from '../../shared/model/store';
+import styles from './_sideFilterNew.module.scss';
 import {
   InstructorCount,
   CategoryCount,
@@ -10,7 +11,6 @@ import {
   getCategoryCounts,
   getLevelCounts,
 } from '../../shared/helpers/courses';
-import './_sideFilterNew.scss';
 
 import { useState } from 'react';
 import {
@@ -127,9 +127,10 @@ export const SideFilterNew: React.FC = () => {
   };
 
   return (
-    <div className="side-filter-container">
-      <span className="filter-range">Duration range</span>
-      <div className="inputs-price-container">
+    <div className={styles['side-filter-container']}>
+      <span className={styles['filter-range']}>Duration range</span>
+
+      <div className={styles['inputs-price-container']}>
         <TextField
           sx={{
             width: '100%',
@@ -167,6 +168,7 @@ export const SideFilterNew: React.FC = () => {
             },
           }}
         />
+
         <TextField
           sx={{
             width: '100%',
@@ -202,6 +204,7 @@ export const SideFilterNew: React.FC = () => {
           }}
         />
       </div>
+
       <Slider
         getAriaLabel={() => 'Price range'}
         value={priceRangeValue}
@@ -222,8 +225,9 @@ export const SideFilterNew: React.FC = () => {
           },
         }}
       />
-      <div className="checkbox-wrapper">
-        <span className="filter-range">Instructor</span>
+
+      <div className={styles['checkbox-wrapper']}>
+        <span className={styles['filter-range']}>Instructor</span>
 
         <FormGroup>
           {instructorCounts
@@ -262,8 +266,8 @@ export const SideFilterNew: React.FC = () => {
         </button>
       </div>
 
-      <div className="checkbox-wrapper">
-        <span className="filter-range">Category</span>
+      <div className={styles['checkbox-wrapper']}>
+        <span className={styles['filter-range']}>Category</span>
 
         <FormGroup>
           {categoryCounts
@@ -302,8 +306,8 @@ export const SideFilterNew: React.FC = () => {
         </button>
       </div>
 
-      <div className="checkbox-wrapper">
-        <span className="filter-range">Level</span>
+      <div className={styles['checkbox-wrapper']}>
+        <span className={styles['filter-range']}>Level</span>
 
         <FormGroup>
           {levelCounts.map((item) => (
@@ -335,9 +339,13 @@ export const SideFilterNew: React.FC = () => {
           ))}
         </FormGroup>
       </div>
-      <div className="filter-button-wrapper">
-        <button className="filter-apply-button" onClick={() => handleApply()}>
-          <span className="apply-button-text">Apply</span>
+
+      <div className={styles['filter-button-wrapper']}>
+        <button
+          className={styles['filter-apply-button']}
+          onClick={() => handleApply()}
+        >
+          <span className={styles['apply-button-text']}>Apply</span>
         </button>
       </div>
     </div>
