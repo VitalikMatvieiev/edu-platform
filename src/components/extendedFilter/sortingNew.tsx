@@ -1,6 +1,5 @@
 import { useAppDispatch, useAppSelector } from '../../shared/model/store';
 import * as model from '../../shared/model';
-import './extendedFilter.scss';
 
 import FormControl from '@mui/material/FormControl';
 import InputLabel from '@mui/material/InputLabel';
@@ -8,7 +7,7 @@ import MenuItem from '@mui/material/MenuItem';
 import Select from '@mui/material/Select';
 import React from 'react';
 
-const SortingNew: React.FC = () => {
+export const SortingNew: React.FC = () => {
   const dispatch = useAppDispatch();
   const sortBy = useAppSelector((state) => state.courses.sortBy);
   const order = useAppSelector((state) => state.courses.order);
@@ -39,6 +38,7 @@ const SortingNew: React.FC = () => {
     <>
       <FormControl size="small" sx={{ minWidth: 150, m: 1 }}>
         <InputLabel id="sort-select-label">Sort by:</InputLabel>
+
         <Select
           labelId="sort-select-label"
           id="sort-select"
@@ -57,5 +57,3 @@ const SortingNew: React.FC = () => {
     </>
   );
 };
-
-export default SortingNew;

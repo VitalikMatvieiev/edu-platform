@@ -1,9 +1,6 @@
 import { SideFilterNew } from '../../components/sideFilterNew/sideFilterNew';
-import ExtendedFilter from '../../components/extendedFilter/extendedFilter';
 import { useAppDispatch, useAppSelector } from '../../shared/model/store';
-import SortingNew from '../../components/extendedFilter/sortingNew';
 import { HeaderMain } from '../../components/headerMain/headerMain';
-import FilterBy from '../../components/extendedFilter/filterBy';
 import { CourseCard } from '../../components/course-card';
 import { FooterMain } from '../../components/footer-main';
 import MOCKED_COURSES from './MOCK_DATA.json';
@@ -12,6 +9,11 @@ import {
   MainPageProps,
 } from '../../types/components/componentType';
 import * as model from '../../shared/model';
+import {
+  ExtendedFilter,
+  SortingNew,
+  FilterBy,
+} from '../../components/extendedFilter';
 import './_mainPage.scss';
 
 import { FC, useEffect, useState } from 'react';

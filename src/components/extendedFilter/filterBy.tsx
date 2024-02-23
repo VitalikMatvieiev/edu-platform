@@ -1,26 +1,26 @@
 import { CourseData } from '../../types/components/componentType';
-import './extendedFilter.scss';
+import styles from './_extendedFilter.module.scss';
 
 import ReorderIcon from '@mui/icons-material/Reorder';
 import { IconButton } from '@mui/material';
 import { useState } from 'react';
 
-const FilterBy: React.FC = () => {
-  const [isFilterVisible, setFilterVisible] = useState<boolean>(false);
+export const FilterBy: React.FC = () => {
   const [filteredCourses, setFilteredCourses] = useState<CourseData[]>([]);
+  const [isFilterVisible, setFilterVisible] = useState<boolean>(false);
 
-  const toggleFilter = () => {
+  const handleToggleFilter = () => {
     setFilterVisible((prevValue) => !prevValue);
   };
 
-  const sortByCategory = () => {
+  const handleSortByCategory = () => {
     const sortedCourses = [...filteredCourses].sort((a, b) =>
       a.category.localeCompare(b.category),
     );
     setFilteredCourses(sortedCourses);
   };
 
-  const sortCourses = (key: keyof CourseData) => {
+  const handleSortCourses = (key: keyof CourseData) => {
     const sortedCourses = [...filteredCourses].sort(
       (a, b) => (a[key] as any) - (b[key] as any),
     );
@@ -29,39 +29,44 @@ const FilterBy: React.FC = () => {
 
   return (
     <>
-      <div className="flex-container">
-        <div className="flex">
+      <div className={styles['flex-container']}>
+        <div className={styles['flex']}>
           <IconButton
             sx={{ background: '#ff0000 ', marginRight: '5px' }}
-            onClick={toggleFilter}
+            onClick={handleToggleFilter}
             data-testid="filter-button"
           >
             <ReorderIcon fontSize="small" />
           </IconButton>
-          <span className="name-list" onClick={toggleFilter}>
+
+          <span className={styles['name-list']} onClick={handleToggleFilter}>
             Filter by:
           </span>
         </div>
+
         {isFilterVisible && (
-          <ul className="list__filter" data-testid="filter-options">
-            <li onClick={sortByCategory} className="list__filter--item">
+          <ul className={styles['list__filter']} data-testid="filter-options">
+            <li
+              onClick={handleSortByCategory}
+              className={styles['list__filter--item']}
+            >
               Category
             </li>
             <li
-              onClick={() => sortCourses('level')}
-              className="list__filter--item"
+              onClick={() => handleSortCourses('level')}
+              className={styles['list__filter--item']}
             >
               Level
             </li>
             <li
-              onClick={() => sortCourses('price')}
-              className="list__filter--item"
+              onClick={() => handleSortCourses('price')}
+              className={styles['list__filter--item']}
             >
               Price
             </li>
             <li
-              onClick={() => sortCourses('rating')}
-              className="list__filter--item"
+              onClick={() => handleSortCourses('rating')}
+              className={styles['list__filter--item']}
             >
               Rating
             </li>
@@ -79,5 +84,3 @@ const FilterBy: React.FC = () => {
     </>
   );
 };
-
-export default FilterBy;

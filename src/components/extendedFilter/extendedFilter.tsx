@@ -3,11 +3,11 @@ import React, { useState, useEffect } from 'react';
 import { IconButton } from '@mui/material';
 
 import { Course } from '../../types/components/componentType';
-import './extendedFilter.scss';
+import styles from './_extendedFilter.module.scss';
 
-const ExtendedFilter: React.FC = () => {
-  const [courses, setCourses] = useState<Course[]>([]);
+export const ExtendedFilter: React.FC = () => {
   const [selectedCategory, setSelectedCategory] = useState<string | null>(null);
+  const [courses, setCourses] = useState<Course[]>([]);
   const [startIndex, setStartIndex] = useState(0);
 
   useEffect(() => {
@@ -45,13 +45,18 @@ const ExtendedFilter: React.FC = () => {
   const visibleCourses = courses.slice(startIndex, startIndex + 6);
 
   return (
-    <div className="filter-container">
+    <div className={styles['filter-container']}>
       {selectedCategory ? (
-        <h2 className="title-filter">Result for {selectedCategory}:</h2>
+        <h2 className={styles['title-filter']}>
+          Result for {selectedCategory}:
+        </h2>
       ) : (
-        <h2 className="title-filter">Choose the name of the course:</h2>
+        <h2 className={styles['title-filter']}>
+          Choose the name of the course:
+        </h2>
       )}
-      <div className="scroll-buttons">
+
+      <div className={styles['scroll-buttons']}>
         <IconButton
           data-testid="scroll-left-button"
           onClick={() => handleScroll('left')}
@@ -59,17 +64,19 @@ const ExtendedFilter: React.FC = () => {
         >
           <KeyboardArrowLeft />
         </IconButton>
-        <ul className="list__filter space-around">
+
+        <ul className={styles['list-filter space-around']}>
           {visibleCourses.map((course) => (
             <li
               key={course.id}
               onClick={() => handleCourseClick(course.category)}
-              className={`list__filter--item`}
+              className={styles['list-filter--item']}
             >
               {course.category}
             </li>
           ))}
         </ul>
+
         <IconButton
           data-testid="scroll-right-button"
           onClick={() => handleScroll('right')}
@@ -78,6 +85,7 @@ const ExtendedFilter: React.FC = () => {
           <KeyboardArrowRight />
         </IconButton>
       </div>
+
       {/*add list of filtered courses */}
       {/*
       <ul>
@@ -90,5 +98,3 @@ const ExtendedFilter: React.FC = () => {
     </div>
   );
 };
-
-export default ExtendedFilter;

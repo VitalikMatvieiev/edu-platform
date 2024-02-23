@@ -13,7 +13,7 @@
   @include flex-box(row, space-around);
 }
 
-.list__filter {
+.list-filter {
   @include flex-box(row, initial, 10);
   width: 100%;
   align-items: center;

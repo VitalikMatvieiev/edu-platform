@@ -1,7 +1,8 @@
 import { render, fireEvent, screen } from '@testing-library/react';
 import { MemoryRouter } from 'react-router-dom';
 import '@testing-library/jest-dom';
-import FilterBy from '../filterBy';
+
+import { FilterBy } from '..';
 
 describe('ExtendedFilter Component', () => {
   beforeEach(() => {
