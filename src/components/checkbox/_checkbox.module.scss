@@ -1,9 +1,7 @@
-@import url('https://fonts.googleapis.com/css2?family=Lexend:wght@500&display=swap');
+$font-montserrat: 'Montserrat', sans-serif;
 
-$font-lexend: 'Lexend', sans-serif;
-
-@mixin lexend-medium {
-  font-family: $font-lexend;
+@mixin montserrat-medium {
+  font-family: $font-montserrat;
   font-weight: 500;
 }
 
@@ -14,13 +12,16 @@ $font-lexend: 'Lexend', sans-serif;
   padding-left: 40px;
   padding-top: 2px;
   padding-bottom: 2px;
+
   & .checkbox-field {
     -webkit-appearance: none;
     appearance: none;
     position: absolute;
   }
+
   & .checkbox-label {
     cursor: pointer;
+
     &::before {
       content: '';
       display: block;
@@ -35,6 +36,7 @@ $font-lexend: 'Lexend', sans-serif;
       left: 2px;
       z-index: 1;
     }
+
     &::after {
       content: '';
       display: block;
@@ -49,14 +51,16 @@ $font-lexend: 'Lexend', sans-serif;
       left: 6px;
       z-index: 2;
     }
+
     & .checkbox-text {
-      @include lexend-medium;
+      @include montserrat-medium;
       color: #505e68;
       font-size: 14px;
       line-height: 20px;
     }
+
     & .checkbox-text-admin {
-      @include lexend-medium;
+      @include montserrat-medium;
       color: #222425;
       font-size: 14px;
       line-height: 20px;
@@ -72,7 +76,6 @@ $font-lexend: 'Lexend', sans-serif;
 .checkbox-field:checked + .checkbox-label::after {
   opacity: 1;
 }
-
 
 .checkbox-field-admin:checked + .checkbox-label::before {
   background-color: #0eaed6;

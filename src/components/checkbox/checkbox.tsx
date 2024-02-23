@@ -1,7 +1,7 @@
-import './_checkbox.scss';
 import { CheckboxProps } from '../../types/components/componentType';
+import styles from './_checkbox.module.scss';
 
-const Checkbox: React.FC<CheckboxProps> = ({
+export const Checkbox: React.FC<CheckboxProps> = ({
   className,
   classNameText,
   checkboxText,
@@ -12,19 +12,18 @@ const Checkbox: React.FC<CheckboxProps> = ({
     'checkbox-' + checkboxText.toLowerCase().replace(/\s/g, '-');
 
   return (
-    <div className="checkbox-container">
+    <div className={styles['checkbox-container']}>
       <input
-        className={className}
+        className={styles[`${className}`]}
         id={checkboxId}
         type="checkbox"
         checked={checked}
         onChange={onChange}
       />
-      <label className="checkbox-label" htmlFor={checkboxId}>
-        <div className={classNameText}>{checkboxText}</div>
+
+      <label className={styles['checkbox-label']} htmlFor={checkboxId}>
+        <div className={styles[`${classNameText}`]}>{checkboxText}</div>
       </label>
     </div>
   );
 };
-
-export default Checkbox;
